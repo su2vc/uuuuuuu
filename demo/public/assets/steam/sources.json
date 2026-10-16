@@ -1,0 +1,181 @@
+[
+  {
+    "id": "fishing",
+    "appid": 4001890,
+    "name": "渔力全开",
+    "images": [
+      "assets/steam/fishing-0.jpg",
+      "assets/steam/fishing-1.jpg",
+      "assets/steam/fishing-2.jpg",
+      "assets/steam/fishing-3.jpg"
+    ],
+    "sources": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4001890/45c4ddff4901e32c4b8b643e1b97d0d01898d299/header.jpg?t=1788788717",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4001890/48f6817fe466a7c9666605527558bf1fac48d0d2/ss_48f6817fe466a7c9666605527558bf1fac48d0d2.1920x1080.jpg?t=1788788717",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4001890/5f867d8c9b03c63867cc95b7bfaa4a3d2193ea48/ss_5f867d8c9b03c63867cc95b7bfaa4a3d2193ea48.1920x1080.jpg?t=1788788717",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4001890/2a912cdbf746286400cece1ca607ac077c11a1dc/ss_2a912cdbf746286400cece1ca607ac077c11a1dc.1920x1080.jpg?t=1788788717"
+    ],
+    "store": "https://store.steampowered.com/app/4001890/"
+  },
+  {
+    "id": "bigwalk",
+    "appid": 1478500,
+    "name": "Big Walk",
+    "images": [
+      "assets/steam/bigwalk-0.jpg",
+      "assets/steam/bigwalk-1.jpg",
+      "assets/steam/bigwalk-2.jpg",
+      "assets/steam/bigwalk-3.jpg"
+    ],
+    "sources": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1478500/62eeee1507dbac905e128a62f2ce690550238db0/header.jpg?t=1785911674",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1478500/69e83f754bbdb7bba0587b61d45cdcdf18ab956a/ss_69e83f754bbdb7bba0587b61d45cdcdf18ab956a.1920x1080.jpg?t=1785911674",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1478500/fb03f4d478bfa9f90e655854c0b0b60fb81d7c7b/ss_fb03f4d478bfa9f90e655854c0b0b60fb81d7c7b.1920x1080.jpg?t=1785911674",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1478500/1ecbbe2f694f94fd25767a347b8e0c3076ff78f6/ss_1ecbbe2f694f94fd25767a347b8e0c3076ff78f6.1920x1080.jpg?t=1785911674"
+    ],
+    "store": "https://store.steampowered.com/app/1478500/"
+  },
+  {
+    "id": "chained",
+    "appid": 2567870,
+    "name": "Chained Together",
+    "images": [
+      "assets/steam/chained-0.jpg",
+      "assets/steam/chained-1.jpg",
+      "assets/steam/chained-2.jpg",
+      "assets/steam/chained-3.jpg"
+    ],
+    "sources": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2567870/9989d3793429ffa481cc3228bb66d65565b9ce2b/header.jpg?t=1791478907",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2567870/ss_b321a9c6a20052b905dba4255680b1cee1f21edc.1920x1080.jpg?t=1791478907",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2567870/ss_4a3cc896599f535905fda9aae0c964a5fcff4bb3.1920x1080.jpg?t=1791478907",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2567870/ss_4e06bbb5e1ab4cfe7d38d87bbe45af23f6a0e0c7.1920x1080.jpg?t=1791478907"
+    ],
+    "store": "https://store.steampowered.com/app/2567870/"
+  },
+  {
+    "id": "machine",
+    "appid": 4108000,
+    "name": "机械狂欢",
+    "images": [
+      "assets/steam/machine-0.jpg",
+      "assets/steam/machine-1.jpg",
+      "assets/steam/machine-2.jpg",
+      "assets/steam/machine-3.jpg"
+    ],
+    "sources": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4108000/bf97e80547a68eac1ad2c481c2f64b6e276d5801/header_schinese.jpg?t=1790860377",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4108000/3eb86f408f3275f7567424526b60df2e65a69ea0/ss_3eb86f408f3275f7567424526b60df2e65a69ea0.1920x1080.jpg?t=1790860377",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4108000/88d0b7ad71aae96fed2f4d9e74870a505142a42f/ss_88d0b7ad71aae96fed2f4d9e74870a505142a42f.1920x1080.jpg?t=1790860377",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4108000/a8589877ad7c8ceeca084c52dbc1a6276d9f169f/ss_a8589877ad7c8ceeca084c52dbc1a6276d9f169f.1920x1080.jpg?t=1790860377"
+    ],
+    "store": "https://store.steampowered.com/app/4108000/"
+  },
+  {
+    "id": "outlast",
+    "appid": 1304930,
+    "name": "The Outlast Trials",
+    "images": [
+      "assets/steam/outlast-0.jpg",
+      "assets/steam/outlast-1.jpg",
+      "assets/steam/outlast-2.jpg",
+      "assets/steam/outlast-3.jpg"
+    ],
+    "sources": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1304930/65fbdba4ad0f1a7ed7a362a086c87042fa40fadc/header_alt_assets_3.jpg?t=1784123708",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1304930/ss_dcf2a8284d687f9319ac91a02b534dc91971754c.1920x1080.jpg?t=1784123708",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1304930/ss_6efe75be88bdfe0100f4b67ffe7e1034f1cf0cfe.1920x1080.jpg?t=1784123708",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1304930/ss_0576920dd310fd71cf63ff3035ff46137634febf.1920x1080.jpg?t=1784123708"
+    ],
+    "store": "https://store.steampowered.com/app/1304930/"
+  },
+  {
+    "id": "split",
+    "appid": 2001120,
+    "name": "双影奇境",
+    "images": [
+      "assets/steam/split-0.jpg",
+      "assets/steam/split-1.jpg",
+      "assets/steam/split-2.jpg",
+      "assets/steam/split-3.jpg"
+    ],
+    "sources": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2001120/header.jpg?t=1763484567",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2001120/5e3f5393e455fad3b5fa3f2fe469d9ad6b519069/ss_5e3f5393e455fad3b5fa3f2fe469d9ad6b519069.1920x1080.jpg?t=1763484567",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2001120/c631eecc779a528b0f5d5eb6c0400f700cc12a79/ss_c631eecc779a528b0f5d5eb6c0400f700cc12a79.1920x1080.jpg?t=1763484567",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2001120/be41de926028f953325b2374fad06b9c8c7abb43/ss_be41de926028f953325b2374fad06b9c8c7abb43.1920x1080.jpg?t=1763484567"
+    ],
+    "store": "https://store.steampowered.com/app/2001120/"
+  },
+  {
+    "id": "chameleon",
+    "appid": 4864560,
+    "name": "超级变色龙",
+    "images": [
+      "assets/steam/chameleon-0.jpg",
+      "assets/steam/chameleon-1.jpg",
+      "assets/steam/chameleon-2.jpg",
+      "assets/steam/chameleon-3.jpg"
+    ],
+    "sources": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4864560/9d75695f908e9c5db3a8866bbbd619808c23114c/header_schinese.jpg?t=1784725173",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4864560/86083113182e00f7da0d354292b1d0345615dde4/ss_86083113182e00f7da0d354292b1d0345615dde4.1920x1080.jpg?t=1784725173",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4864560/48d2cdc70312658ecb44808a8e58f47c1e44740b/ss_48d2cdc70312658ecb44808a8e58f47c1e44740b.1920x1080.jpg?t=1784725173",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4864560/a6ea5eb06418906d8d6856ea2a592199a84efec0/ss_a6ea5eb06418906d8d6856ea2a592199a84efec0.1920x1080.jpg?t=1784725173"
+    ],
+    "store": "https://store.steampowered.com/app/4864560/"
+  },
+  {
+    "id": "chicken",
+    "appid": 386940,
+    "name": "超级鸡马",
+    "images": [
+      "assets/steam/chicken-0.jpg",
+      "assets/steam/chicken-1.jpg",
+      "assets/steam/chicken-2.jpg",
+      "assets/steam/chicken-3.jpg"
+    ],
+    "sources": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/386940/header.jpg?t=1765298731",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/386940/ss_37241b90656a823b63934ee996bb81efd9fc8468.1920x1080.jpg?t=1765298731",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/386940/ss_808712896e499b291b913abf5cf30c736f0d6ea0.1920x1080.jpg?t=1765298731",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/386940/ss_eebaadf226741a95895e07edebab32b9416aa20b.1920x1080.jpg?t=1765298731"
+    ],
+    "store": "https://store.steampowered.com/app/386940/"
+  },
+  {
+    "id": "nomad",
+    "appid": 2223980,
+    "name": "Nomad Drive",
+    "images": [
+      "assets/steam/nomad-0.jpg",
+      "assets/steam/nomad-1.jpg",
+      "assets/steam/nomad-2.jpg",
+      "assets/steam/nomad-3.jpg"
+    ],
+    "sources": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2223980/2848bab07e85d65470076d053f1f7c490790db14/header.jpg?t=1791978070",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2223980/f6686d6e7fd58b01421aa4d14249e34dff821f49/ss_f6686d6e7fd58b01421aa4d14249e34dff821f49.1920x1080.jpg?t=1791978070",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2223980/f28d296c95d81dd15b6dcfe0073cc50c493d370e/ss_f28d296c95d81dd15b6dcfe0073cc50c493d370e.1920x1080.jpg?t=1791978070",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2223980/f834ca4c0373e3caa65b9d79c8072c7a2d109734/ss_f834ca4c0373e3caa65b9d79c8072c7a2d109734.1920x1080.jpg?t=1791978070"
+    ],
+    "store": "https://store.steampowered.com/app/2223980/"
+  },
+  {
+    "id": "eggy",
+    "platform": "网易手游",
+    "store": "https://www.eggyparty.com/hmt/media/",
+    "sources": [
+      "https://www.eggyparty.com/pc/gw/20230704180141/img/share2-hmt_ae6cd027.jpg",
+      "https://r.res.easebar.com/pic/20240307/f583cb02-66c4-4b5c-bfe4-216e336a00b2.jpg",
+      "https://r.res.easebar.com/pic/20240307/927c574d-6348-4f2a-9bab-ba8262da5724.jpg",
+      "https://r.res.easebar.com/pic/20240307/271899b8-44fd-4ff5-822b-37e468cc1b2a.jpg"
+    ],
+    "images": [
+      "assets/steam/eggy-0.jpg",
+      "assets/steam/eggy-1.jpg",
+      "assets/steam/eggy-2.jpg",
+      "assets/steam/eggy-3.jpg"
+    ]
+  }
+]

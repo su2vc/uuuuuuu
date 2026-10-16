@@ -1,0 +1,166 @@
+.opening {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: #faf9f6;
+  color: #303238;
+  overflow: hidden;
+  transition: opacity .85s ease,filter .85s ease;
+}
+
+.opening h1 {
+  position: absolute;
+  top: 6.7vh;
+  left: 4.7vw;
+  font-size: clamp(24px,2.65vw,40px);
+  font-weight: 500;
+  letter-spacing: .06em;
+  z-index: 2;
+}
+
+.opening-scene {
+  position: absolute;
+  inset: 0;
+  touch-action: pan-y;
+}
+
+.opening-scene canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.opening-enter {
+  position: absolute;
+  top: 79%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 84px;
+  height: 56px;
+  background: #f7f3fc;
+  color: #655178;
+  border: 2px solid #b29bc9;
+  border-radius: 16px 16px 16px 5px;
+  box-shadow: 4px 5px 0 #d4c4e6,0 10px 18px -12px #65507838;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s,translate .2s,box-shadow .2s,opacity .3s;
+  z-index: 3;
+}
+
+.opening-enter svg {
+  transition: transform .2s;
+}
+
+.opening-enter:hover {
+  background: #eee5f8;
+  translate: 0 -2px;
+  box-shadow: 4px 7px 0 #d4c4e6,0 12px 20px -12px #65507838;
+}
+
+.opening-enter:hover svg {
+  transform: translateX(3px);
+}
+
+.opening-enter:active {
+  translate: 2px 3px;
+  box-shadow: 1px 2px 0 #d4c4e6;
+}
+
+.opening-enter:focus-visible {
+  outline: 3px solid #9678b1;
+  outline-offset: 7px;
+}
+
+.opening-enter:disabled {
+  cursor: default;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.opening-reveal {
+  opacity: 0;
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+.album-stage {
+  transition: opacity 1s ease,transform 1.2s cubic-bezier(.2,.7,.2,1);
+}
+
+.album-stage.is-covered {
+  opacity: 0;
+  transform: scale(.97);
+  pointer-events: none;
+}
+
+.album-stage.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.opening-replay {
+  position: fixed;
+  right: 22px;
+  bottom: 18px;
+  z-index: 9;
+  padding: 9px 13px;
+  background: #faf9f6e8;
+  color: #454051;
+  border: 1px solid #bcb3ca;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.opening-fallback {
+  position: absolute;
+  inset: 15% 10% 22%;
+  width: 80%;
+  height: 63%;
+  object-fit: contain;
+}
+
+.opening-replay:hover {
+  background: white;
+}
+
+@media (max-width:650px) {
+  .opening h1 {
+    top: 30px;
+    left: 25px;
+  }
+  .opening-scene {
+    inset: 0 -12%;
+  }
+  .opening-enter {
+    top: 76%;
+    width: 76px;
+    height: 52px;
+  }
+  .opening-replay {
+    bottom: 12px;
+    right: 12px;
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .opening,.album-stage {
+    transition: none;
+  }
+  .opening-enter,.opening-enter svg {
+    transition: none;
+  }
+  .opening-enter:hover,.opening-enter:active {
+    translate: 0;
+  }
+  .opening-enter:hover svg {
+    transform: none;
+  }
+}
+
+.opening:focus {
+  outline: none;
+}
