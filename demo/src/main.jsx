@@ -6,6 +6,7 @@ import "./opening.css";
 import "./entry.css";
 import "./memories.css";
 import "./styles.css";
+import "./entryBlocked.css";
 createRoot(document.getElementById("root")).render(<React.StrictMode>
     <App />
   </React.StrictMode>);

@@ -5,6 +5,8 @@ const birthdayFormatter = new Intl.DateTimeFormat('en-US', {
 });
 // Temporary review mode: restore false when the birthday experience is approved.
 export const BIRTHDAY_TEST_MODE = true;
+// Temporary preview barrier: set false to restore the birthday / opening flow.
+export const ENTRY_BLOCKED = true;
 export function isBirthday(date = new Date()) {
   if (!Number.isFinite(date.getTime())) return false;
   const parts = birthdayFormatter.formatToParts(date);
