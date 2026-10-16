@@ -53,6 +53,14 @@
   box-shadow: 6px 6px 0 var(--paper,#e8e3ee);
 }
 
+.video-memory .video-unavailable {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
 .video-memory .preview-label {
   color: #fff;
   letter-spacing: .04em;

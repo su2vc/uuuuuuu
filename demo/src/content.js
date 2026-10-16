@@ -78,8 +78,11 @@ export function validateContent(content) {
           memory.paragraphs.forEach((paragraph, k) => text(paragraph, `${item}.paragraphs[${k}]`));
         }
       } else {
-        text(memory.poster, `${item}.poster`);
         requireValue(memory.src === undefined || typeof memory.src === 'string', `${item}.src`, '应为路径、URL 或空字符串');
+        requireValue(memory.poster === undefined || typeof memory.poster === 'string', `${item}.poster`, '应为路径、URL 或空字符串');
+        requireValue(Boolean(memory.src?.trim() || memory.poster?.trim()), `${item}.src`, '视频地址与封面至少填写一项');
+        if (memory.src) text(memory.src, `${item}.src`);
+        if (memory.poster) text(memory.poster, `${item}.poster`);
         if (memory.description !== undefined) requireValue(typeof memory.description === 'string', `${item}.description`, '应为文字');
         if (memory.previewSeconds !== undefined) requireValue(Number.isFinite(memory.previewSeconds) && memory.previewSeconds > 0, `${item}.previewSeconds`, '应为正数');
       }

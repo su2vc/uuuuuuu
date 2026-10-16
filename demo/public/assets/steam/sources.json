@@ -54,24 +54,6 @@
     "store": "https://store.steampowered.com/app/2567870/"
   },
   {
-    "id": "machine",
-    "appid": 4108000,
-    "name": "机械狂欢",
-    "images": [
-      "assets/steam/machine-0.jpg",
-      "assets/steam/machine-1.jpg",
-      "assets/steam/machine-2.jpg",
-      "assets/steam/machine-3.jpg"
-    ],
-    "sources": [
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4108000/bf97e80547a68eac1ad2c481c2f64b6e276d5801/header_schinese.jpg?t=1790860377",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4108000/3eb86f408f3275f7567424526b60df2e65a69ea0/ss_3eb86f408f3275f7567424526b60df2e65a69ea0.1920x1080.jpg?t=1790860377",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4108000/88d0b7ad71aae96fed2f4d9e74870a505142a42f/ss_88d0b7ad71aae96fed2f4d9e74870a505142a42f.1920x1080.jpg?t=1790860377",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4108000/a8589877ad7c8ceeca084c52dbc1a6276d9f169f/ss_a8589877ad7c8ceeca084c52dbc1a6276d9f169f.1920x1080.jpg?t=1790860377"
-    ],
-    "store": "https://store.steampowered.com/app/4108000/"
-  },
-  {
     "id": "outlast",
     "appid": 1304930,
     "name": "The Outlast Trials",
@@ -160,22 +142,5 @@
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2223980/f834ca4c0373e3caa65b9d79c8072c7a2d109734/ss_f834ca4c0373e3caa65b9d79c8072c7a2d109734.1920x1080.jpg?t=1791978070"
     ],
     "store": "https://store.steampowered.com/app/2223980/"
-  },
-  {
-    "id": "eggy",
-    "platform": "网易手游",
-    "store": "https://www.eggyparty.com/hmt/media/",
-    "sources": [
-      "https://www.eggyparty.com/pc/gw/20230704180141/img/share2-hmt_ae6cd027.jpg",
-      "https://r.res.easebar.com/pic/20240307/f583cb02-66c4-4b5c-bfe4-216e336a00b2.jpg",
-      "https://r.res.easebar.com/pic/20240307/927c574d-6348-4f2a-9bab-ba8262da5724.jpg",
-      "https://r.res.easebar.com/pic/20240307/271899b8-44fd-4ff5-822b-37e468cc1b2a.jpg"
-    ],
-    "images": [
-      "assets/steam/eggy-0.jpg",
-      "assets/steam/eggy-1.jpg",
-      "assets/steam/eggy-2.jpg",
-      "assets/steam/eggy-3.jpg"
-    ]
   }
 ]

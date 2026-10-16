@@ -15,10 +15,8 @@
 | fishing.png | the large fisherman at left holding the fish, including fish |
 | bigwalk.png | the five colorful one-eyed walkers grouped on the left, preserve their poses |
 | chained.png | both chained men in the left half and their connecting chain |
-| machine.png | the foreground cowboy-hat character with blue clothing |
 | outlast.png | the cowboy with sunglasses, cigar and leather jacket on the right |
 | split.png | both central heroines, one in purple sci-fi suit and one green/brown fantasy clothes, keep dynamic running/jumping poses |
 | chameleon.png | the white rabbit character standing at the left |
 | chicken.png | the four cartoon animals: sheep, chicken, horse and raccoon, arranged in a compact group |
-| eggy.png | the large central yellow egg character only, keep arms and feet |
 | nomad.png | the camper van on the right including its roof luggage |

@@ -38,6 +38,23 @@ test('最小配置支持未知时长、单张图片、短文字、空回忆，�
   assert.deepEqual(prepareContent(content).games[0].memories, []);
 });
 
+test('普通与特别视频可只填视频地址，缺少视频和封面则拒绝', () => {
+  const content = fixture();
+  const game = content.games.find(game => game.id === 'split');
+  game.memories = ['video', 'featuredVideo'].map((type, i) => ({
+    id: `clip-${i}`, type, title: '无独立封面', src: `https://media.example.com/${i}.mp4`,
+    ...(i === 0 ? {poster: ''} : {})
+  }));
+  const prepared = prepareContent(content);
+  assert.equal(prepared.games.find(game => game.id === 'split').memories.length, 2);
+  assert(contentAssetPaths(content).includes('https://media.example.com/0.mp4'));
+  assert(!contentAssetPaths(content).includes(undefined));
+  delete game.memories[0].src;
+  assert.throws(() => prepareContent(content), /视频地址与封面至少填写一项/);
+  game.memories[0].src = '   ';
+  assert.throws(() => prepareContent(content), /视频地址与封面至少填写一项/);
+});
+
 test('布局适配同类回忆增减与重新排序；特别视频保留独立类型', () => {
   const games = fixture().games;
   for (const game of games.filter(g => g.id !== 'repo')) {
@@ -57,10 +74,10 @@ test('实际加载出口排序，修改首次日期后默认首款游戏随之�
   assert.equal(result.games[0].id, 'nomad');
 });
 
-test('现有 13 款游戏与所有回忆类型通过数据边界', () => {
+test('现有 11 款游戏与所有回忆类型通过数据边界', () => {
   const content = fixture();
   assert.equal(validateContent(content), content);
-  assert.equal(content.games.length, 13);
+  assert.equal(content.games.length, 11);
   assert.deepEqual(new Set(content.games.flatMap(game => game.memories.map(memory => memory.type))), new Set(['video', 'gallery', 'text', 'featuredVideo']));
   assert(contentAssetPaths(content).includes(content.avatars[0].src));
   assert(!contentAssetPaths(content).includes(''));

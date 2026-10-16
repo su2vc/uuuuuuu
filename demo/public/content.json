@@ -180,63 +180,6 @@
       ]
     },
     {
-      "id": "machine",
-      "title": "机械狂欢",
-      "englishTitle": "Machine Party",
-      "firstTime": "2026-08-15",
-      "hours": 5,
-      "platform": "Steam",
-      "paper": "#e8e9ed",
-      "ink": "#727589",
-      "character": "assets/characters/machine.png",
-      "layout": "collage",
-      "memories": [
-        {
-          "id": "machine-video",
-          "type": "video",
-          "title": "这个按钮不能按？",
-          "date": "2026-08-15",
-          "poster": "assets/steam/machine-1.jpg",
-          "src": "",
-          "previewSeconds": 28,
-          "description": "这段回忆先留在这里，之后换成我们自己的视频。"
-        },
-        {
-          "id": "machine-photos",
-          "type": "gallery",
-          "title": "一局比一局离谱",
-          "date": "2026-08-15",
-          "presentation": "contact",
-          "images": [
-            {
-              "src": "assets/steam/machine-1.jpg",
-              "caption": "一局比一局离谱"
-            },
-            {
-              "src": "assets/steam/machine-2.jpg",
-              "caption": "换个角度"
-            },
-            {
-              "src": "assets/steam/machine-3.jpg",
-              "caption": "散场之前"
-            }
-          ]
-        },
-        {
-          "id": "machine-note",
-          "type": "text",
-          "title": "规则听了一半，按钮已经按了。",
-          "date": "2026-08-15",
-          "presentation": "ticket",
-          "excerpt": "整个房间安静了一秒，然后一起笑出来。",
-          "paragraphs": [
-            "我们给每个看起来危险的东西都起了外号。",
-            "现在听到那个外号就知道该跑了。"
-          ]
-        }
-      ]
-    },
-    {
       "id": "fishing",
       "title": "渔力全开",
       "englishTitle": "How to Fish",
@@ -584,63 +527,6 @@
           "paragraphs": [
             "每个人都觉得自己加的障碍很合理。",
             "最终没有一个人到终点，也没有一个人愿意改。"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "eggy",
-      "title": "蛋仔派对",
-      "englishTitle": "Eggy Party",
-      "firstTime": "2026-09-28",
-      "hours": 10,
-      "platform": "网易手游",
-      "paper": "#f1e6ed",
-      "ink": "#ae7d97",
-      "character": "assets/characters/eggy.png",
-      "layout": "collage",
-      "memories": [
-        {
-          "id": "eggy-video",
-          "type": "video",
-          "title": "等我一下，别推",
-          "date": "2026-09-28",
-          "poster": "assets/steam/eggy-1.jpg",
-          "src": "",
-          "previewSeconds": 28,
-          "description": "这段回忆先留在这里，之后换成我们自己的视频。"
-        },
-        {
-          "id": "eggy-photos",
-          "type": "gallery",
-          "title": "碰头的地方",
-          "date": "2026-09-28",
-          "presentation": "stack",
-          "images": [
-            {
-              "src": "assets/steam/eggy-1.jpg",
-              "caption": "碰头的地方"
-            },
-            {
-              "src": "assets/steam/eggy-2.jpg",
-              "caption": "换个角度"
-            },
-            {
-              "src": "assets/steam/eggy-3.jpg",
-              "caption": "散场之前"
-            }
-          ]
-        },
-        {
-          "id": "eggy-note",
-          "type": "text",
-          "title": "只是想站在一起拍张照。",
-          "date": "2026-09-28",
-          "presentation": "dialogue",
-          "excerpt": "结果把你撞下去了。",
-          "paragraphs": [
-            "为了这张合照重来了好几次。",
-            "最后还是选了那张最乱的。"
           ]
         }
       ]
