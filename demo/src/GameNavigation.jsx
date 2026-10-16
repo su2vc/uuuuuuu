@@ -130,7 +130,7 @@ export function GameNavigation({
               choose(target, true);
             }
           }}>
-            <span className="timeline-dot" /><span className="game-label"><time dateTime={g.date}>{g.date.slice(5).replace('-', '.')}</time><strong>{g.title}</strong></span>
+            <span className="timeline-dot" /><span className="game-label"><time dateTime={g.firstTime}>{g.firstTime.slice(5).replace('-', '.')}</time><strong>{g.title}</strong></span>
             <span className={`character-outer character-${g.id}`}>
               <span className="character-silhouette" aria-hidden="true" style={{
                 maskImage: `url("${asset(g.character)}")`

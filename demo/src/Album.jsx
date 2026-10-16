@@ -50,12 +50,12 @@ export function Album({
     <GameNavigation games={games} selected={selected} onSelect={choose} onOpenIndex={openIndex} indexButton={indexButton} navigationControl={navigation} />
     <section ref={panel} id="memories" className="memories" role="tabpanel" aria-labelledby={`tab-${game.id}`} tabIndex="-1">
       <div key={game.id} className="memory-content">
-        <header className="game-heading"><h1 id="current-game-title" tabIndex={-1} className={`wordmark wordmark-${game.id}`}>{game.title}</h1><p><time dateTime={game.date}>{game.date.replaceAll('-', '.')}</time><span>·</span>{game.hours} h<span className="platform-label">{game.platform}</span></p></header>
+        <header className="game-heading"><h1 id="current-game-title" tabIndex={-1} className={`wordmark wordmark-${game.id}`}>{game.title}</h1><p><time dateTime={game.firstTime}>{game.firstTime.replaceAll('-', '.')}</time>{game.hours !== null && <><span>·</span>{game.hours} h</>}<span className="platform-label">{game.platform}</span></p></header>
         <MemoryBoard game={game} onExpand={(images, index) => setViewer({
           images,
           index
         })} />
-        <footer>演示记录 · 日期、时长与文字均为 mock<br />图片为宣传素材，后续可替换为自己的截图</footer>
+        {content.demoMode && <footer>演示记录 · 日期、时长与文字均为 mock<br />图片为宣传素材，后续可替换为自己的截图</footer>}
       </div>
     </section>
     {viewer && <ImageViewer value={viewer} onClose={() => setViewer(null)} />}

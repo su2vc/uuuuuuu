@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Play, Pause, ArrowsOut, ArrowLeft, ArrowRight, ArrowClockwise, X, Plus, Minus, FilmStrip, ImageSquare, NotePencil } from '@phosphor-icons/react';
 import { asset } from './assets';
+import { resolveMemoryLayout } from './content';
 import { useModalDialog } from './useModalDialog';
 const stamp = value => value?.slice(5).replace('-', '.') || '';
 const clock = value => `${Math.floor(value / 60).toString().padStart(2, '0')}:${Math.floor(value % 60).toString().padStart(2, '0')}`;
@@ -15,10 +16,10 @@ export function VideoMemory({
   const video = useRef(null);
   const duration = memory.previewSeconds || 30;
   useEffect(() => {
-    if (!playing || memory.src) return;
+    if (!playing || (memory.src && !failed)) return;
     const id = setInterval(() => setElapsed(t => Math.min(duration, t + .1)), 100);
     return () => clearInterval(id);
-  }, [playing, memory.src, duration]);
+  }, [playing, memory.src, failed, duration]);
   useEffect(() => {
     if (elapsed >= duration) setPlaying(false);
   }, [elapsed, duration]);
@@ -56,7 +57,7 @@ export function VideoMemory({
         <input className="progress" type="range" min="0" max={duration} step=".1" value={elapsed} aria-label="封面预览进度" onChange={e => setElapsed(Number(e.target.value))} />
       </div>}
     <div className="video-caption"><h2>{memory.title}</h2>{featured && <span className="featured-mark">SPECIAL CUT</span>}</div>
-    {featured && <p className="featured-description">{memory.description}</p>}
+    {memory.description && <p className="featured-description">{memory.description}</p>}
   </article>;
 }
 export function PhotoMemory({
@@ -96,14 +97,14 @@ export function TextMemory({
     <div className="block-meta"><span><NotePencil size={14} />NOTE</span><time dateTime={memory.date}>{stamp(memory.date)}</time></div>
     <h2>{memory.title}</h2><p className="note-lead">{memory.excerpt}</p>
     <div className="note-fold" id={bodyId} inert={!open}><div>{memory.paragraphs.map((p, i) => <p key={i}>{p}</p>)}</div></div>
-    <button className="unfold-note" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls={bodyId}>{open ? '收起' : '展开这段'}{open ? <Minus size={17} /> : <Plus size={17} />}</button>
+    {memory.paragraphs.length > 0 && <button className="unfold-note" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls={bodyId}>{open ? '收起' : '展开这段'}{open ? <Minus size={17} /> : <Plus size={17} />}</button>}
   </article>;
 }
 export function MemoryBoard({
   game,
   onExpand
 }) {
-  return <div className={`memory-board layout-${game.layout}`}>
+  return <div className={`memory-board layout-${resolveMemoryLayout(game)}`}>
     {game.memories.map(memory => <div className={`memory-slot slot-${memory.type}`} key={memory.id}>
       {memory.type === 'video' || memory.type === 'featuredVideo' ? <VideoMemory memory={memory} featured={memory.type === 'featuredVideo'} onExpand={onExpand} /> : memory.type === 'gallery' ? <PhotoMemory memory={memory} onExpand={onExpand} /> : <TextMemory memory={memory} />}
     </div>)}

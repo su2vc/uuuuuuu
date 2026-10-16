@@ -755,9 +755,6 @@ button:disabled {
     max-width: none;
     margin: 0;
   }
-  .memory-board .slot-featuredVideo {
-    order: -1;
-  }
   .photo-deck {
     aspect-ratio: 1.35;
     max-width: 90%;

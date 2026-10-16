@@ -31,7 +31,7 @@ export function GameIndex({
         index
       }) => <button key={game.id} aria-current={selected === index} onClick={() => onSelect(index)}>
         <img src={asset(game.character)} alt="" loading="lazy" />
-        <span>{game.title}<small>{game.platform} · {game.date.slice(5).replace('-', '.')}</small></span>
+        <span>{game.title}<small>{game.platform} · {game.firstTime.slice(5).replace('-', '.')}</small></span>
       </button>)}</div>
     {!matches.length && <p className="empty-search">没有匹配的游戏</p>}
   </dialog>;
