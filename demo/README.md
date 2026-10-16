@@ -7,11 +7,11 @@ React + Vite 纯静态前端，13 款游戏，支持视频、照片组和文字�
 ```sh
 npm install
 npm run dev -- --host 127.0.0.1 --port 4173
-npm test
 npm run build
+npm test
 ```
 
-`npm test` 运行全部回归测试。`npm run build` 先检查内容结构和本地素材是否存在，再构建页面及 Sites 适配产物。单独检查内容使用 `npm run check:content`。
+`npm test` 运行全部回归测试，其中包括构建产物检查，因此新检出项目需先执行 `npm run build`。`npm run build` 先检查内容结构和本地素材是否存在，再构建页面及 Sites 适配产物。单独检查内容使用 `npm run check:content`。
 
 普通静态托管上传 `dist/client/`；无需服务端或 Steam API 密钥。保留的 Sites 适配文件不影响普通静态部署。请使用 HTTP 预览，不能直接以 `file://` 打开源码 `index.html`。
 

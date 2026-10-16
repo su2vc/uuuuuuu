@@ -6,7 +6,7 @@
 
 ## GitHub Pages
 
-仓库使用 GitHub Actions 自动部署：推送到 `main` 后，安装依赖、运行测试、构建并发布 `demo/dist/client/`。
+仓库使用 GitHub Actions 自动部署：推送到 `main` 后，安装依赖、构建、运行测试并发布 `demo/dist/client/`。
 
 在仓库 **Settings → Pages → Build and deployment → Source** 中选择 **GitHub Actions**。部署成功后，通过 Actions 的 `github-pages` 环境链接访问网站。
 
