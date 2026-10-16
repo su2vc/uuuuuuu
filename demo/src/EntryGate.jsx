@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { ArrowRight } from '@phosphor-icons/react';
 import { entryDecision } from './entryRules';
 const MAX_PASSWORD_LENGTH = 8;
 export function EntryGate({
@@ -81,13 +82,17 @@ export function EntryGate({
       <span className="entry-paper-back" aria-hidden="true" />
       <span className="entry-paper-tab" aria-hidden="true" />
       <div className="entry-paper-front">
-      <input ref={input} id="album-password" aria-label="密码" type="password" inputMode="numeric" enterKeyHint="go" autoComplete="off" maxLength={MAX_PASSWORD_LENGTH} value={password} onChange={e => {
+        <div className="entry-input-row">
+          <input ref={input} id="album-password" aria-label="密码" type="password" inputMode="numeric" enterKeyHint="go" autoComplete="off" maxLength={MAX_PASSWORD_LENGTH} value={password} onChange={e => {
           setPassword(e.target.value.replace(/\D/g, '').slice(0, MAX_PASSWORD_LENGTH));
           setError(false);
         }} aria-invalid={error} aria-describedby="entry-feedback" />
+          <button className="entry-submit" type="submit" aria-label="进入纪念册">
+            <ArrowRight size={23} weight="bold" aria-hidden="true" />
+          </button>
+        </div>
       </div>
       <span id="entry-feedback" className="entry-sr-only" role="status">{error ? '密码不正确，请重新输入。' : ''}</span>
-      <button type="submit" hidden>进入</button>
     </form>
   </main>;
 }

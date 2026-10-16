@@ -94,10 +94,20 @@
   --paper-outline: #d7a24c;
 }
 
+.entry-input-row {
+  display: flex;
+  align-items: center;
+  padding-right: 0;
+  background: #fffdf6;
+  clip-path: var(--paper-shape);
+}
+
 .entry-form input {
   box-sizing: border-box;
   display: block;
   width: 100%;
+  min-width: 0;
+  flex: 1;
   height: 100px;
   appearance: none;
   background: #fffdf6;
@@ -110,12 +120,44 @@
   padding: 0 20px 0 calc(20px + .3em);
   color: #59416f;
   border-radius: 0;
-  clip-path: var(--paper-shape);
+  clip-path: none;
   caret-color: #d99532;
 }
 
 .entry-form input:focus {
   outline: none;
+}
+
+.entry-submit {
+  display: none;
+  place-items: center;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #e3bd72;
+  border-radius: 13px 13px 7px 13px;
+  background: #f9e5ad;
+  color: #896127;
+  box-shadow: 2px 3px 0 #edcf87;
+  touch-action: manipulation;
+  transition: transform .18s, background .18s, box-shadow .18s;
+}
+
+.entry-submit:focus-visible {
+  outline: 2px solid #b97729;
+  outline-offset: 3px;
+}
+
+@media (hover:hover) {
+  .entry-submit:hover {
+    background: #f5d782;
+    transform: translateY(-2px);
+  }
+}
+
+.entry-submit:active {
+  transform: translate(1px,2px);
+  box-shadow: 1px 1px 0 #edcf87;
 }
 
 @media (forced-colors:active) {
@@ -136,14 +178,28 @@
   animation: entry-nudge .25s ease-out;
 }
 
-@media (max-width:600px) {
-  .entry-form input {
-    height: 78px;
-    padding-left: calc(20px + .24em);
+/* Keep a submit control for touch keyboards, including landscape phones/tablets. */
+@media (max-width:600px), (hover:none) and (pointer:coarse) {
+  .entry-submit {
+    display: grid;
+  }
+  .entry-input-row {
+    padding-right: 12px;
   }
   .entry-form input {
-    font-size: 22px;
-    letter-spacing: .24em;
+    padding: 0 10px 0 calc(10px + .3em);
+  }
+}
+
+@media (max-width:600px) {
+  .entry-form {
+    width: min(440px,calc(100vw - 64px));
+  }
+  .entry-form input {
+    height: 78px;
+    padding-left: calc(10px + .2em);
+    font-size: 20px;
+    letter-spacing: .2em;
   }
   .entry-paper-back {
     transform: translate(18px,13px);
