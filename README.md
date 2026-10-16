@@ -1,5 +1,7 @@
 # uu
 
+[打开纪念册](https://su2vc.github.io/uuuuuuu/)
+
 一个记录多人游戏回忆的静态纪念册。React + Vite + Three.js，支持视频、图片和文字记录。
 
 应用代码和素材位于 [`demo/`](demo/)，运行、内容编辑与架构说明见 [项目文档](demo/README.md)。
