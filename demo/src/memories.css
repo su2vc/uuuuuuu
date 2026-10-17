@@ -88,7 +88,8 @@
 .photo-deck {
   position: relative;
   aspect-ratio: 1.26;
-  margin: 14px 10px 20px;
+  /* Leave room for the rear cards' upward offset and rotation above the deck. */
+  margin: calc(28px + 3.5%) 10px 20px;
   perspective: 1000px;
   touch-action: pan-y;
 }
@@ -261,6 +262,7 @@ button:disabled {
 
 .photo-strip .photo-deck {
   aspect-ratio: 1.7;
+  margin-top: 14px;
   margin-left: 0;
 }
 
