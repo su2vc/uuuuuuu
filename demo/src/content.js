@@ -29,6 +29,10 @@ export function validateContent(content) {
   object(content, 'content');
   requireValue(content.schemaVersion === 4, 'schemaVersion', '当前支持版本 4，游戏周期字段为 playPeriod');
   if (content.demoMode !== undefined) requireValue(typeof content.demoMode === 'boolean', 'demoMode', '应为布尔值');
+  if (content.avatarMessages !== undefined) {
+    array(content.avatarMessages, 'avatarMessages');
+    content.avatarMessages.forEach((message, i) => text(message, `avatarMessages[${i}]`));
+  }
   array(content.avatars, 'avatars');
   content.avatars.forEach((avatar, i) => {
     object(avatar, `avatars[${i}]`);
@@ -69,6 +73,7 @@ export function validateContent(content) {
           object(image, `${item}.images[${k}]`);
           text(image.src, `${item}.images[${k}].src`);
           if (image.caption !== undefined) requireValue(typeof image.caption === 'string', `${item}.images[${k}].caption`, '应为文字');
+          if (image.note !== undefined) requireValue(typeof image.note === 'string', `${item}.images[${k}].note`, '应为文字');
         });
       } else if (memory.type === 'text') {
         text(memory.excerpt, `${item}.excerpt`);
@@ -104,6 +109,7 @@ export function prepareContent(content) {
   return {
     ...content,
     demoMode: content.demoMode ?? false,
+    avatarMessages: content.avatarMessages?.map(message => message.trim()) ?? [],
     games: content.games.map(game => ({
       platform: 'Steam', paper: '#ede9f3', ink: '#7e6c96', layout: 'auto',
       ...game,
@@ -113,7 +119,7 @@ export function prepareContent(content) {
         ...(memory.type === 'text' ? { paragraphs: memory.paragraphs ?? [] } : {}),
         ...(memory.type === 'gallery' ? {
           title: memory.title?.trim() ?? '',
-          images: memory.images.map(image => ({ ...image, caption: image.caption?.trim() ?? '' }))
+          images: memory.images.map(image => ({ ...image, caption: image.caption?.trim() ?? '', note: image.note?.trim() ?? '' }))
         } : {})
       }))
     })).sort((a, b) => {

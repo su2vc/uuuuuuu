@@ -86,6 +86,34 @@ test('所有游戏统一图文在前、视频在后，组内保持原顺序且�
   assert.deepEqual(groupMemories([]), { photos: [], notes: [], videos: [] });
 });
 
+test('照片背面留言可省略，去除首尾空白并拒绝非文字', () => {
+  const content = fixture();
+  const image = content.games[0].memories.find(m => m.type === 'gallery').images[0];
+  const preparedImage = () => prepareContent(content).games.find(g => g.id === content.games[0].id).memories.find(m => m.type === 'gallery').images[0];
+  delete image.note;
+  assert.equal(preparedImage().note, '');
+  image.note = '  ';
+  assert.equal(preparedImage().note, '');
+  image.note = '  这一刻\n想留下来。  ';
+  assert.equal(preparedImage().note, '这一刻\n想留下来。');
+  image.note = 123;
+  assert.throws(preparedImage, /note：应为文字/);
+});
+
+test('头像彩蛋可禁用，统一整理文案并校验错误配置', () => {
+  const content = fixture();
+  delete content.avatarMessages;
+  assert.deepEqual(prepareContent(content).avatarMessages, []);
+  content.avatarMessages = [];
+  assert.deepEqual(prepareContent(content).avatarMessages, []);
+  content.avatarMessages = ['  加密通话中。  '];
+  assert.deepEqual(prepareContent(content).avatarMessages, ['加密通话中。']);
+  content.avatarMessages = '加密通话中。';
+  assert.throws(() => prepareContent(content), /avatarMessages：应为数组/);
+  content.avatarMessages = ['  '];
+  assert.throws(() => prepareContent(content), /avatarMessages\[0\]：应为非空文字/);
+});
+
 test('实际加载出口排序，修改周期起点后默认首款游戏随之改变', async () => {
   const content = fixture();
   content.games.at(-1).playPeriod = {start: '2020-01-01', end: '2020-01-07'};

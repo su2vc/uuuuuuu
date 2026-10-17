@@ -10,6 +10,7 @@ const navigationColors = ['#f7e8bc', '#f6ddba', '#f3d1b1', '#f6ddba'];
 export function GameNavigation({
   games,
   selected,
+  visitedIds,
   onSelect,
   onOpenIndex,
   indexButton,
@@ -115,7 +116,7 @@ export function GameNavigation({
             proximity = Math.max(0, 1 - distance);
           return <button ref={el => {
             tabs.current[i] = el;
-          }} key={g.id} role="tab" id={`tab-${g.id}`} aria-controls="memories" aria-selected={i === selected} aria-label={`${g.title}，${i + 1}/${games.length}`} tabIndex={i === preview ? 0 : -1} className={`game-tab ${i === preview ? 'active' : ''}`} style={{
+          }} key={g.id} role="tab" id={`tab-${g.id}`} aria-controls="memories" aria-selected={i === selected} data-visited={visitedIds.has(g.id)} aria-label={`${g.title}，${i + 1}/${games.length}${visitedIds.has(g.id) ? '，已浏览' : ''}`} tabIndex={i === preview ? 0 : -1} className={`game-tab ${i === preview ? 'active' : ''}`} style={{
             '--offset': i - motion.position,
             '--proximity': proximity,
             opacity: Math.max(0, Math.min(1, (2 - distance) * 2)),
@@ -131,7 +132,7 @@ export function GameNavigation({
               choose(target, true);
             }
           }}>
-            <span className="timeline-dot" /><span className="game-label"><span className="game-period">{formatPlayPeriod(g.playPeriod)}</span><strong>{g.title}</strong></span>
+            <span className="timeline-dot" /><span className="game-label"><span className="game-period">{formatPlayPeriod(g.playPeriod)}</span><strong><span className="game-name">{visitedIds.has(g.id) && <span className="visited-mark" aria-hidden="true" />}{g.title}</span></strong></span>
             <span className={`character-outer character-${g.id}`}>
               <span className="character-silhouette" aria-hidden="true" style={{
                 maskImage: `url("${asset(g.character)}")`

@@ -1,7 +1,8 @@
 .memory-board {
+  --memory-gap: 36px;
   display: grid;
   grid-template-columns: minmax(0,1fr);
-  gap: 36px 28px;
+  gap: var(--memory-gap);
   padding: 0 8px 28px 0;
   align-items: start;
 }
@@ -36,6 +37,30 @@
 
 .slot-featuredVideo {
   grid-column: 1/-1;
+}
+
+.more-videos:not([hidden]) {
+  display: grid;
+  gap: var(--memory-gap);
+  min-width: 0;
+}
+
+.video-more-toggle {
+  justify-self: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 1px solid #c5bcd0;
+  background: #faf9f6;
+  color: #65576e;
+  font-size: 12px;
+}
+
+.video-more-toggle:hover {
+  background: var(--paper);
 }
 
 .block-meta {
@@ -367,12 +392,65 @@ button:disabled {
   backdrop-filter: blur(7px);
 }
 
-.image-viewer>img {
+.viewer-photo {
+  perspective: 1200px;
+}
+
+.viewer-photo-inner {
+  position: relative;
+  min-height: 160px;
+  transform-style: preserve-3d;
+  transition: transform .45s ease;
+}
+
+.viewer-photo.is-flipped .viewer-photo-inner {
+  transform: rotateY(180deg);
+}
+
+.viewer-photo-front,.viewer-photo-back {
+  backface-visibility: hidden;
+}
+
+.viewer-photo-front {
+  transform: rotateY(0);
+}
+
+.viewer-photo-front img {
   display: block;
   width: 100%;
   max-height: 73svh;
   object-fit: contain;
   animation: photo-in .3s ease;
+}
+
+.viewer-photo-back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: safe center;
+  gap: 20px;
+  overflow: auto;
+  padding: clamp(24px,5vw,64px);
+  border: 1px solid #dccdb2;
+  background: #fffaf0;
+  transform: rotateY(180deg);
+  text-align: center;
+}
+
+.viewer-photo-back>span {
+  font-size: 11px;
+  letter-spacing: .15em;
+  color: #9a845e;
+}
+
+.viewer-photo-back p {
+  font-size: clamp(18px,2.3vw,26px);
+  line-height: 1.9;
+  color: #665444;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 .viewer-close {
@@ -391,6 +469,7 @@ button:disabled {
 
 .viewer-caption {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin-top: 16px;
@@ -412,6 +491,74 @@ button:disabled {
 
 .viewer-caption button:disabled {
   opacity: .3;
+}
+
+.viewer-caption .viewer-flip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: auto;
+  height: auto;
+  min-height: 44px;
+  padding: 8px 12px;
+  font-size: 12px;
+  background: #fffaf0;
+}
+
+.visited-mark {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #bc9441;
+  opacity: .7;
+}
+
+.game-label .game-name {
+  position: relative;
+}
+
+.game-label .visited-mark {
+  position: absolute;
+  top: .6em;
+  left: -10px;
+}
+
+.index-visited-mark {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.album .avatar-button {
+  display: block;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+}
+
+.avatar-message {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  width: max-content;
+  max-width: min(260px,calc(100vw - 48px));
+  padding: 11px 15px;
+  border: 1px solid #d6c18c;
+  background: #fffdf3;
+  box-shadow: 3px 4px 0 #6a573316;
+  color: #6a583c;
+  font-size: 13px;
+  line-height: 1.7;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity .2s,transform .2s;
+  pointer-events: none;
+}
+
+.avatar-message.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .memory-board>.memory-slot {
@@ -590,7 +737,7 @@ button:disabled {
 
 @media (max-width:1100px) and (min-width:801px) {
   .memory-board {
-    gap: 25px;
+    --memory-gap: 25px;
   }
   .memory-overview {
     gap: 20px;
@@ -636,6 +783,7 @@ button:disabled {
     font-size: 12px;
   }
   .memory-board {
+    --memory-gap: 16px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -703,10 +851,10 @@ button:disabled {
 }
 
 @media (prefers-reduced-motion:reduce) {
-  .memory-board .memory-slot,.image-viewer>img {
+  .memory-board .memory-slot,.viewer-photo-front img {
     animation: none;
   }
-  .photo-print,.text-memory,.note-fold {
+  .photo-print,.text-memory,.note-fold,.viewer-photo-inner,.avatar-message {
     transition: none;
   }
 }

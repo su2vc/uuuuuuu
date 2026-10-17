@@ -29,7 +29,8 @@
           "presentation": "stack",
           "images": [
             {
-              "src": "assets/games/peak/001.png"
+              "src": "assets/games/peak/001.png",
+              "note": "合照里的这一刻，先替我们好好收着。"
             },
             {
               "src": "assets/games/peak/002.png"
@@ -76,7 +77,8 @@
           "presentation": "stack",
           "images": [
             {
-              "src": "assets/games/bigwalk/001.png"
+              "src": "assets/games/bigwalk/001.png",
+              "note": "路可以走错很多次，一起走的这段还是想留下来。"
             },
             {
               "src": "assets/games/bigwalk/003.png"
@@ -239,7 +241,8 @@
           "presentation": "strip",
           "images": [
             {
-              "src": "assets/games/chained/001.png"
+              "src": "assets/games/chained/001.png",
+              "note": "一根链子拴住的，还有这一路的笑声。"
             }
           ]
         },
@@ -298,7 +301,8 @@
           "presentation": "stack",
           "images": [
             {
-              "src": "assets/games/fishing/001.png"
+              "src": "assets/games/fishing/001.png",
+              "note": "鱼有没有钓到另说，和你们出海的这段记住了。"
             },
             {
               "src": "assets/games/fishing/002.png"
@@ -376,7 +380,8 @@
           "presentation": "contact",
           "images": [
             {
-              "src": "assets/games/l4d/001.png"
+              "src": "assets/games/l4d/001.png",
+              "note": "门可以重开，这次一起回去的画面想留着。"
             }
           ]
         }
@@ -428,7 +433,8 @@
           "presentation": "contact",
           "images": [
             {
-              "src": "assets/games/outlast/001.jpg"
+              "src": "assets/games/outlast/001.jpg",
+              "note": "有些画面当时不敢多看，现在可以慢慢看。"
             },
             {
               "src": "assets/games/outlast/002.jpg"
@@ -556,7 +562,8 @@
           "presentation": "stack",
           "images": [
             {
-              "src": "assets/games/split/001.png"
+              "src": "assets/games/split/001.png",
+              "note": "屏幕分成两半，回忆装在同一个地方。"
             },
             {
               "src": "assets/games/split/002.png"
@@ -609,7 +616,8 @@
           "presentation": "stack",
           "images": [
             {
-              "src": "assets/games/chameleon/001.png"
+              "src": "assets/games/chameleon/001.png",
+              "note": "不管藏在哪儿，这一刻都已经被记住了。"
             }
           ]
         },
@@ -663,7 +671,8 @@
           "images": [
             {
               "src": "assets/steam/chicken-1.jpg",
-              "caption": "谁放的陷阱"
+              "caption": "谁放的陷阱",
+              "note": "每个人加的一点小心思，都成了这一局的热闹。"
             },
             {
               "src": "assets/steam/chicken-2.jpg",
@@ -919,7 +928,8 @@
           "presentation": "contact",
           "images": [
             {
-              "src": "assets/games/repo/001.png"
+              "src": "assets/games/repo/001.png",
+              "note": "这一趟搬回来的，还有这些舍不得丢的片段。"
             }
           ]
         },
@@ -964,7 +974,8 @@
           "presentation": "strip",
           "images": [
             {
-              "src": "assets/games/nomad/001.png"
+              "src": "assets/games/nomad/001.png",
+              "note": "目的地可以慢慢找，沿途先替我们记下来。"
             },
             {
               "src": "assets/games/nomad/002.png"
@@ -1008,5 +1019,11 @@
         }
       ]
     }
+  ],
+  "avatarMessages": [
+    "u神有自己的想法。",
+    "全部愣住了。",
+    "加密通话中。",
+    "高敏手感好。"
   ]
 }

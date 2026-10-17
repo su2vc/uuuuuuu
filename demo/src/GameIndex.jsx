@@ -6,6 +6,7 @@ import { formatPlayPeriod } from './playPeriod';
 export function GameIndex({
   games,
   selected,
+  visitedIds,
   onSelect,
   onClose
 }) {
@@ -30,9 +31,10 @@ export function GameIndex({
     <div className="index-games">{matches.map(({
         game,
         index
-      }) => <button key={game.id} aria-current={selected === index} onClick={() => onSelect(index)}>
+      }) => <button key={game.id} aria-current={selected === index} data-visited={visitedIds.has(game.id)} onClick={() => onSelect(index)}>
         <img crossOrigin={imageCrossOrigin(game.character)} src={asset(game.character)} alt="" loading="lazy" />
         <span>{game.title}<small>{game.platform} · {formatPlayPeriod(game.playPeriod)}</small></span>
+        {visitedIds.has(game.id) && <span className="visited-mark index-visited-mark" role="img" aria-label="已浏览" />}
       </button>)}</div>
     {!matches.length && <p className="empty-search">没有匹配的游戏</p>}
   </dialog>;

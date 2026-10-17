@@ -3,6 +3,7 @@ import { Play, Pause, ArrowsOut, ArrowLeft, ArrowRight, ArrowClockwise, X, Plus,
 import { asset, imageCrossOrigin } from './assets';
 import { groupMemories } from './content';
 import { createPhotoWheelHandler } from './photoWheel';
+import { pauseOtherVideos } from './mediaPlayback';
 import { useModalDialog } from './useModalDialog';
 const stamp = value => value?.slice(5).replace('-', '.') || '';
 const clock = value => `${Math.floor(value / 60).toString().padStart(2, '0')}:${Math.floor(value % 60).toString().padStart(2, '0')}`;
@@ -16,6 +17,10 @@ export function VideoMemory({
   const [failed, setFailed] = useState(false);
   const video = useRef(null);
   const duration = memory.previewSeconds || 30;
+  useEffect(() => {
+    const element = video.current;
+    return () => element?.pause();
+  }, [memory.src, failed]);
   useEffect(() => {
     if (!playing || (memory.src && !failed)) return;
     const id = setInterval(() => setElapsed(t => Math.min(duration, t + .1)), 100);
@@ -36,7 +41,7 @@ export function VideoMemory({
   }, []);
   return <article className={`video-memory ${featured ? 'featured-memory' : ''}`}>
     <div className="block-meta"><span><FilmStrip size={14} />VIDEO</span>{memory.date && <time dateTime={memory.date}>{stamp(memory.date)}</time>}</div>
-    {memory.src && !failed ? <video ref={video} className="memory-video" aria-label={memory.title} controls playsInline preload={memory.poster ? 'none' : 'metadata'} poster={memory.poster ? asset(memory.poster) : undefined} src={asset(memory.src)} onError={() => setFailed(true)} /> : !memory.poster ? <div className="player video-unavailable" role="status"><FilmStrip size={36} aria-hidden="true" /><span>视频暂时无法播放</span></div> : <div className={`player ${playing ? 'is-playing' : ''}`}>
+    {memory.src && !failed ? <video ref={video} className="memory-video" aria-label={memory.title} controls playsInline preload={memory.poster ? 'none' : 'metadata'} poster={memory.poster ? asset(memory.poster) : undefined} src={asset(memory.src)} onPlay={event => pauseOtherVideos(event.currentTarget)} onError={() => setFailed(true)} /> : !memory.poster ? <div className="player video-unavailable" role="status"><FilmStrip size={36} aria-hidden="true" /><span>视频暂时无法播放</span></div> : <div className={`player ${playing ? 'is-playing' : ''}`}>
         <img crossOrigin={imageCrossOrigin(memory.poster)} src={asset(memory.poster)} alt={memory.title} style={{
         transform: `scale(${1 + elapsed * .002}) translateX(${-elapsed * .012}%)`
       }} />
@@ -112,9 +117,15 @@ export function TextMemory({
 }
 export function MemoryBoard({
   game,
-  onExpand
+  onExpand,
+  videosExpanded = false,
+  onToggleVideos
 }) {
   const { photos, notes, videos } = groupMemories(game.memories);
+  const toggle = useRef(null);
+  const renderVideo = memory => <div className={`memory-slot slot-${memory.type}`} key={memory.id}>
+    <VideoMemory memory={memory} featured={memory.type === 'featuredVideo'} onExpand={onExpand} />
+  </div>;
   return <div className="memory-board">
     {(photos.length > 0 || notes.length > 0) && <div className={`memory-overview ${photos.length && notes.length ? 'has-photos-and-notes' : ''} overview-${photos[0]?.presentation || 'stack'}`}>
       {photos.length > 0 && <div className="memory-photos">{photos.map(memory => <div className="memory-slot slot-gallery" key={memory.id}>
@@ -124,9 +135,19 @@ export function MemoryBoard({
         <TextMemory memory={memory} />
       </div>)}</div>}
     </div>}
-    {videos.map(memory => <div className={`memory-slot slot-${memory.type}`} key={memory.id}>
-      <VideoMemory memory={memory} featured={memory.type === 'featuredVideo'} onExpand={onExpand} />
-    </div>)}
+    {videos.slice(0, 3).map(renderVideo)}
+    {videos.length > 3 && <>
+      <div className="more-videos" id={`${game.id}-more-videos`} hidden={!videosExpanded}>
+        {videosExpanded && videos.slice(3).map(renderVideo)}
+      </div>
+      <button ref={toggle} className="video-more-toggle" aria-controls={`${game.id}-more-videos`} aria-expanded={videosExpanded} onClick={() => {
+        onToggleVideos();
+        if (videosExpanded) requestAnimationFrame(() => toggle.current?.scrollIntoView({ block: 'nearest' }));
+      }}>
+        {videosExpanded ? <Minus size={18} aria-hidden="true" /> : <Plus size={18} aria-hidden="true" />}
+        {videosExpanded ? '收起更多视频' : `还有 ${videos.length - 3} 段回忆`}
+      </button>
+    </>}
   </div>;
 }
 export function ImageViewer({
@@ -134,10 +155,16 @@ export function ImageViewer({
   onClose
 }) {
   const dialog = useModalDialog();
-  const [index, setIndex] = useState(value.index);
+  const [view, setView] = useState({ index: value.index, flipped: false });
+  const { index, flipped } = view;
   const images = value.images,
     item = images[index] || images[0];
-  const move = delta => setIndex(i => (i + delta + images.length) % images.length);
+  const move = delta => {
+    // The optional flip button can disappear on the next photo. Keep keyboard
+    // navigation inside the dialog instead of leaving focus on the document.
+    if (dialog.current?.querySelector('.viewer-flip') === document.activeElement) dialog.current.focus({ preventScroll: true });
+    setView(previous => ({ index: (previous.index + delta + images.length) % images.length, flipped: false }));
+  };
   return <dialog className="image-viewer" ref={dialog} aria-label="回忆照片" onCancel={e => {
     e.preventDefault();
     onClose();
@@ -154,7 +181,19 @@ export function ImageViewer({
     }
   }}>
     <button className="viewer-close" onClick={onClose} aria-label="关闭图片"><X size={26} /></button>
-    <img key={item.src} crossOrigin={imageCrossOrigin(item.src)} src={asset(item.src)} alt={item.caption} />
-    <div className="viewer-caption">{item.caption && <p>{item.caption}</p>}<div><button onClick={() => move(-1)} aria-label="上一张" disabled={images.length < 2}><ArrowLeft size={22} /></button><span>{index + 1} / {images.length}</span><button onClick={() => move(1)} aria-label="下一张" disabled={images.length < 2}><ArrowRight size={22} /></button></div></div>
+    <div className={`viewer-photo ${flipped ? 'is-flipped' : ''}`} key={item.src}>
+      <div className="viewer-photo-inner">
+        <div className="viewer-photo-front" inert={flipped} aria-hidden={flipped}>
+          <img crossOrigin={imageCrossOrigin(item.src)} src={asset(item.src)} alt={item.caption} />
+        </div>
+        {item.note && <div className="viewer-photo-back" inert={!flipped} aria-hidden={!flipped}><span>写在背面</span><p>{item.note}</p></div>}
+      </div>
+    </div>
+    <div className="viewer-caption">{item.caption && <p>{item.caption}</p>}
+      {item.note && <button className="viewer-flip" aria-pressed={flipped} onClick={() => setView(previous => ({ ...previous, flipped: !previous.flipped }))}>
+        <ArrowClockwise size={17} aria-hidden="true" />{flipped ? '查看照片' : '背面留言'}
+      </button>}
+      <div><button onClick={() => move(-1)} aria-label="上一张" disabled={images.length < 2}><ArrowLeft size={22} /></button><span>{index + 1} / {images.length}</span><button onClick={() => move(1)} aria-label="下一张" disabled={images.length < 2}><ArrowRight size={22} /></button></div>
+    </div>
   </dialog>;
 }
