@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 3,
+  "schemaVersion": 4,
   "demoMode": true,
   "avatars": [
     {
@@ -12,8 +12,11 @@
       "id": "peak",
       "title": "PEAK",
       "englishTitle": "PEAK",
-      "firstTime": "2026-07-12",
-      "hours": 12.5,
+      "playPeriod": {
+        "start": "2026-08-24",
+        "end": "2026-08-30"
+      },
+      "hours": 3.5,
       "platform": "Steam",
       "paper": "#ede9f3",
       "ink": "#7e6c96",
@@ -24,7 +27,6 @@
           "id": "peak-photos",
           "type": "gallery",
           "title": "山顶的风",
-          "date": "2026-07-12",
           "presentation": "stack",
           "images": [
             {
@@ -45,7 +47,6 @@
           "id": "peak-note",
           "type": "text",
           "title": "“我接着你。”",
-          "date": "2026-07-12",
           "presentation": "letter",
           "excerpt": "然后我们一起掉了下去。",
           "paragraphs": [
@@ -57,7 +58,6 @@
           "id": "peak-video",
           "type": "video",
           "title": "差一点就上去了",
-          "date": "2026-07-12",
           "poster": "assets/peak-memory.png",
           "src": "",
           "previewSeconds": 28,
@@ -69,8 +69,11 @@
       "id": "bigwalk",
       "title": "Big Walk 大步走",
       "englishTitle": "Big Walk",
-      "firstTime": "2026-08-05",
-      "hours": 7,
+      "playPeriod": {
+        "start": "2026-08-31",
+        "end": "2026-10-18"
+      },
+      "hours": 17.7,
       "platform": "Steam",
       "paper": "#e9eee5",
       "ink": "#758365",
@@ -81,7 +84,6 @@
           "id": "bigwalk-photos",
           "type": "gallery",
           "title": "散步，没有目的地",
-          "date": "2026-08-05",
           "presentation": "stack",
           "images": [
             {
@@ -102,7 +104,6 @@
           "id": "bigwalk-note",
           "type": "text",
           "title": "走了半天，谁也没看地图。",
-          "date": "2026-08-05",
           "presentation": "postcard",
           "excerpt": "反正有人在前面挥手，就跟着走。",
           "paragraphs": [
@@ -114,7 +115,6 @@
           "id": "bigwalk-video",
           "type": "video",
           "title": "你走哪条路？",
-          "date": "2026-08-05",
           "poster": "assets/steam/bigwalk-1.jpg",
           "src": "",
           "previewSeconds": 28,
@@ -126,8 +126,11 @@
       "id": "chained",
       "title": "链在一起",
       "englishTitle": "Chained Together",
-      "firstTime": "2026-08-09",
-      "hours": 8.5,
+      "playPeriod": {
+        "start": "2026-09-14",
+        "end": "2026-09-27"
+      },
+      "hours": 7.8,
       "platform": "Steam",
       "paper": "#f1e9df",
       "ink": "#927553",
@@ -138,7 +141,6 @@
           "id": "chained-photos",
           "type": "gallery",
           "title": "上升与下降",
-          "date": "2026-08-09",
           "presentation": "strip",
           "images": [
             {
@@ -159,7 +161,6 @@
           "id": "chained-video",
           "type": "video",
           "title": "三、二……谁先跳的？",
-          "date": "2026-08-09",
           "poster": "assets/steam/chained-1.jpg",
           "src": "",
           "previewSeconds": 28,
@@ -169,7 +170,6 @@
           "id": "chained-note",
           "type": "text",
           "title": "倒数还没结束，人已经没了。",
-          "date": "2026-08-09",
           "presentation": "dialogue",
           "excerpt": "链子很诚实，一个都没放过。",
           "paragraphs": [
@@ -183,8 +183,11 @@
       "id": "fishing",
       "title": "渔力全开",
       "englishTitle": "How to Fish",
-      "firstTime": "2026-08-21",
-      "hours": 6.5,
+      "playPeriod": {
+        "start": "2026-08-24",
+        "end": "2026-08-30"
+      },
+      "hours": 4.9,
       "platform": "Steam",
       "paper": "#e3eeeb",
       "ink": "#5b8c80",
@@ -195,7 +198,6 @@
           "id": "fishing-photos",
           "type": "gallery",
           "title": "水边的几张照片",
-          "date": "2026-08-21",
           "presentation": "stack",
           "images": [
             {
@@ -216,7 +218,6 @@
           "id": "fishing-note",
           "type": "text",
           "title": "今天的收获：一条鱼，三次落水。",
-          "date": "2026-08-21",
           "presentation": "postcard",
           "excerpt": "鱼竿还在，人先掉下去了。",
           "paragraphs": [
@@ -228,7 +229,6 @@
           "id": "fishing-video",
           "type": "video",
           "title": "钓到的不是鱼",
-          "date": "2026-08-21",
           "poster": "assets/steam/fishing-1.jpg",
           "src": "",
           "previewSeconds": 28,
@@ -240,8 +240,11 @@
       "id": "l4d",
       "title": "求生之路",
       "englishTitle": "Left 4 Dead 2",
-      "firstTime": "2026-08-23",
-      "hours": 28,
+      "playPeriod": {
+        "start": "2026-10-05",
+        "end": "2026-10-18"
+      },
+      "hours": 3.4,
       "platform": "Steam",
       "paper": "#ebe8ee",
       "ink": "#7d6f8d",
@@ -252,7 +255,6 @@
           "id": "l4d-video",
           "type": "video",
           "title": "门关早了",
-          "date": "2026-08-23",
           "poster": "assets/l4d-memory.png",
           "src": "",
           "previewSeconds": 28,
@@ -262,7 +264,6 @@
           "id": "l4d-note",
           "type": "text",
           "title": "“都进来了吧？”",
-          "date": "2026-08-23",
           "presentation": "ticket",
           "excerpt": "没有。",
           "paragraphs": [
@@ -274,7 +275,6 @@
           "id": "l4d-photos",
           "type": "gallery",
           "title": "安全屋外",
-          "date": "2026-08-23",
           "presentation": "contact",
           "images": [
             {
@@ -297,8 +297,11 @@
       "id": "outlast",
       "title": "逃生：试炼",
       "englishTitle": "The Outlast Trials",
-      "firstTime": "2026-08-30",
-      "hours": 11,
+      "playPeriod": {
+        "start": "2026-10-05",
+        "end": "2026-10-11"
+      },
+      "hours": 6.5,
       "platform": "Steam",
       "paper": "#e7ece8",
       "ink": "#698173",
@@ -309,7 +312,6 @@
           "id": "outlast-video",
           "type": "video",
           "title": "谁在我后面",
-          "date": "2026-08-30",
           "poster": "assets/steam/outlast-1.jpg",
           "src": "",
           "previewSeconds": 28,
@@ -319,7 +321,6 @@
           "id": "outlast-note",
           "type": "text",
           "title": "我说安静一点。",
-          "date": "2026-08-30",
           "presentation": "ticket",
           "excerpt": "然后叫得最大声的也是我。",
           "paragraphs": [
@@ -331,7 +332,6 @@
           "id": "outlast-photos",
           "type": "gallery",
           "title": "灯亮之前",
-          "date": "2026-08-30",
           "presentation": "contact",
           "images": [
             {
@@ -354,8 +354,11 @@
       "id": "split",
       "title": "双影奇境",
       "englishTitle": "Split Fiction",
-      "firstTime": "2026-09-06",
-      "hours": 22,
+      "playPeriod": {
+        "start": "2026-10-12",
+        "end": "2026-10-18"
+      },
+      "hours": 5.8,
       "platform": "Steam",
       "paper": "#eee7f3",
       "ink": "#9275ac",
@@ -366,7 +369,6 @@
           "id": "split-special",
           "type": "featuredVideo",
           "title": "特别剪辑",
-          "date": "2026-09-06",
           "poster": "assets/steam/split-2.jpg",
           "src": "",
           "previewSeconds": 60,
@@ -376,7 +378,6 @@
           "id": "split-video",
           "type": "video",
           "title": "这一跳总算同步了",
-          "date": "2026-09-06",
           "poster": "assets/steam/split-1.jpg",
           "src": "",
           "previewSeconds": 28,
@@ -386,7 +387,6 @@
           "id": "split-photos",
           "type": "gallery",
           "title": "两边的风景",
-          "date": "2026-09-06",
           "presentation": "stack",
           "images": [
             {
@@ -407,7 +407,6 @@
           "id": "split-note",
           "type": "text",
           "title": "这段想单独留下。",
-          "date": "2026-09-06",
           "presentation": "letter",
           "excerpt": "不是因为操作有多好，是那天一直在笑。",
           "paragraphs": [
@@ -420,9 +419,12 @@
     {
       "id": "chameleon",
       "title": "超级变色龙",
-      "englishTitle": "SCRIBBLE HUNT",
-      "firstTime": "2026-09-14",
-      "hours": 4.5,
+      "englishTitle": "Meccha Chameleon",
+      "playPeriod": {
+        "start": "2026-08-31",
+        "end": "2026-09-06"
+      },
+      "hours": 2.9,
       "platform": "Steam",
       "paper": "#e9eddf",
       "ink": "#819257",
@@ -433,7 +435,6 @@
           "id": "chameleon-photos",
           "type": "gallery",
           "title": "藏得很明显",
-          "date": "2026-09-14",
           "presentation": "stack",
           "images": [
             {
@@ -454,7 +455,6 @@
           "id": "chameleon-video",
           "type": "video",
           "title": "你刚才是不是动了",
-          "date": "2026-09-14",
           "poster": "assets/steam/chameleon-1.jpg",
           "src": "",
           "previewSeconds": 28,
@@ -464,7 +464,6 @@
           "id": "chameleon-note",
           "type": "text",
           "title": "“我藏得特别好。”",
-          "date": "2026-09-14",
           "presentation": "dialogue",
           "excerpt": "下一秒就被找到了。",
           "paragraphs": [
@@ -478,8 +477,11 @@
       "id": "chicken",
       "title": "超级鸡马",
       "englishTitle": "Ultimate Chicken Horse",
-      "firstTime": "2026-09-21",
-      "hours": 9,
+      "playPeriod": {
+        "start": "2026-09-28",
+        "end": "2026-10-18"
+      },
+      "hours": 4.5,
       "platform": "Steam",
       "paper": "#f1eadf",
       "ink": "#a18351",
@@ -490,7 +492,6 @@
           "id": "chicken-photos",
           "type": "gallery",
           "title": "谁放的陷阱",
-          "date": "2026-09-21",
           "presentation": "strip",
           "images": [
             {
@@ -511,7 +512,6 @@
           "id": "chicken-video",
           "type": "video",
           "title": "路是自己修的",
-          "date": "2026-09-21",
           "poster": "assets/steam/chicken-1.jpg",
           "src": "",
           "previewSeconds": 28,
@@ -521,7 +521,6 @@
           "id": "chicken-note",
           "type": "text",
           "title": "这条路理论上能过。",
-          "date": "2026-09-21",
           "presentation": "note",
           "excerpt": "至少修路的时候我们是这么想的。",
           "paragraphs": [
@@ -535,8 +534,11 @@
       "id": "repo",
       "title": "R.E.P.O.",
       "englishTitle": "R.E.P.O.",
-      "firstTime": "2026-10-04",
-      "hours": 9,
+      "playPeriod": {
+        "start": "2026-09-07",
+        "end": "2026-10-04"
+      },
+      "hours": 21.6,
       "platform": "Steam",
       "paper": "#e8e8f1",
       "ink": "#7b79a0",
@@ -547,7 +549,6 @@
           "id": "repo-video",
           "type": "video",
           "title": "说好轻拿轻放的",
-          "date": "2026-10-04",
           "poster": "assets/repo-memory.png",
           "src": "",
           "previewSeconds": 28,
@@ -557,7 +558,6 @@
           "id": "repo-photos",
           "type": "gallery",
           "title": "搬运现场",
-          "date": "2026-10-04",
           "presentation": "contact",
           "images": [
             {
@@ -578,7 +578,6 @@
           "id": "repo-note",
           "type": "text",
           "title": "东西不多，动静很大。",
-          "date": "2026-10-04",
           "presentation": "note",
           "excerpt": "你说没事的时候，花瓶已经在地上了。",
           "paragraphs": [
@@ -590,7 +589,6 @@
           "id": "repo-second-video",
           "type": "video",
           "title": "最后一趟搬运",
-          "date": "2026-10-06",
           "src": "",
           "poster": "assets/repo-memory.png",
           "description": "又一次高估了我们的配合。",
@@ -600,7 +598,6 @@
           "id": "repo-afterword",
           "type": "text",
           "title": "下次一定轻拿轻放",
-          "date": "2026-10-06",
           "excerpt": "至少这次，我们把彼此带回来了。"
         }
       ]
@@ -609,7 +606,10 @@
       "id": "nomad",
       "title": "Nomad Drive",
       "englishTitle": "Nomad Drive",
-      "firstTime": "2026-10-12",
+      "playPeriod": {
+        "start": "2026-10-12",
+        "end": "2026-10-12"
+      },
       "hours": 6,
       "platform": "Steam",
       "paper": "#efe8dd",

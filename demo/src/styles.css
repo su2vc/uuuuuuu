@@ -166,7 +166,7 @@ h1,h2,p {
   color: #34303f;
 }
 
-.active .game-label time {
+.active .game-label .game-period {
   color: #66557c;
 }
 

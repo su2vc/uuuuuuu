@@ -34,7 +34,7 @@ export function VideoMemory({
     return () => document.removeEventListener('visibilitychange', pause);
   }, []);
   return <article className={`video-memory ${featured ? 'featured-memory' : ''}`}>
-    <div className="block-meta"><span><FilmStrip size={14} />{featured ? '特别剪辑' : 'VIDEO'}</span><time dateTime={memory.date}>{stamp(memory.date)}</time></div>
+    <div className="block-meta"><span><FilmStrip size={14} />{featured ? '特别剪辑' : 'VIDEO'}</span>{memory.date && <time dateTime={memory.date}>{stamp(memory.date)}</time>}</div>
     {memory.src && !failed ? <video ref={video} className="memory-video" aria-label={memory.title} controls playsInline preload={memory.poster ? 'none' : 'metadata'} poster={memory.poster ? asset(memory.poster) : undefined} src={asset(memory.src)} onError={() => setFailed(true)} /> : !memory.poster ? <div className="player video-unavailable" role="status"><FilmStrip size={36} aria-hidden="true" /><span>视频暂时无法播放</span></div> : <div className={`player ${playing ? 'is-playing' : ''}`}>
         <img src={asset(memory.poster)} alt={memory.title} style={{
         transform: `scale(${1 + elapsed * .002}) translateX(${-elapsed * .012}%)`
@@ -94,7 +94,7 @@ export function TextMemory({
   const [open, setOpen] = useState(false);
   const bodyId = `note-${memory.id}`;
   return <article className={`text-memory text-${memory.presentation || 'note'} ${open ? 'is-unfolded' : ''}`}>
-    <div className="block-meta"><span><NotePencil size={14} />NOTE</span><time dateTime={memory.date}>{stamp(memory.date)}</time></div>
+    <div className="block-meta"><span><NotePencil size={14} />NOTE</span>{memory.date && <time dateTime={memory.date}>{stamp(memory.date)}</time>}</div>
     <h2>{memory.title}</h2><p className="note-lead">{memory.excerpt}</p>
     <div className="note-fold" id={bodyId} inert={!open}><div>{memory.paragraphs.map((p, i) => <p key={i}>{p}</p>)}</div></div>
     {memory.paragraphs.length > 0 && <button className="unfold-note" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls={bodyId}>{open ? '收起' : '展开这段'}{open ? <Minus size={17} /> : <Plus size={17} />}</button>}

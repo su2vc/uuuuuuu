@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { X } from '@phosphor-icons/react';
 import { asset } from './assets';
 import { useModalDialog } from './useModalDialog';
+import { formatPlayPeriod } from './playPeriod';
 export function GameIndex({
   games,
   selected,
@@ -31,7 +32,7 @@ export function GameIndex({
         index
       }) => <button key={game.id} aria-current={selected === index} onClick={() => onSelect(index)}>
         <img src={asset(game.character)} alt="" loading="lazy" />
-        <span>{game.title}<small>{game.platform} · {game.firstTime.slice(5).replace('-', '.')}</small></span>
+        <span>{game.title}<small>{game.platform} · {formatPlayPeriod(game.playPeriod)}</small></span>
       </button>)}</div>
     {!matches.length && <p className="empty-search">没有匹配的游戏</p>}
   </dialog>;

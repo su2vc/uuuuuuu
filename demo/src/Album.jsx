@@ -3,6 +3,7 @@ import { MemoryBoard, ImageViewer } from './MemoryBlocks';
 import { asset } from './assets';
 import { GameNavigation } from './GameNavigation';
 import { GameIndex } from './GameIndex';
+import { formatPlayPeriod } from './playPeriod';
 export function Album({
   content
 }) {
@@ -50,12 +51,12 @@ export function Album({
     <GameNavigation games={games} selected={selected} onSelect={choose} onOpenIndex={openIndex} indexButton={indexButton} navigationControl={navigation} />
     <section ref={panel} id="memories" className="memories" role="tabpanel" aria-labelledby={`tab-${game.id}`} tabIndex="-1">
       <div key={game.id} className="memory-content">
-        <header className="game-heading"><h1 id="current-game-title" tabIndex={-1} className={`wordmark wordmark-${game.id}`}>{game.title}</h1><p><time dateTime={game.firstTime}>{game.firstTime.replaceAll('-', '.')}</time>{game.hours !== null && <><span>·</span>{game.hours} h</>}<span className="platform-label">{game.platform}</span></p></header>
+        <header className="game-heading"><h1 id="current-game-title" tabIndex={-1} className={`wordmark wordmark-${game.id}`}>{game.title}</h1><p><span className="game-period">{formatPlayPeriod(game.playPeriod, { includeYear: true })}</span>{game.hours !== null && <><span>·</span><span title="截图所示周记录的累计时长">{game.hours} h</span></>}<span className="platform-label">{game.platform}</span></p></header>
         <MemoryBoard game={game} onExpand={(images, index) => setViewer({
           images,
           index
         })} />
-        {content.demoMode && <footer>演示记录 · 日期、时长与文字均为 mock<br />图片为宣传素材，后续可替换为自己的截图</footer>}
+        {content.demoMode && <footer>周期与时长以各游戏已录入记录为准<br />回忆文字和宣传图片仍为演示内容</footer>}
       </div>
     </section>
     {viewer && <ImageViewer value={viewer} onClose={() => setViewer(null)} />}

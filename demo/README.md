@@ -1,9 +1,9 @@
 # uu · 游戏纪念册
 
-React + Vite 纯静态前端，11 款游戏，支持视频、照片组和文字回忆。每次进入默认第一款游戏，进入前的 URL hash 不影响初始选择。新增记录主要修改 `public/content.json`，保持 `schemaVersion: 3`。完整字段说明和可复制示例见 [CONTENT.md](./CONTENT.md)。
+React + Vite 纯静态前端，11 款游戏，支持视频、照片组和文字回忆。每次进入默认第一款游戏，进入前的 URL hash 不影响初始选择。新增记录主要修改 `public/content.json`，保持 `schemaVersion: 4`。完整字段说明和可复制示例见 [CONTENT.md](./CONTENT.md)。
 
-- `title` 为游戏名；`firstTime` 为第一次游玩日期（`YYYY-MM-DD`）；`hours` 为总时长，单位小时，未知填 `null`。
-- 游戏自动按 `firstTime` 从早到晚排列；同日保持 JSON 顺序，每次进入从排序后的第一款开始。
+- `title` 为游戏名；`playPeriod` 为游玩覆盖周期（`start` / `end`，格式 `YYYY-MM-DD`，未知填 `null`）；`hours` 为已提供记录累计小时数，未知填 `null`。
+- 游戏自动按周期起点从早到晚排列；同起点保持 JSON 顺序，未知周期排在最后。目录与内容标题均展示起止周期，每次进入从排序后的第一款开始。
 - `memories` 按 JSON 顺序展示，支持 `video`、`gallery`（一张或多张）、`text` 和 `featuredVideo`。回忆自己的 `date` 不影响游戏排序。
 - 视频 `src` 留空显示封面预览，填写真实路径或 HTTPS 直链后使用播放器。双影奇境 `split-special` 为特别剪辑预留。
 - `layout` 可选 `auto` 或现有六种编排。预设只用于匹配的内容组合；增减、调整回忆顺序后自动流式排列，避免重叠。
@@ -11,7 +11,7 @@ React + Vite 纯静态前端，11 款游戏，支持视频、照片组和文字�
 
 本地素材放在 `public/assets/`，配置填写 `assets/文件名`。构建会校验本地引用是否存在；远程链接不会在构建时请求，播放可用性需要单独验证。大视频后续接入外部存储即可，不建议提交进 Git。
 
-日期、时长和文字仍为 mock。官方素材来源见 `public/assets/steam/sources.json`。角色采用官方宣传素材辅助提取，少量遮挡部位可能经过补全。
+游玩周期与时长已根据用户提供的两张周报截图去重累计，Nomad Drive 为 Demo，沿用原日期和 6h，待用户手动补充；回忆文字和宣传图片仍为演示内容。统计依据见 CONTENT.md。官方素材来源见 `public/assets/steam/sources.json`。角色采用官方宣传素材辅助提取，少量遮挡部位可能经过补全。
 
 ## 交互约束
 

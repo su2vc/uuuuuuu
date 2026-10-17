@@ -3,6 +3,7 @@ import { List } from '@phosphor-icons/react';
 import { asset } from './assets';
 import { wheelDelta } from './wheelGesture';
 import { createTimelineMotion } from './timelineMotion';
+import { formatPlayPeriod } from './playPeriod';
 
 // A repeating yellow → apricot → orange → apricot cycle for the navigation only.
 const navigationColors = ['#f7e8bc', '#f6ddba', '#f3d1b1', '#f6ddba'];
@@ -130,7 +131,7 @@ export function GameNavigation({
               choose(target, true);
             }
           }}>
-            <span className="timeline-dot" /><span className="game-label"><time dateTime={g.firstTime}>{g.firstTime.slice(5).replace('-', '.')}</time><strong>{g.title}</strong></span>
+            <span className="timeline-dot" /><span className="game-label"><span className="game-period">{formatPlayPeriod(g.playPeriod)}</span><strong>{g.title}</strong></span>
             <span className={`character-outer character-${g.id}`}>
               <span className="character-silhouette" aria-hidden="true" style={{
                 maskImage: `url("${asset(g.character)}")`

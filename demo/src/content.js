@@ -35,7 +35,7 @@ const uniqueId = (value, path, seen) => {
 // Unknown metadata is allowed so future content additions remain compatible.
 export function validateContent(content) {
   object(content, 'content');
-  requireValue(content.schemaVersion === 3, 'schemaVersion', '当前支持版本 3，游戏日期字段为 firstTime');
+  requireValue(content.schemaVersion === 4, 'schemaVersion', '当前支持版本 4，游戏周期字段为 playPeriod');
   if (content.demoMode !== undefined) requireValue(typeof content.demoMode === 'boolean', 'demoMode', '应为布尔值');
   array(content.avatars, 'avatars');
   content.avatars.forEach((avatar, i) => {
@@ -52,7 +52,12 @@ export function validateContent(content) {
     for (const field of ['title', 'character']) text(game[field], `${path}.${field}`);
     for (const field of ['platform', 'paper', 'ink']) if (game[field] !== undefined) text(game[field], `${path}.${field}`);
     if (game.englishTitle !== undefined) text(game.englishTitle, `${path}.englishTitle`);
-    date(game.firstTime, `${path}.firstTime`);
+    if (game.playPeriod !== null) {
+      object(game.playPeriod, `${path}.playPeriod`);
+      date(game.playPeriod.start, `${path}.playPeriod.start`);
+      date(game.playPeriod.end, `${path}.playPeriod.end`);
+      requireValue(game.playPeriod.start <= game.playPeriod.end, `${path}.playPeriod.end`, '结束日期不能早于开始日期');
+    }
     requireValue(game.hours === null || Number.isFinite(game.hours) && game.hours >= 0, `${path}.hours`, '应为非负数字，未知时填 null');
     if (game.layout !== undefined) requireValue(layouts.has(game.layout), `${path}.layout`, '不支持的布局');
     array(game.memories, `${path}.memories`);
@@ -106,12 +111,16 @@ export function prepareContent(content) {
       platform: 'Steam', paper: '#ede9f3', ink: '#7e6c96', layout: 'auto',
       ...game,
       memories: game.memories.map(memory => ({
-        date: game.firstTime,
+        date: null,
         ...memory,
         ...(memory.type === 'text' ? { paragraphs: memory.paragraphs ?? [] } : {}),
         ...(memory.type === 'gallery' ? { images: memory.images.map(image => ({ caption: '', ...image })) } : {})
       }))
-    })).sort((a, b) => a.firstTime.localeCompare(b.firstTime))
+    })).sort((a, b) => {
+      if (!a.playPeriod) return b.playPeriod ? 1 : 0;
+      if (!b.playPeriod) return -1;
+      return a.playPeriod.start.localeCompare(b.playPeriod.start);
+    })
   };
 }
 export async function loadContent(url, {
