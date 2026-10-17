@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import { optimizedImages } from "./scripts/optimized-images.mjs";
 
 export default defineConfig({
   base: "./",
@@ -16,5 +17,5 @@ export default defineConfig({
       clientFiles: ["./src/main.jsx"],
     },
   },
-  plugins: [react()],
+  plugins: [react(), optimizedImages()],
 });
