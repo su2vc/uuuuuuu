@@ -1,6 +1,6 @@
 .memory-board {
   display: grid;
-  grid-template-columns: minmax(0,1.1fr) minmax(0,.9fr);
+  grid-template-columns: minmax(0,1fr);
   gap: 36px 28px;
   padding: 0 8px 28px 0;
   align-items: start;
@@ -8,6 +8,26 @@
 
 .memory-slot {
   min-width: 0;
+}
+
+.memory-overview,.memory-photos,.memory-notes {
+  display: grid;
+  min-width: 0;
+  gap: 24px;
+  align-items: start;
+}
+
+.memory-overview.has-photos-and-notes {
+  grid-template-columns: minmax(0,1.1fr) minmax(0,.9fr);
+}
+
+/* Align the note's paper with the photo's paper, below the PHOTOS heading. */
+.has-photos-and-notes>.memory-notes {
+  padding-top: 38px;
+}
+
+.overview-strip.has-photos-and-notes>.memory-notes {
+  padding-top: 32px;
 }
 
 .slot-video {
@@ -135,7 +155,8 @@
 
 .photo-controls {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 8px;
   color: #7c7286;
@@ -145,7 +166,7 @@
 .photo-controls>div {
   display: flex;
   gap: 6px;
-  margin-left: auto;
+  justify-content: center;
 }
 
 .photo-controls button,.viewer-caption button {
@@ -263,7 +284,7 @@ button:disabled {
 .photo-strip .photo-deck {
   aspect-ratio: 1.7;
   margin-top: 14px;
-  margin-left: 0;
+  margin-bottom: 20px;
 }
 
 .photo-strip .photo-print {
@@ -306,100 +327,6 @@ button:disabled {
   padding-bottom: 13px;
 }
 
-.layout-trail .slot-gallery {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.layout-trail .slot-text {
-  grid-column: 2;
-  grid-row: 1;
-  margin-top: 38px;
-}
-
-.layout-trail .slot-video {
-  grid-row: 2;
-}
-
-.layout-evidence {
-  grid-template-columns: 1.15fr .85fr;
-}
-
-.layout-evidence .slot-text {
-  grid-column: 2;
-  grid-row: 1;
-  margin-top: 30px;
-}
-
-.layout-evidence .slot-video {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.layout-evidence .video-memory .player {
-  aspect-ratio: 4/3;
-}
-
-.layout-evidence .slot-gallery {
-  grid-column: 1/-1;
-  max-width: 72%;
-  margin: 8px 0 0 10%;
-}
-
-.layout-evidence .photo-deck {
-  aspect-ratio: 1.85;
-}
-
-.layout-collage .slot-gallery {
-  grid-column: 2;
-  grid-row: 1;
-  margin-top: 20px;
-}
-
-.layout-collage .slot-video {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.layout-collage .player {
-  aspect-ratio: 1.1;
-}
-
-.layout-collage .slot-text {
-  grid-column: 1/-1;
-  width: 78%;
-  margin-left: 9%;
-}
-
-.layout-collage .text-memory {
-  transform: rotate(-.7deg);
-}
-
-.layout-roadtrip .slot-gallery {
-  grid-column: 1/-1;
-}
-
-.layout-roadtrip .photo-deck {
-  aspect-ratio: 2.3;
-  max-width: 90%;
-  margin-inline: auto;
-}
-
-.layout-roadtrip .slot-video {
-  grid-column: 1;
-  grid-row: 2;
-}
-
-.layout-roadtrip .slot-text {
-  grid-column: 2;
-  grid-row: 2;
-  margin-top: 22px;
-}
-
-.layout-roadtrip .player {
-  aspect-ratio: 4/3;
-}
-
 .featured-memory {
   background: #eee8f4;
   padding: 22px;
@@ -423,59 +350,6 @@ button:disabled {
   margin-top: 9px;
   color: #786286;
   line-height: 1.7;
-}
-
-.layout-duet .slot-video {
-  grid-column: 1;
-  grid-row: 2;
-  margin-top: 18px;
-}
-
-.layout-duet .slot-gallery {
-  grid-column: 2;
-  grid-row: 2;
-}
-
-.layout-duet .slot-text {
-  grid-column: 1/-1;
-  width: 85%;
-  margin: auto;
-}
-
-.layout-duet .player {
-  aspect-ratio: 4/3;
-}
-
-.layout-duet .text-memory {
-  background: #f4f0f7;
-  transform: none;
-  border-left: 4px solid #a896bf;
-}
-
-.layout-arcade .slot-gallery {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.layout-arcade .slot-video {
-  grid-column: 2;
-  grid-row: 1;
-  margin-top: 45px;
-}
-
-.layout-arcade .player {
-  aspect-ratio: 1.1;
-}
-
-.layout-arcade .slot-text {
-  grid-column: 1/-1;
-  width: 83%;
-  margin-left: auto;
-}
-
-.layout-arcade .text-memory {
-  background: var(--paper);
-  transform: rotate(-1deg);
 }
 
 .image-viewer {
@@ -716,7 +590,10 @@ button:disabled {
 
 @media (max-width:1100px) and (min-width:801px) {
   .memory-board {
-    gap: 25px 20px;
+    gap: 25px;
+  }
+  .memory-overview {
+    gap: 20px;
   }
   .text-memory {
     padding: 16px;
@@ -726,9 +603,6 @@ button:disabled {
   }
   .note-lead {
     font-size: 12px;
-  }
-  .layout-evidence .slot-text {
-    margin-top: 0;
   }
   .game-nav .game-label strong {
     max-width: 90px;
@@ -767,6 +641,15 @@ button:disabled {
     gap: 16px;
     padding-right: 6px;
   }
+  .memory-overview.has-photos-and-notes {
+    grid-template-columns: minmax(0,1fr);
+  }
+  .memory-overview.has-photos-and-notes>.memory-notes {
+    padding-top: 0;
+  }
+  .memory-overview,.memory-photos,.memory-notes {
+    gap: 16px;
+  }
   .memory-board>.memory-slot {
     width: 100%;
     max-width: none;
@@ -776,9 +659,6 @@ button:disabled {
     aspect-ratio: 1.35;
     max-width: 90%;
     margin-inline: auto;
-  }
-  .layout-evidence .photo-deck,.layout-roadtrip .photo-deck {
-    aspect-ratio: 1.5;
   }
   .memory-board .video-memory .player,.memory-board .memory-video {
     aspect-ratio: 16/9;

@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { Play, Pause, ArrowsOut, ArrowLeft, ArrowRight, ArrowClockwise, X, Plus, Minus, FilmStrip, ImageSquare, NotePencil } from '@phosphor-icons/react';
 import { asset, imageCrossOrigin } from './assets';
-import { resolveMemoryLayout } from './content';
+import { groupMemories } from './content';
+import { createPhotoWheelHandler } from './photoWheel';
 import { useModalDialog } from './useModalDialog';
 const stamp = value => value?.slice(5).replace('-', '.') || '';
 const clock = value => `${Math.floor(value / 60).toString().padStart(2, '0')}:${Math.floor(value % 60).toString().padStart(2, '0')}`;
@@ -68,9 +69,17 @@ export function PhotoMemory({
   const items = memory.images;
   const move = delta => setIndex(i => (i + delta + items.length) % items.length);
   const touch = useRef(null);
+  const deck = useRef(null);
+  useEffect(() => {
+    if (items.length < 2) return;
+    const element = deck.current;
+    const wheel = createPhotoWheelHandler(delta => setIndex(i => (i + delta + items.length) % items.length));
+    element.addEventListener('wheel', wheel, { passive: false });
+    return () => element.removeEventListener('wheel', wheel);
+  }, [items.length]);
   return <article className={`photo-memory photo-${memory.presentation || 'stack'}`}>
     <div className="block-meta"><span><ImageSquare size={14} />PHOTOS</span><span>{String(index + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}</span></div>
-    <div className="photo-deck" onTouchStart={e => touch.current = e.touches[0].clientX} onTouchEnd={e => {
+    <div ref={deck} className="photo-deck" onTouchStart={e => touch.current = e.touches[0].clientX} onTouchEnd={e => {
       if (touch.current !== null) {
         const d = touch.current - e.changedTouches[0].clientX;
         if (Math.abs(d) > 40) move(d > 0 ? 1 : -1);
@@ -105,9 +114,18 @@ export function MemoryBoard({
   game,
   onExpand
 }) {
-  return <div className={`memory-board layout-${resolveMemoryLayout(game)}`}>
-    {game.memories.map(memory => <div className={`memory-slot slot-${memory.type}`} key={memory.id}>
-      {memory.type === 'video' || memory.type === 'featuredVideo' ? <VideoMemory memory={memory} featured={memory.type === 'featuredVideo'} onExpand={onExpand} /> : memory.type === 'gallery' ? <PhotoMemory memory={memory} onExpand={onExpand} /> : <TextMemory memory={memory} />}
+  const { photos, notes, videos } = groupMemories(game.memories);
+  return <div className="memory-board">
+    {(photos.length > 0 || notes.length > 0) && <div className={`memory-overview ${photos.length && notes.length ? 'has-photos-and-notes' : ''} overview-${photos[0]?.presentation || 'stack'}`}>
+      {photos.length > 0 && <div className="memory-photos">{photos.map(memory => <div className="memory-slot slot-gallery" key={memory.id}>
+        <PhotoMemory memory={memory} onExpand={onExpand} />
+      </div>)}</div>}
+      {notes.length > 0 && <div className="memory-notes">{notes.map(memory => <div className="memory-slot slot-text" key={memory.id}>
+        <TextMemory memory={memory} />
+      </div>)}</div>}
+    </div>}
+    {videos.map(memory => <div className={`memory-slot slot-${memory.type}`} key={memory.id}>
+      <VideoMemory memory={memory} featured={memory.type === 'featuredVideo'} onExpand={onExpand} />
     </div>)}
   </div>;
 }

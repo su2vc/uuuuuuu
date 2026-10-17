@@ -1,13 +1,5 @@
-// Presets are safe only for these compositions in visual reading order.
-const layoutSequences = {
-  trail: ['gallery', 'text', 'video'],
-  evidence: ['video', 'text', 'gallery'],
-  collage: ['video', 'gallery', 'text'],
-  roadtrip: ['gallery', 'video', 'text'],
-  duet: ['featuredVideo', 'video', 'gallery', 'text'],
-  arcade: ['gallery', 'video', 'text']
-};
-const layouts = new Set(['auto', ...Object.keys(layoutSequences)]);
+// Accept legacy layout names so existing content remains readable.
+const layouts = new Set(['auto', 'trail', 'evidence', 'collage', 'roadtrip', 'duet', 'arcade']);
 const types = new Set(['video', 'featuredVideo', 'gallery', 'text']);
 const fail = (path, message) => {
   throw new Error(`${path}：${message}`);
@@ -98,9 +90,12 @@ export function validateContent(content) {
   return content;
 }
 
-export function resolveMemoryLayout(game) {
-  const sequence = layoutSequences[game.layout];
-  return sequence && sequence.length === game.memories.length && sequence.every((type, i) => game.memories[i].type === type) ? game.layout : 'auto';
+export function groupMemories(memories) {
+  const groups = { photos: [], notes: [], videos: [] };
+  for (const memory of memories) {
+    groups[memory.type === 'gallery' ? 'photos' : memory.type === 'text' ? 'notes' : 'videos'].push(memory);
+  }
+  return groups;
 }
 
 // Keep source JSON untouched; equal dates retain their original array order.

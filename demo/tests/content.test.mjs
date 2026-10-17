@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import test from 'node:test';
-import {validateContent, prepareContent, resolveMemoryLayout, loadContent, contentAssetPaths} from '../src/content.js';
+import {validateContent, prepareContent, groupMemories, loadContent, contentAssetPaths} from '../src/content.js';
 
 const fixture = () => JSON.parse(readFileSync(new URL('../public/content.json', import.meta.url), 'utf8'));
 
@@ -72,16 +72,18 @@ test('图片组与每张图都可省略文字，空白文字归一为空且仍�
   assert.throws(prepareGallery, /caption：应为文字/);
 });
 
-test('布局适配同类回忆增减与重新排序；特别视频保留独立类型', () => {
-  const games = fixture().games;
-  for (const game of games.filter(g => g.id !== 'repo')) {
-    assert.equal(resolveMemoryLayout(game), game.layout);
-    assert.equal(resolveMemoryLayout({...game, memories: [...game.memories, game.memories[0]]}), 'auto');
-    assert.equal(resolveMemoryLayout({...game, memories: game.memories.slice(1)}), 'auto');
-    assert.equal(resolveMemoryLayout({...game, memories: [...game.memories].reverse()}), 'auto');
+test('所有游戏统一图文在前、视频在后，组内保持原顺序且不修改源数据', () => {
+  for (const game of fixture().games) {
+    const before = structuredClone(game.memories);
+    const { photos, notes, videos } = groupMemories(game.memories);
+    assert.deepEqual(photos, game.memories.filter(m => m.type === 'gallery'));
+    assert.deepEqual(notes, game.memories.filter(m => m.type === 'text'));
+    assert.deepEqual(videos, game.memories.filter(m => ['video', 'featuredVideo'].includes(m.type)));
+    assert.deepEqual(game.memories, before);
+    assert.equal(photos.length + notes.length + videos.length, game.memories.length);
+    if (game.id === 'split') assert.equal(videos[0].id, 'split-special');
   }
-  assert.equal(resolveMemoryLayout(games.find(g => g.id === 'repo')), 'auto');
-  assert.equal(games.find(g => g.id === 'split').memories[0].type, 'featuredVideo');
+  assert.deepEqual(groupMemories([]), { photos: [], notes: [], videos: [] });
 });
 
 test('实际加载出口排序，修改周期起点后默认首款游戏随之改变', async () => {
