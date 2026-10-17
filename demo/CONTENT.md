@@ -131,6 +131,7 @@ R.E.P.O 包含两段视频和两段文字，用于演示自动编排；双影奇
 
 - 本地图片放 `public/assets/`，例如文件 `public/assets/photos/peak.jpg` 在 JSON 中写 `assets/photos/peak.jpg`。不要填写电脑绝对路径；不要以 `/assets/` 开头，这会绕过 GitHub Pages 的仓库子目录。
 - 外部图片或视频在 `src` 填完整 HTTPS 直链。视频应为能直接播放的媒体文件地址，而不是网盘分享页或视频网站页面；可优先准备兼容浏览器的 MP4 文件。
+- 当前 60 张图片的生产地址由 `oss-images.json` 统一映射至 OSS 官方 HTTPS 域名，包含 30 张真实截图；JSON 中原路径无需改写。更新图片需上传新的带哈希对象并更新映射，不能只覆盖本地原图。开发模式仍使用本地图片，生产预览需在允许的 `https://7uuuuuuu.cn` 来源下验证，localhost 不在现有防盗链及 CORS 白名单中。
 - JSON 不能包含注释或尾随逗号。时长写数字 `12.5`，不要写 `"12.5小时"`。日期不要写 `2026/7/12`。
 - `demoMode` 替换完真实内容后设为 `false`，隐藏页尾的演示说明；不影响排序与渲染。
 - 在 `demo` 目录运行 `npm run check:content`，校验字段、重复 ID、日期和本地素材。运行 `npm run build` 和 `npm test` 验证后提交推送，现有 GitHub Pages 工作流会重新部署。远程链接播放情况需要实际访问验证，构建不会下载视频。

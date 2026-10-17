@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Play, Pause, ArrowsOut, ArrowLeft, ArrowRight, ArrowClockwise, X, Plus, Minus, FilmStrip, ImageSquare, NotePencil } from '@phosphor-icons/react';
-import { asset } from './assets';
+import { asset, imageCrossOrigin } from './assets';
 import { resolveMemoryLayout } from './content';
 import { useModalDialog } from './useModalDialog';
 const stamp = value => value?.slice(5).replace('-', '.') || '';
@@ -36,7 +36,7 @@ export function VideoMemory({
   return <article className={`video-memory ${featured ? 'featured-memory' : ''}`}>
     <div className="block-meta"><span><FilmStrip size={14} />{featured ? '特别剪辑' : 'VIDEO'}</span>{memory.date && <time dateTime={memory.date}>{stamp(memory.date)}</time>}</div>
     {memory.src && !failed ? <video ref={video} className="memory-video" aria-label={memory.title} controls playsInline preload={memory.poster ? 'none' : 'metadata'} poster={memory.poster ? asset(memory.poster) : undefined} src={asset(memory.src)} onError={() => setFailed(true)} /> : !memory.poster ? <div className="player video-unavailable" role="status"><FilmStrip size={36} aria-hidden="true" /><span>视频暂时无法播放</span></div> : <div className={`player ${playing ? 'is-playing' : ''}`}>
-        <img src={asset(memory.poster)} alt={memory.title} style={{
+        <img crossOrigin={imageCrossOrigin(memory.poster)} src={asset(memory.poster)} alt={memory.title} style={{
         transform: `scale(${1 + elapsed * .002}) translateX(${-elapsed * .012}%)`
       }} />
         <button className="play-button" aria-label={playing ? '暂停封面预览' : '播放封面预览'} onClick={() => {
@@ -83,7 +83,7 @@ export function PhotoMemory({
           '--depth': Math.min(depth, 2),
           zIndex: items.length - depth,
           visibility: depth > 2 ? 'hidden' : undefined
-        }} tabIndex={depth === 0 ? 0 : -1} aria-hidden={depth !== 0} onClick={() => onExpand(items, i)} aria-label={item.caption ? `放大照片：${item.caption}` : `放大照片 ${i + 1}`}><img src={asset(item.src)} alt={item.caption} loading="lazy" />{item.caption && <span>{item.caption}</span>}</button>;
+        }} tabIndex={depth === 0 ? 0 : -1} aria-hidden={depth !== 0} onClick={() => onExpand(items, i)} aria-label={item.caption ? `放大照片：${item.caption}` : `放大照片 ${i + 1}`}><img crossOrigin={imageCrossOrigin(item.src)} src={asset(item.src)} alt={item.caption} loading="lazy" />{item.caption && <span>{item.caption}</span>}</button>;
       })}
     </div>
     {(memory.title || items.length > 1) && <div className="photo-controls">{memory.title && <span>{memory.title}</span>}<div><button aria-label="上一张照片" onClick={() => move(-1)} disabled={items.length < 2}><ArrowLeft size={19} /></button><button aria-label="下一张照片" onClick={() => move(1)} disabled={items.length < 2}><ArrowRight size={19} /></button></div></div>}
@@ -136,7 +136,7 @@ export function ImageViewer({
     }
   }}>
     <button className="viewer-close" onClick={onClose} aria-label="关闭图片"><X size={26} /></button>
-    <img key={item.src} src={asset(item.src)} alt={item.caption} />
+    <img key={item.src} crossOrigin={imageCrossOrigin(item.src)} src={asset(item.src)} alt={item.caption} />
     <div className="viewer-caption">{item.caption && <p>{item.caption}</p>}<div><button onClick={() => move(-1)} aria-label="上一张" disabled={images.length < 2}><ArrowLeft size={22} /></button><span>{index + 1} / {images.length}</span><button onClick={() => move(1)} aria-label="下一张" disabled={images.length < 2}><ArrowRight size={22} /></button></div></div>
   </dialog>;
 }

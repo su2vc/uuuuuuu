@@ -95,6 +95,7 @@ export function createOpeningScene(el, pointer, {
     slab(hinge, .42, .36, .055, 0, -.12, 2.22, lime);
     const photos = [];
     const loader = new THREE.TextureLoader();
+    loader.setCrossOrigin('anonymous');
     openingPhotoPaths.forEach((file, i) => {
       const photo = new THREE.Group();
       slab(photo, 1.14, 1.33, .025, 0, 0, 0, new THREE.MeshToonMaterial({

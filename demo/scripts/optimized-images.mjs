@@ -15,7 +15,7 @@ async function imageFiles(directory) {
 }
 
 // Original content paths stay editable; production resolves them to hashed WebP assets.
-export function optimizedImages() {
+export function optimizedImages({ remoteImages = {} } = {}) {
   let config;
   return {
     name: 'optimized-images',
@@ -24,8 +24,9 @@ export function optimizedImages() {
     async load(id) {
       if (id !== resolvedId) return;
       if (config.command !== 'build') return 'export default {};';
-      const files = await imageFiles(path.join(config.publicDir, 'assets'));
-      const entries = [];
+      const files = (await imageFiles(path.join(config.publicDir, 'assets')))
+        .filter(file => !Object.hasOwn(remoteImages, path.relative(config.publicDir, file).split(path.sep).join('/')));
+      const entries = Object.entries(remoteImages).map(([key, url]) => `${JSON.stringify(key)}: ${JSON.stringify(url)}`);
       let originalBytes = 0;
       let optimizedBytes = 0;
       // Bound decoder memory while processing large source images.

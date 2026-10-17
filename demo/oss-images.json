@@ -1,0 +1,365 @@
+{
+  "origin": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com",
+  "images": [
+    {
+      "sourcePath": "assets/avatar-birthday.png",
+      "objectKey": "uu-album/common/avatar-birthday-2b4ef5fee6.webp",
+      "bytes": 12452,
+      "sha256": "2b4ef5fee66ee8cb9de6acbd5172dcd1f0e679900912adeec5e8515af32e25a9"
+    },
+    {
+      "sourcePath": "assets/peak-character.png",
+      "objectKey": "uu-album/games/peak/character-0a1224a426.webp",
+      "bytes": 226056,
+      "sha256": "0a1224a426980893d409030055121142a6ba92c84c09ca0645b871ceabb5db29"
+    },
+    {
+      "sourcePath": "assets/games/peak/001.png",
+      "objectKey": "uu-album/games/peak/photos/001-b8aefc8c08.webp",
+      "bytes": 104572,
+      "sha256": "b8aefc8c08a417069885505f73204a9d4155e80483eb6de9bc7784812f3c277e"
+    },
+    {
+      "sourcePath": "assets/games/peak/002.png",
+      "objectKey": "uu-album/games/peak/photos/002-204ece0048.webp",
+      "bytes": 68190,
+      "sha256": "204ece0048a5d02fe8208b7bd6d08218ddb50f7fbf48bf865dc398fbf9bc76bb"
+    },
+    {
+      "sourcePath": "assets/games/peak/003.png",
+      "objectKey": "uu-album/games/peak/photos/003-8df93a5cd3.webp",
+      "bytes": 99036,
+      "sha256": "8df93a5cd3ecbb7dc753e07e40c4513540032ad1c576262718041ef682cd3bd2"
+    },
+    {
+      "sourcePath": "assets/games/peak/004.png",
+      "objectKey": "uu-album/games/peak/photos/004-bf192d52f4.webp",
+      "bytes": 89700,
+      "sha256": "bf192d52f4d545dd3f5211c455b52c584a92b3227c8682f32dca60ab50429f78"
+    },
+    {
+      "sourcePath": "assets/peak-memory.png",
+      "objectKey": "uu-album/games/peak/covers/peak-memory-c3bb76a405.webp",
+      "bytes": 132094,
+      "sha256": "c3bb76a405efef943840f745f19e103c978f4dfe25e8ecbb92c20e95ba9d6029"
+    },
+    {
+      "sourcePath": "assets/characters/fishing.png",
+      "objectKey": "uu-album/games/fishing/character-bdee92e8aa.webp",
+      "bytes": 97446,
+      "sha256": "bdee92e8aa2ce1f1bb7957029dcba247fb70edf77cefa717f751df364e484c79"
+    },
+    {
+      "sourcePath": "assets/games/fishing/001.png",
+      "objectKey": "uu-album/games/fishing/photos/001-eecc8953de.webp",
+      "bytes": 23216,
+      "sha256": "eecc8953de2283c9c26c2d2f26055e68295157130db82e5291fdf200cbb14895"
+    },
+    {
+      "sourcePath": "assets/games/fishing/002.png",
+      "objectKey": "uu-album/games/fishing/photos/002-a8068f41e9.webp",
+      "bytes": 17222,
+      "sha256": "a8068f41e9719c61d01b8174ff82167b4d5d1e8e8238c99aabe7a74163ecce0e"
+    },
+    {
+      "sourcePath": "assets/games/fishing/003.png",
+      "objectKey": "uu-album/games/fishing/photos/003-9c02b9e26a.webp",
+      "bytes": 23754,
+      "sha256": "9c02b9e26aa8c1a07d2b92f55a9d00b4dce5c1954fa90c2bce45be1ae822aca7"
+    },
+    {
+      "sourcePath": "assets/games/fishing/004.png",
+      "objectKey": "uu-album/games/fishing/photos/004-a6500d0b54.webp",
+      "bytes": 43190,
+      "sha256": "a6500d0b5470983aa2eac5f5066f38171c7bdc77dbf39457dccf6cd0d2a26ed9"
+    },
+    {
+      "sourcePath": "assets/games/fishing/005.png",
+      "objectKey": "uu-album/games/fishing/photos/005-c4ae43b706.webp",
+      "bytes": 20210,
+      "sha256": "c4ae43b70626432bea4709d897dea9a146366a30089ebd4b8d32bf2a9ce7d0f8"
+    },
+    {
+      "sourcePath": "assets/games/fishing/006.png",
+      "objectKey": "uu-album/games/fishing/photos/006-bc71b5a99b.webp",
+      "bytes": 46252,
+      "sha256": "bc71b5a99b12f7637575cbd06c666b43726ef7dc4c092fd19e80c8ae7e626816"
+    },
+    {
+      "sourcePath": "assets/steam/fishing-1.jpg",
+      "objectKey": "uu-album/games/fishing/covers/fishing-1-72fe94d5bc.webp",
+      "bytes": 101180,
+      "sha256": "72fe94d5bcfc341299f6d84d200b6a22115588e0da7052dab0d3ef921644d478"
+    },
+    {
+      "sourcePath": "assets/characters/bigwalk.png",
+      "objectKey": "uu-album/games/bigwalk/character-64ca9203c3.webp",
+      "bytes": 184114,
+      "sha256": "64ca9203c3f6c392087ae3ea91cd12478ca47da5c59472babfaed6c721597868"
+    },
+    {
+      "sourcePath": "assets/games/bigwalk/001.png",
+      "objectKey": "uu-album/games/bigwalk/photos/001-954e43b795.webp",
+      "bytes": 48078,
+      "sha256": "954e43b7954ad624a33d7812e29388346235536d54541bd65890fb901d9c6177"
+    },
+    {
+      "sourcePath": "assets/games/bigwalk/003.png",
+      "objectKey": "uu-album/games/bigwalk/photos/003-bff133d54e.webp",
+      "bytes": 64318,
+      "sha256": "bff133d54eef8b866787831868d96076ec57a78f9e598720e9a54f5367e14a3a"
+    },
+    {
+      "sourcePath": "assets/games/bigwalk/004.png",
+      "objectKey": "uu-album/games/bigwalk/photos/004-f416e80837.webp",
+      "bytes": 69690,
+      "sha256": "f416e80837c5777f85639ea08121036de1c4f6bc849fd91b5c51db1d49fdb3db"
+    },
+    {
+      "sourcePath": "assets/steam/bigwalk-1.jpg",
+      "objectKey": "uu-album/games/bigwalk/covers/bigwalk-1-2147ff8755.webp",
+      "bytes": 67934,
+      "sha256": "2147ff875575d73f1b4c2fb21c3fd87b0101386925b56977ddb272931c949425"
+    },
+    {
+      "sourcePath": "assets/characters/chameleon.png",
+      "objectKey": "uu-album/games/chameleon/character-a6434e52dc.webp",
+      "bytes": 132728,
+      "sha256": "a6434e52dc72b18bc211e169ec4e6680211991cf89f3ff687d7887ed089466df"
+    },
+    {
+      "sourcePath": "assets/games/chameleon/001.png",
+      "objectKey": "uu-album/games/chameleon/photos/001-a4486ab0c8.webp",
+      "bytes": 115982,
+      "sha256": "a4486ab0c8ec5c88b6c10b2bf7f58a11a0805f9db9187894aa4e99025a8fcac5"
+    },
+    {
+      "sourcePath": "assets/steam/chameleon-1.jpg",
+      "objectKey": "uu-album/games/chameleon/covers/chameleon-1-9d8a9ec808.webp",
+      "bytes": 113514,
+      "sha256": "9d8a9ec808aea0b7308965343d8aefbe7992b7671c67886fc6fe05596398b4fe"
+    },
+    {
+      "sourcePath": "assets/repo-character.png",
+      "objectKey": "uu-album/games/repo/character-79b4bc8103.webp",
+      "bytes": 187520,
+      "sha256": "79b4bc8103fafe79645a1169b1fee2d363407ecf65456ccc7008b003aa9f5c3d"
+    },
+    {
+      "sourcePath": "assets/games/repo/001.png",
+      "objectKey": "uu-album/games/repo/photos/001-45607fcb03.webp",
+      "bytes": 9960,
+      "sha256": "45607fcb03e90bdcac96c60b021f2e69f7b4196c65c355d10c95d8db776a4e57"
+    },
+    {
+      "sourcePath": "assets/repo-memory.png",
+      "objectKey": "uu-album/games/repo/covers/repo-memory-602753d31b.webp",
+      "bytes": 71790,
+      "sha256": "602753d31bdc995e98a5f2c08ac24a3aadd9162447bc0449a8964b8761d6b041"
+    },
+    {
+      "sourcePath": "assets/characters/chained.png",
+      "objectKey": "uu-album/games/chained/character-d54f5502d8.webp",
+      "bytes": 230136,
+      "sha256": "d54f5502d8f067abc167e202375a42b21163be9bed1dd694f3a8f61c27acbe89"
+    },
+    {
+      "sourcePath": "assets/games/chained/001.png",
+      "objectKey": "uu-album/games/chained/photos/001-265fb32de0.webp",
+      "bytes": 79244,
+      "sha256": "265fb32de01c0ede3dd8b5e4d74a181c0c33531c4091171c146e73fca474b5c4"
+    },
+    {
+      "sourcePath": "assets/steam/chained-1.jpg",
+      "objectKey": "uu-album/games/chained/covers/chained-1-05fdab6636.webp",
+      "bytes": 82314,
+      "sha256": "05fdab66362989cefe49176f3c4e49fcf3b02a08a185466605d1f49dfb21f7da"
+    },
+    {
+      "sourcePath": "assets/characters/chicken.png",
+      "objectKey": "uu-album/games/chicken/character-615df3ede4.webp",
+      "bytes": 163550,
+      "sha256": "615df3ede446e8b019e4ae492f557cc75e263850e482cf10dd6f5e742d4fb765"
+    },
+    {
+      "sourcePath": "assets/steam/chicken-1.jpg",
+      "objectKey": "uu-album/games/chicken/demo/chicken-1-fcbd4dadfc.webp",
+      "bytes": 65868,
+      "sha256": "fcbd4dadfc066446bc82e8ea6a5f3486c3d566ef91294fac73a408f49e1951b8"
+    },
+    {
+      "sourcePath": "assets/steam/chicken-2.jpg",
+      "objectKey": "uu-album/games/chicken/demo/chicken-2-df29f4fc0e.webp",
+      "bytes": 124714,
+      "sha256": "df29f4fc0e75aa2bdb26410a99fdc0ccc42c88344cc276cae55fa3449d53e6ad"
+    },
+    {
+      "sourcePath": "assets/steam/chicken-3.jpg",
+      "objectKey": "uu-album/games/chicken/demo/chicken-3-82418e7cc4.webp",
+      "bytes": 78784,
+      "sha256": "82418e7cc4a55ac2cc049696abf3fc9d0e27fa3a24fae6d6bf25e0e1d45c26af"
+    },
+    {
+      "sourcePath": "assets/l4d-character.png",
+      "objectKey": "uu-album/games/l4d/character-e3a37b08cd.webp",
+      "bytes": 218730,
+      "sha256": "e3a37b08cd9f8c280aeca339ea8f421478c1f41b2aaae760dbe057c839d4c853"
+    },
+    {
+      "sourcePath": "assets/games/l4d/001.png",
+      "objectKey": "uu-album/games/l4d/photos/001-b697c490bf.webp",
+      "bytes": 38460,
+      "sha256": "b697c490bfb2a23f5a0cff91ca897eb57ed3f107ba3da9c3c98b8b6ac55f7c92"
+    },
+    {
+      "sourcePath": "assets/l4d-memory.png",
+      "objectKey": "uu-album/games/l4d/covers/l4d-memory-50d4490c2a.webp",
+      "bytes": 181440,
+      "sha256": "50d4490c2ae8b49a60fc5f3886997ddb6f5427dcb385d7958368b5fb49aef038"
+    },
+    {
+      "sourcePath": "assets/characters/outlast.png",
+      "objectKey": "uu-album/games/outlast/character-ced84f4276.webp",
+      "bytes": 389298,
+      "sha256": "ced84f4276585f96f5507c47d281e0b27dd893a7a7f3f5f14b5ffaf867baf9b9"
+    },
+    {
+      "sourcePath": "assets/games/outlast/001.jpg",
+      "objectKey": "uu-album/games/outlast/photos/001-cc3b3bc6a9.webp",
+      "bytes": 161916,
+      "sha256": "cc3b3bc6a9deb39a21948eb3936739ab081f0db6bd9fee00e9e2d7bf3c5f82b1"
+    },
+    {
+      "sourcePath": "assets/games/outlast/002.jpg",
+      "objectKey": "uu-album/games/outlast/photos/002-77824cc286.webp",
+      "bytes": 163872,
+      "sha256": "77824cc2866c580b177813c422f3ebd5186c44a31d74e288b59dbc766558ef81"
+    },
+    {
+      "sourcePath": "assets/steam/outlast-1.jpg",
+      "objectKey": "uu-album/games/outlast/covers/outlast-1-b0a521a63f.webp",
+      "bytes": 130046,
+      "sha256": "b0a521a63f8ebf3e9b0274a3cc12304b784d926f249677cbe7c7a4584c45dc54"
+    },
+    {
+      "sourcePath": "assets/characters/split.png",
+      "objectKey": "uu-album/games/split/character-b3f000cfb3.webp",
+      "bytes": 230030,
+      "sha256": "b3f000cfb3c2bf1bb43c9a30ee6a063e29856ef3287f72482b8ce2af8783a7a5"
+    },
+    {
+      "sourcePath": "assets/games/split/001.png",
+      "objectKey": "uu-album/games/split/photos/001-d7f29c685a.webp",
+      "bytes": 93094,
+      "sha256": "d7f29c685a8e5f910807b890ba88d74a68c950477133cc3474bebde9b8cdec3b"
+    },
+    {
+      "sourcePath": "assets/games/split/002.png",
+      "objectKey": "uu-album/games/split/photos/002-be44355ab4.webp",
+      "bytes": 55194,
+      "sha256": "be44355ab44563f4feb963286e0b5a303a9e31aec802f50fc5c0d724e57f1153"
+    },
+    {
+      "sourcePath": "assets/games/split/003.png",
+      "objectKey": "uu-album/games/split/photos/003-8e9ce0bd8b.webp",
+      "bytes": 72836,
+      "sha256": "8e9ce0bd8b7ec8d83eb1a0e6180153e22ccb88236b14fffea338f450f8ec869f"
+    },
+    {
+      "sourcePath": "assets/games/split/004.png",
+      "objectKey": "uu-album/games/split/photos/004-effba95917.webp",
+      "bytes": 56882,
+      "sha256": "effba9591773e31a868fdf63cbe910cd86894e262c9e16cadc6d7a556a2335d1"
+    },
+    {
+      "sourcePath": "assets/games/split/005.png",
+      "objectKey": "uu-album/games/split/photos/005-17d0184c61.webp",
+      "bytes": 12238,
+      "sha256": "17d0184c61129b12ba34dcd3799a7043e7258e795f1c02a4c629643f60fa2c86"
+    },
+    {
+      "sourcePath": "assets/games/split/006.png",
+      "objectKey": "uu-album/games/split/photos/006-c3f1f6ef47.webp",
+      "bytes": 59578,
+      "sha256": "c3f1f6ef473bd857f44cab49adc11889d671cc9c5a8bd40397e03795bae60dab"
+    },
+    {
+      "sourcePath": "assets/steam/split-2.jpg",
+      "objectKey": "uu-album/games/split/covers/split-2-51d19bb1b7.webp",
+      "bytes": 232606,
+      "sha256": "51d19bb1b761949ce8e949b2ce0b7cba21f33064e303cccc401fbb09e84552c1"
+    },
+    {
+      "sourcePath": "assets/steam/split-1.jpg",
+      "objectKey": "uu-album/games/split/covers/split-1-69020ed8e1.webp",
+      "bytes": 215022,
+      "sha256": "69020ed8e1ad8889c3c7beae901c720cc983649b7177fe88a0a8dc52741c9278"
+    },
+    {
+      "sourcePath": "assets/characters/nomad.png",
+      "objectKey": "uu-album/games/nomad/character-f9d42a7eee.webp",
+      "bytes": 385838,
+      "sha256": "f9d42a7eeee33091831875a1bf152a7df2149294123225773e34c610c85c4f2e"
+    },
+    {
+      "sourcePath": "assets/games/nomad/001.png",
+      "objectKey": "uu-album/games/nomad/photos/001-13f796ca37.webp",
+      "bytes": 34528,
+      "sha256": "13f796ca37754a80bf8670f587b30c9a847d6ffe7bde527a4c698f63d83093bb"
+    },
+    {
+      "sourcePath": "assets/games/nomad/002.png",
+      "objectKey": "uu-album/games/nomad/photos/002-8ee4ed297f.webp",
+      "bytes": 100154,
+      "sha256": "8ee4ed297fb6dd0c9659cc3588ebb8fa6fee97c90c577690c95261ff41f8418c"
+    },
+    {
+      "sourcePath": "assets/games/nomad/003.png",
+      "objectKey": "uu-album/games/nomad/photos/003-4553f59e42.webp",
+      "bytes": 37778,
+      "sha256": "4553f59e4274387201e4bf92b93328a8b399ec4a3fae5971686a2c01212fb827"
+    },
+    {
+      "sourcePath": "assets/games/nomad/004.png",
+      "objectKey": "uu-album/games/nomad/photos/004-ecb53d245c.webp",
+      "bytes": 118484,
+      "sha256": "ecb53d245c75f729847004a63de7253885f2c84cf02970bdc59f15da4210c0ba"
+    },
+    {
+      "sourcePath": "assets/games/nomad/005.png",
+      "objectKey": "uu-album/games/nomad/photos/005-93cf801670.webp",
+      "bytes": 22584,
+      "sha256": "93cf801670ced26caafd5382a64b51742cf027926a4a860148d5288f3898fbef"
+    },
+    {
+      "sourcePath": "assets/steam/nomad-1.jpg",
+      "objectKey": "uu-album/games/nomad/covers/nomad-1-5ec48d7bdf.webp",
+      "bytes": 60984,
+      "sha256": "5ec48d7bdf8cd4b316dc1133095c5385964e4b7215fc97644222ef9cb3e10971"
+    },
+    {
+      "sourcePath": "assets/peak-background.png",
+      "objectKey": "uu-album/opening/peak-background-c42d21a167.webp",
+      "bytes": 77004,
+      "sha256": "c42d21a167a5c1003add6cf82a56533879d19dbb78aac7f45af97fab1a434760"
+    },
+    {
+      "sourcePath": "assets/l4d-background.png",
+      "objectKey": "uu-album/opening/l4d-background-c1e55c36be.webp",
+      "bytes": 192350,
+      "sha256": "c1e55c36be07080bebbc879c4d63cfc7c29af28bccb041ca734bc0698016bfbb"
+    },
+    {
+      "sourcePath": "assets/repo-background.png",
+      "objectKey": "uu-album/opening/repo-background-9eb7d64be5.webp",
+      "bytes": 111304,
+      "sha256": "9eb7d64be538672ee322881ab4d5c2ae7a7c4f5edd9fca428e4f4295434d041b"
+    },
+    {
+      "sourcePath": "assets/opening-reference.png",
+      "objectKey": "uu-album/opening/fallback-7da66d2eaf.webp",
+      "bytes": 19884,
+      "sha256": "7da66d2eaf0a28a051f4c1db43ec0aa73d29b056e5d2d5887566836a2c4c7063"
+    }
+  ]
+}

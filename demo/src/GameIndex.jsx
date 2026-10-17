@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { X } from '@phosphor-icons/react';
-import { asset } from './assets';
+import { asset, imageCrossOrigin } from './assets';
 import { useModalDialog } from './useModalDialog';
 import { formatPlayPeriod } from './playPeriod';
 export function GameIndex({
@@ -31,7 +31,7 @@ export function GameIndex({
         game,
         index
       }) => <button key={game.id} aria-current={selected === index} onClick={() => onSelect(index)}>
-        <img src={asset(game.character)} alt="" loading="lazy" />
+        <img crossOrigin={imageCrossOrigin(game.character)} src={asset(game.character)} alt="" loading="lazy" />
         <span>{game.title}<small>{game.platform} · {formatPlayPeriod(game.playPeriod)}</small></span>
       </button>)}</div>
     {!matches.length && <p className="empty-search">没有匹配的游戏</p>}

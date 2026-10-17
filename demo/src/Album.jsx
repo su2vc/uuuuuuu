@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { MemoryBoard, ImageViewer } from './MemoryBlocks';
-import { asset } from './assets';
+import { asset, imageCrossOrigin } from './assets';
 import { GameNavigation } from './GameNavigation';
 import { GameIndex } from './GameIndex';
 import { formatPlayPeriod } from './playPeriod';
@@ -47,7 +47,7 @@ export function Album({
     <svg width="0" height="0" aria-hidden="true" style={{
       position: 'absolute'
     }}><filter id="solid-alpha" colorInterpolationFilters="sRGB"><feComponentTransfer><feFuncA type="discrete" tableValues="0 0 0 1" /></feComponentTransfer></filter></svg>
-    <div className="avatars">{content.avatars.map((a, i) => <div className="avatar" key={i}><img src={asset(a.src)} alt={a.alt} /></div>)}</div>
+    <div className="avatars">{content.avatars.map((a, i) => <div className="avatar" key={i}><img crossOrigin={imageCrossOrigin(a.src)} src={asset(a.src)} alt={a.alt} /></div>)}</div>
     <GameNavigation games={games} selected={selected} onSelect={choose} onOpenIndex={openIndex} indexButton={indexButton} navigationControl={navigation} />
     <section ref={panel} id="memories" className="memories" role="tabpanel" aria-labelledby={`tab-${game.id}`} tabIndex="-1">
       <div key={game.id} className="memory-content">

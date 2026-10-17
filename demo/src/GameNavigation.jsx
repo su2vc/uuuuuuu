@@ -1,6 +1,6 @@
 import { useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { List } from '@phosphor-icons/react';
-import { asset } from './assets';
+import { asset, imageCrossOrigin } from './assets';
 import { wheelDelta } from './wheelGesture';
 import { createTimelineMotion } from './timelineMotion';
 import { formatPlayPeriod } from './playPeriod';
@@ -136,7 +136,7 @@ export function GameNavigation({
               <span className="character-silhouette" aria-hidden="true" style={{
                 maskImage: `url("${asset(g.character)}")`
               }} />
-              <span className="character-outline"><span className="character-inner"><img src={asset(g.character)} alt="" draggable="false" decoding="async" /></span></span>
+              <span className="character-outline"><span className="character-inner"><img crossOrigin={imageCrossOrigin(g.character)} src={asset(g.character)} alt="" draggable="false" decoding="async" /></span></span>
             </span>
           </button>;
         })}

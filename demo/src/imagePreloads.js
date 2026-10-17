@@ -30,10 +30,13 @@ export async function preloadImageGroups(groups, resolve, ImageClass = Image) {
         const path = paths[next++];
         await new Promise(done => {
           const image = new ImageClass();
+          const url = resolve(path);
+          // Uploaded images allow anonymous CORS; masks and WebGL textures use the same mode.
+          if (/^https:\/\//.test(url)) image.crossOrigin = 'anonymous';
           image.decoding = 'async';
           image.fetchPriority = groupIndex === 0 ? 'high' : 'low';
           image.onload = image.onerror = done;
-          image.src = resolve(path);
+          image.src = url;
         });
       }
     };

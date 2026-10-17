@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ArrowRight } from '@phosphor-icons/react';
 import { BirthdayCelebration } from './BirthdayCelebration';
 import { createOpeningScene } from './openingScene';
-import { asset } from './assets';
+import { asset, imageCrossOrigin } from './assets';
 export function Opening({
   onComplete,
   onReveal,
@@ -63,5 +63,5 @@ export function Opening({
   }} onPointerLeave={() => {
     motion.current.x = 0;
     motion.current.y = 0;
-  }}><h1 className="brand-u">U</h1><div className="opening-scene" ref={mount} role="img" aria-label="淡紫色立体纪念盒，内有回忆照片" onPointerEnter={() => motion.current.hover = true} onPointerLeave={() => motion.current.hover = false} />{fallback && <img className="opening-fallback" src={asset('assets/opening-reference.png')} alt="淡紫色纪念盒" />}<button className="opening-enter" aria-label="打开纪念盒" onClick={open} disabled={phase !== 'idle' || celebrating} onFocus={() => motion.current.hover = true} onBlur={() => motion.current.hover = false} onPointerEnter={() => motion.current.hover = true} onPointerLeave={() => motion.current.hover = false}><ArrowRight size={27} weight="bold" aria-hidden="true" /></button>{celebrating && <BirthdayCelebration onComplete={finishBirthday} />}</section>;
+  }}><h1 className="brand-u">U</h1><div className="opening-scene" ref={mount} role="img" aria-label="淡紫色立体纪念盒，内有回忆照片" onPointerEnter={() => motion.current.hover = true} onPointerLeave={() => motion.current.hover = false} />{fallback && <img className="opening-fallback" crossOrigin={imageCrossOrigin('assets/opening-reference.png')} src={asset('assets/opening-reference.png')} alt="淡紫色纪念盒" />}<button className="opening-enter" aria-label="打开纪念盒" onClick={open} disabled={phase !== 'idle' || celebrating} onFocus={() => motion.current.hover = true} onBlur={() => motion.current.hover = false} onPointerEnter={() => motion.current.hover = true} onPointerLeave={() => motion.current.hover = false}><ArrowRight size={27} weight="bold" aria-hidden="true" /></button>{celebrating && <BirthdayCelebration onComplete={finishBirthday} />}</section>;
 }

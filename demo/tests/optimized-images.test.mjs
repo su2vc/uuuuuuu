@@ -17,14 +17,20 @@ test('production emits hashed WebP images with transparent masks and relative de
       .png({ compressionLevel: 0 }).toBuffer();
     await writeFile(path.join(assets, 'character.png'), character);
     await writeFile(path.join(assets, 'avatar-birthday.png'), character);
+    await writeFile(path.join(assets, 'uploaded.png'), character);
     await writeFile(path.join(root, 'index.html'), '<script type="module" src="./main.js"></script>');
     await writeFile(path.join(root, 'main.js'), 'import images from "virtual:optimized-images"; window.images = images;');
     const result = await build({
-      root, configFile: false, base: './', logLevel: 'silent', plugins: [optimizedImages()],
+      root, configFile: false, base: './', logLevel: 'silent', plugins: [optimizedImages({
+        remoteImages: { 'assets/uploaded.png': 'https://example.oss-cn-hongkong.aliyuncs.com/uu-album/uploaded.webp' },
+      })],
       build: { write: false, minify: false },
     });
     const images = result.output.filter(file => file.type === 'asset' && file.fileName.endsWith('.webp'));
     assert.equal(images.length, 2);
+    const code = result.output.find(file => file.type === 'chunk').code;
+    assert.ok(code.includes('https://example.oss-cn-hongkong.aliyuncs.com/uu-album/uploaded.webp'));
+    assert.ok(!images.some(file => file.fileName.includes('uploaded')));
     for (const image of images) {
       assert.match(image.fileName, /^assets\/optimized-.+-[\w-]+\.webp$/);
       const metadata = await sharp(image.source).metadata();

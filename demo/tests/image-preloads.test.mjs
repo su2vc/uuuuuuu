@@ -23,6 +23,17 @@ test('warms first-screen pictures before navigation, deduplicates paths and excl
   assert.ok(!groups.flat().some(path => /\.mp4$|later\.jpg/.test(path)));
 });
 
+test('sets anonymous CORS before starting an uploaded image request', async () => {
+  class TestImage {
+    set src(url) {
+      assert.equal(url, 'https://bucket.oss-cn-hongkong.aliyuncs.com/uu-album/photo.webp');
+      assert.equal(this.crossOrigin, 'anonymous');
+      this.onload();
+    }
+  }
+  await preloadImageGroups([['photo']], () => 'https://bucket.oss-cn-hongkong.aliyuncs.com/uu-album/photo.webp', TestImage);
+});
+
 test('limits image concurrency, finishes priority images first, and continues after a failed image', async () => {
   const events = [];
   let active = 0;
