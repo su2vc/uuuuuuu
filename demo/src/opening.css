@@ -105,14 +105,15 @@
   right: 22px;
   bottom: 18px;
   z-index: 9;
-  padding: 9px 13px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
   background: #faf9f6e8;
   color: #454051;
   border: 1px solid #bcb3ca;
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 12px;
+  justify-content: center;
 }
 
 .opening-fallback {

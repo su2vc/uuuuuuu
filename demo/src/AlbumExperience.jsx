@@ -36,6 +36,6 @@ export default function AlbumExperience({
         {error ? <div><p>内容加载失败</p><p>{error.message}</p><button onClick={() => setAttempt(value => value + 1)}>重试</button></div> : '…'}
       </div>}
     </div>
-    {!entered ? <Opening celebrate={birthday} onComplete={() => setPhase('entered')} onReveal={() => setPhase('revealed')} /> : <button className="opening-replay" onClick={onReplay}><ArrowClockwise size={16} />重播开屏</button>}
+    {!entered ? <Opening celebrate={birthday} onComplete={() => setPhase('entered')} onReveal={() => setPhase('revealed')} /> : <button className="opening-replay" aria-label="重播开屏" onClick={onReplay}><ArrowClockwise size={18} aria-hidden="true" /></button>}
   </>;
 }

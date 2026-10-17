@@ -46,7 +46,7 @@ export function BirthdayCelebration({
     <div className="birthday-message">
       <span className="birthday-date">10.20</span>
       <span className="birthday-popper" aria-hidden="true">🎉</span>
-      <h2 id="birthday-title">生日快乐uu</h2>
+      <h2 id="birthday-title">生日快乐</h2>
     </div>
   </div>;
 }

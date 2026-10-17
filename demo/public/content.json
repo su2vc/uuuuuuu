@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "demoMode": true,
+  "demoMode": false,
   "avatars": [
     {
       "src": "assets/avatar-birthday.png",
