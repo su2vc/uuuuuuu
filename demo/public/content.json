@@ -21,7 +21,7 @@
       "paper": "#ede9f3",
       "ink": "#7e6c96",
       "character": "assets/peak-character.png",
-      "layout": "trail",
+      "layout": "auto",
       "memories": [
         {
           "id": "peak-photos",
@@ -52,15 +52,6 @@
             "最后一段路没说几句话，光顾着看脚下。",
             "截图的时候终于都站稳了。"
           ]
-        },
-        {
-          "id": "peak-video",
-          "type": "video",
-          "title": "差一点就上去了",
-          "poster": "assets/peak-memory.png",
-          "src": "",
-          "previewSeconds": 28,
-          "description": "这段回忆先留在这里，之后换成我们自己的视频。"
         }
       ]
     },
@@ -956,10 +947,10 @@
       "title": "Nomad Drive",
       "englishTitle": "Nomad Drive",
       "playPeriod": {
-        "start": "2026-10-12",
-        "end": "2026-10-12"
+        "start": "2026-08-31",
+        "end": "2026-09-06"
       },
-      "hours": 6,
+      "hours": 7,
       "platform": "Steam",
       "paper": "#efe8dd",
       "ink": "#a0845b",

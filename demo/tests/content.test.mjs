@@ -125,7 +125,7 @@ for (const [name, mutate, message] of [
   ['字符串时长', c => c.games[0].hours = '12.5', /hours：/],
   ['缺失游玩周期', c => delete c.games[0].playPeriod, /playPeriod：/],
   ['错误演示开关', c => c.demoMode = 'false', /demoMode：/],
-  ['零预览时长', c => c.games[0].memories.find(m => m.type === 'video').previewSeconds = 0, /previewSeconds：/],
+  ['零预览时长', c => c.games.flatMap(game => game.memories).find(m => m.type === 'video').previewSeconds = 0, /previewSeconds：/],
   ['倒置游玩周期', c => c.games[0].playPeriod.end = '2026-01-01', /结束日期不能早于开始日期/],
   ['不支持的数据版本', c => c.schemaVersion = 999, /schemaVersion：/],
 ]) {
