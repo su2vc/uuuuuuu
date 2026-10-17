@@ -66,11 +66,11 @@ export function validateContent(content) {
       const item = `${path}.memories[${j}]`;
       object(memory, item);
       uniqueId(memory.id, `${item}.id`, memoryIds);
+      requireValue(types.has(memory.type), `${item}.type`, '不支持的回忆类型');
       if (memory.type === 'gallery') {
         if (memory.title !== undefined) requireValue(typeof memory.title === 'string', `${item}.title`, '应为文字');
       } else text(memory.title, `${item}.title`);
       if (memory.date !== undefined) date(memory.date, `${item}.date`);
-      requireValue(types.has(memory.type), `${item}.type`, '不支持的回忆类型');
       if (memory.type === 'gallery') {
         array(memory.images, `${item}.images`, true);
         memory.images.forEach((image, k) => {

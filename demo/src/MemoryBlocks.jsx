@@ -80,8 +80,9 @@ export function PhotoMemory({
       {items.map((item, i) => {
         const depth = (i - index + items.length) % items.length;
         return <button key={item.src + i} className={`photo-print ${depth === 0 ? 'front' : ''} ${item.caption ? '' : 'without-caption'}`} style={{
-          '--depth': depth,
-          zIndex: items.length - depth
+          '--depth': Math.min(depth, 2),
+          zIndex: items.length - depth,
+          visibility: depth > 2 ? 'hidden' : undefined
         }} tabIndex={depth === 0 ? 0 : -1} aria-hidden={depth !== 0} onClick={() => onExpand(items, i)} aria-label={item.caption ? `放大照片：${item.caption}` : `放大照片 ${i + 1}`}><img src={asset(item.src)} alt={item.caption} loading="lazy" />{item.caption && <span>{item.caption}</span>}</button>;
       })}
     </div>

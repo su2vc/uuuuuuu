@@ -26,20 +26,19 @@
         {
           "id": "peak-photos",
           "type": "gallery",
-          "title": "山顶的风",
           "presentation": "stack",
           "images": [
             {
-              "src": "assets/peak-memory.png",
-              "caption": "山顶的风"
+              "src": "assets/games/peak/001.png"
             },
             {
-              "src": "assets/peak-background.png",
-              "caption": "换个角度"
+              "src": "assets/games/peak/002.png"
             },
             {
-              "src": "assets/peak-background.png",
-              "caption": "散场之前"
+              "src": "assets/games/peak/003.png"
+            },
+            {
+              "src": "assets/games/peak/004.png"
             }
           ]
         },
@@ -83,20 +82,19 @@
         {
           "id": "bigwalk-photos",
           "type": "gallery",
-          "title": "散步，没有目的地",
           "presentation": "stack",
           "images": [
             {
-              "src": "assets/steam/bigwalk-1.jpg",
-              "caption": "散步，没有目的地"
+              "src": "assets/games/bigwalk/001.png"
             },
             {
-              "src": "assets/steam/bigwalk-2.jpg",
-              "caption": "换个角度"
+              "src": "assets/games/bigwalk/002.png"
             },
             {
-              "src": "assets/steam/bigwalk-3.jpg",
-              "caption": "散场之前"
+              "src": "assets/games/bigwalk/003.png"
+            },
+            {
+              "src": "assets/games/bigwalk/004.png"
             }
           ]
         },
@@ -140,20 +138,10 @@
         {
           "id": "chained-photos",
           "type": "gallery",
-          "title": "上升与下降",
           "presentation": "strip",
           "images": [
             {
-              "src": "assets/steam/chained-1.jpg",
-              "caption": "上升与下降"
-            },
-            {
-              "src": "assets/steam/chained-2.jpg",
-              "caption": "换个角度"
-            },
-            {
-              "src": "assets/steam/chained-3.jpg",
-              "caption": "散场之前"
+              "src": "assets/games/chained/001.png"
             }
           ]
         },
@@ -197,20 +185,25 @@
         {
           "id": "fishing-photos",
           "type": "gallery",
-          "title": "水边的几张照片",
           "presentation": "stack",
           "images": [
             {
-              "src": "assets/steam/fishing-1.jpg",
-              "caption": "水边的几张照片"
+              "src": "assets/games/fishing/001.png"
             },
             {
-              "src": "assets/steam/fishing-2.jpg",
-              "caption": "换个角度"
+              "src": "assets/games/fishing/002.png"
             },
             {
-              "src": "assets/steam/fishing-3.jpg",
-              "caption": "散场之前"
+              "src": "assets/games/fishing/003.png"
+            },
+            {
+              "src": "assets/games/fishing/004.png"
+            },
+            {
+              "src": "assets/games/fishing/005.png"
+            },
+            {
+              "src": "assets/games/fishing/006.png"
             }
           ]
         },
@@ -274,20 +267,10 @@
         {
           "id": "l4d-photos",
           "type": "gallery",
-          "title": "安全屋外",
           "presentation": "contact",
           "images": [
             {
-              "src": "assets/l4d-memory.png",
-              "caption": "安全屋外"
-            },
-            {
-              "src": "assets/l4d-detail.png",
-              "caption": "换个角度"
-            },
-            {
-              "src": "assets/l4d-background.png",
-              "caption": "散场之前"
+              "src": "assets/games/l4d/001.png"
             }
           ]
         }
@@ -386,20 +369,25 @@
         {
           "id": "split-photos",
           "type": "gallery",
-          "title": "两边的风景",
           "presentation": "stack",
           "images": [
             {
-              "src": "assets/steam/split-1.jpg",
-              "caption": "两边的风景"
+              "src": "assets/games/split/001.png"
             },
             {
-              "src": "assets/steam/split-2.jpg",
-              "caption": "换个角度"
+              "src": "assets/games/split/002.png"
             },
             {
-              "src": "assets/steam/split-3.jpg",
-              "caption": "散场之前"
+              "src": "assets/games/split/003.png"
+            },
+            {
+              "src": "assets/games/split/004.png"
+            },
+            {
+              "src": "assets/games/split/005.png"
+            },
+            {
+              "src": "assets/games/split/006.png"
             }
           ]
         },
@@ -434,20 +422,10 @@
         {
           "id": "chameleon-photos",
           "type": "gallery",
-          "title": "藏得很明显",
           "presentation": "stack",
           "images": [
             {
-              "src": "assets/steam/chameleon-1.jpg",
-              "caption": "藏得很明显"
-            },
-            {
-              "src": "assets/steam/chameleon-2.jpg",
-              "caption": "换个角度"
-            },
-            {
-              "src": "assets/steam/chameleon-3.jpg",
-              "caption": "散场之前"
+              "src": "assets/games/chameleon/001.png"
             }
           ]
         },
@@ -620,13 +598,23 @@
         {
           "id": "nomad-photos",
           "type": "gallery",
-          "title": "沿途停了几次",
           "date": "2026-10-12",
           "presentation": "strip",
           "images": [
             {
-              "src": "assets/steam/nomad-1.jpg",
-              "caption": "沿途停了几次"
+              "src": "assets/games/nomad/001.png"
+            },
+            {
+              "src": "assets/games/nomad/002.png"
+            },
+            {
+              "src": "assets/games/nomad/003.png"
+            },
+            {
+              "src": "assets/games/nomad/004.png"
+            },
+            {
+              "src": "assets/games/nomad/005.png"
             }
           ]
         },

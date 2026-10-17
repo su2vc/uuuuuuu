@@ -56,7 +56,7 @@ export function Album({
           images,
           index
         })} />
-        {content.demoMode && <footer>周期与时长以各游戏已录入记录为准<br />回忆文字和宣传图片仍为演示内容</footer>}
+        {content.demoMode && <footer>周期与时长以各游戏已录入记录为准<br />回忆文字和部分宣传素材仍为演示内容</footer>}
       </div>
     </section>
     {viewer && <ImageViewer value={viewer} onClose={() => setViewer(null)} />}

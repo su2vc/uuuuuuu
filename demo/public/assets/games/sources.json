@@ -1,0 +1,175 @@
+{
+  "source": "picture.zip",
+  "images": [
+    {
+      "original": "083970C9E9C68D18B8BF45F655C6D89B.png",
+      "sha256": "03ba9758df920b0a9d97a88694e91c761663b440f968abc4efc376421169b9b6",
+      "game": "peak",
+      "path": "assets/games/peak/001.png"
+    },
+    {
+      "original": "099f09899c26ce95f10dcb38854b0189_0.png",
+      "sha256": "61159376ef4947068296ef6f2a4cf026cbb6789047db796c76545c8519fbc422",
+      "game": "peak",
+      "path": "assets/games/peak/002.png"
+    },
+    {
+      "original": "70eda044ef7277e054af76c9548addc3.png",
+      "sha256": "55cb74f005ea518f45f9e88d56d3061656ac6870c0d9132dcb972d1529de2177",
+      "game": "peak",
+      "path": "assets/games/peak/003.png"
+    },
+    {
+      "original": "fbf8c5bf39c5a2620a2cbfb029eed427.png",
+      "sha256": "77581340bee31134a529e94106bc4593cf1185f5af37195f19eca8abd9d3d0d3",
+      "game": "peak",
+      "path": "assets/games/peak/004.png"
+    },
+    {
+      "original": "08976679efa01308afee5f5d21a74215.png",
+      "sha256": "19a1f55821ef9ba2efaf2f2ec1b781dd122d9b58684c514da2724387afd90a36",
+      "game": "split",
+      "path": "assets/games/split/001.png"
+    },
+    {
+      "original": "120ac651b03a88c5646541fa11dd6cbf_0.png",
+      "sha256": "394bb18ae524aaf81ebfb1e9d8a14727ab9d136c53ca4b7d4e7e27e54d881420",
+      "game": "split",
+      "path": "assets/games/split/002.png"
+    },
+    {
+      "original": "2bb7de7ffe53ff0f38917bce25257046_0.png",
+      "sha256": "351002323cc977f9a1a1d75e594f30da3944411a0c2c34f3dd2ad24c27bf3bad",
+      "game": "split",
+      "path": "assets/games/split/003.png"
+    },
+    {
+      "original": "3e151d2329ce3118576df51299304f5b.png",
+      "sha256": "1f32c7214a194bb3e79890314504d81d52f49e419b622901c495b40e1fcf30e0",
+      "game": "split",
+      "path": "assets/games/split/004.png"
+    },
+    {
+      "original": "746230d297ffa0e9162654e3db8eaad4.png",
+      "sha256": "caf2faeef6148d8bd16802a971eacfc9f431cfe9318bd030e5f74551163cac6b",
+      "game": "split",
+      "path": "assets/games/split/005.png"
+    },
+    {
+      "original": "cd57db84946b27f52500d5e8497af828.png",
+      "sha256": "72955280f0857089548607cb4e7af90e83d7c7d7663d1c68722699cb5fcf06e5",
+      "game": "split",
+      "path": "assets/games/split/006.png"
+    },
+    {
+      "original": "14b318a665606a9a0313b71dfd1bfaf4_0.png",
+      "sha256": "ff6949c884c82eeb48c82c459fe12f8a30c5864f794eb550bfde374b23f0682d",
+      "game": "nomad",
+      "path": "assets/games/nomad/001.png"
+    },
+    {
+      "original": "617c521558e24cd2fdde6bcffad6f0ba.png",
+      "sha256": "eb681e8660927845c71d0d629081812717144c3dae0417ed0705a134b8b71403",
+      "game": "nomad",
+      "path": "assets/games/nomad/002.png"
+    },
+    {
+      "original": "87afb01adf301ce74ce23cc332e57ca5_0.png",
+      "sha256": "5e4aee49801ad4f29ebf5890dc572973a2742682746f502da8e19d017babed80",
+      "game": "nomad",
+      "path": "assets/games/nomad/003.png"
+    },
+    {
+      "original": "be3b681c3a46908c0ea657c6d4d810c2.png",
+      "sha256": "49aa307e8a3a1937cb611356c414d4c553b3cd45ee6bbd8a9ff424adf6c2b2e2",
+      "game": "nomad",
+      "path": "assets/games/nomad/004.png"
+    },
+    {
+      "original": "f4b715ba889d80c7672d9a6c700eea28_0.png",
+      "sha256": "5ff07797f4c506ba0915946fafd25cbc02234775f6b864094c4b60ba6558b284",
+      "game": "nomad",
+      "path": "assets/games/nomad/005.png"
+    },
+    {
+      "original": "1866e8eaac130fc536c97447dcfce5cd_0.png",
+      "sha256": "3ea9bd840c34cb635cfb46ee6db6ea39b24a648b7aea646c3f8e77d824c1ab17",
+      "game": "bigwalk",
+      "path": "assets/games/bigwalk/001.png"
+    },
+    {
+      "original": "6ee3a9dcbf8a7d8fdb8bd76f4550580f_0.png",
+      "sha256": "1ad0cdf751d92657341ce647c1770df1071076252ef93bb01db73f48ec3f9515",
+      "game": "bigwalk",
+      "path": "assets/games/bigwalk/002.png"
+    },
+    {
+      "original": "7AE291624DFC232B5851316055875C7C.png",
+      "sha256": "f0ac7292ef5d8a409e2a23d6186024a8657770235606d6526fa9ee39a2e5fb85",
+      "game": "bigwalk",
+      "path": "assets/games/bigwalk/003.png"
+    },
+    {
+      "original": "8f96069949bfceca4f6a483a6d928a9b_0.png",
+      "sha256": "b023740369afa5ffebbfbd85ce1504abf8d5ca33484b041e79b45538148fdae1",
+      "game": "bigwalk",
+      "path": "assets/games/bigwalk/004.png"
+    },
+    {
+      "original": "22c6a91c67c205d5ebec0ff5adb318cf_0.png",
+      "sha256": "7aac55e3fac3ca774d993dfa52575c8fc180ce9e56ba69119ef0cd5197d14a8d",
+      "game": "fishing",
+      "path": "assets/games/fishing/001.png"
+    },
+    {
+      "original": "9e4049f24fb44db5f8dbe8ae646fd17b_0.png",
+      "sha256": "1d34c3438c7c5e04b3c5d1bc2c6e4d8413d556b96bfb02085edaca7398ce053a",
+      "game": "fishing",
+      "path": "assets/games/fishing/002.png"
+    },
+    {
+      "original": "d5bcb420d75ff1fb15075bb0b82a7f91_0.png",
+      "sha256": "039dde8f949e71fe774da9e089bfba5165b6f4708ff1af61946da61eefb23a86",
+      "game": "fishing",
+      "path": "assets/games/fishing/003.png"
+    },
+    {
+      "original": "D993304B6F2077D521BABE9F90FC08BC.png",
+      "sha256": "847e37c158c146437964cb436c9170a757410f456799919881a278dcc4ddc583",
+      "game": "fishing",
+      "path": "assets/games/fishing/004.png"
+    },
+    {
+      "original": "dc682518144371bb1d02c818ac41a80f_0.png",
+      "sha256": "7d352cd6517f9d2e5e768258c22bee7e1a7c39838c8f2ae5d57396494ca50462",
+      "game": "fishing",
+      "path": "assets/games/fishing/005.png"
+    },
+    {
+      "original": "F043EA3C485B3C18F6DDBC177F11AAC7.png",
+      "sha256": "1653bf3fdc18afa90d201cbf614a3714dfcad71e0f605c1cd97dbfc33c4d94e9",
+      "game": "fishing",
+      "path": "assets/games/fishing/006.png"
+    },
+    {
+      "original": "84eb0ea255923a040ff18b0a92a65ad5_0.png",
+      "sha256": "86ac37ce393a63ac606febeab98e1469326255c900c53ce139db6d58e82d500a",
+      "game": "chained",
+      "path": "assets/games/chained/001.png"
+    },
+    {
+      "original": "ef08334832c2decc479a84ba7c0b70df.png",
+      "sha256": "981014185598f3fcab5a2c00edc023e455a55d4907fd3c6cd63df1da1b98e0fa",
+      "game": "l4d",
+      "path": "assets/games/l4d/001.png"
+    },
+    {
+      "original": "41368bb12cf24897fc0834c8c2efefba.png",
+      "sha256": "49f6990c7ccff988902f76c79e6445b8cfec7cd3e12500e6177697d807c3f2a9",
+      "game": "chameleon",
+      "path": "assets/games/chameleon/001.png",
+      "confirmedByUser": true
+    }
+  ],
+  "unclassified": []
+}
