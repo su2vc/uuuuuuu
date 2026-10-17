@@ -89,7 +89,7 @@
   position: relative;
   aspect-ratio: 1.26;
   /* Leave room for the rear cards' upward offset and rotation above the deck. */
-  margin: calc(28px + 3.5%) 10px 20px;
+  margin: calc(14px + 1.75%) 10px 14px;
   perspective: 1000px;
   touch-action: pan-y;
 }
@@ -103,7 +103,7 @@
   background: #fffdf8;
   border: 1px solid #bcb4c7;
   box-shadow: 3px 4px 0 #50426112;
-  transform: translate(calc(var(--depth)*7px),calc(var(--depth)*-7px)) rotate(calc(var(--depth)*3deg - 2deg));
+  transform: translate(calc(var(--depth)*7px),calc(var(--depth)*-3px)) rotate(calc(var(--depth)*1.5deg - 1deg));
   transition: transform .55s cubic-bezier(.2,.7,.2,1),opacity .3s;
   pointer-events: none;
 }
@@ -764,7 +764,7 @@ button:disabled {
   .memory-board {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 16px;
     padding-right: 6px;
   }
   .memory-board>.memory-slot {
