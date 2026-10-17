@@ -100,8 +100,9 @@
     {
       "original": "6ee3a9dcbf8a7d8fdb8bd76f4550580f_0.png",
       "sha256": "1ad0cdf751d92657341ce647c1770df1071076252ef93bb01db73f48ec3f9515",
-      "game": "bigwalk",
-      "path": "assets/games/bigwalk/002.png"
+      "game": "repo",
+      "path": "assets/games/repo/001.png",
+      "confirmedByUser": true
     },
     {
       "original": "7AE291624DFC232B5851316055875C7C.png",
@@ -168,6 +169,22 @@
       "sha256": "49f6990c7ccff988902f76c79e6445b8cfec7cd3e12500e6177697d807c3f2a9",
       "game": "chameleon",
       "path": "assets/games/chameleon/001.png",
+      "confirmedByUser": true
+    },
+    {
+      "original": "b8d4cbaa376860a3d4d5c65d8bb4db1a1220e08489d1a73ed0ba0e6f0b37c639.jpg",
+      "source": "conversation-attachment",
+      "sha256": "b8d4cbaa376860a3d4d5c65d8bb4db1a1220e08489d1a73ed0ba0e6f0b37c639",
+      "game": "outlast",
+      "path": "assets/games/outlast/001.jpg",
+      "confirmedByUser": true
+    },
+    {
+      "original": "bf4767d8748aa0b2577f921838e9f6f33b19392c631d9fc8f63c2c7604e4623c.jpg",
+      "source": "conversation-attachment",
+      "sha256": "bf4767d8748aa0b2577f921838e9f6f33b19392c631d9fc8f63c2c7604e4623c",
+      "game": "outlast",
+      "path": "assets/games/outlast/002.jpg",
       "confirmedByUser": true
     }
   ],

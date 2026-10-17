@@ -88,9 +88,6 @@
               "src": "assets/games/bigwalk/001.png"
             },
             {
-              "src": "assets/games/bigwalk/002.png"
-            },
-            {
               "src": "assets/games/bigwalk/003.png"
             },
             {
@@ -314,20 +311,13 @@
         {
           "id": "outlast-photos",
           "type": "gallery",
-          "title": "灯亮之前",
           "presentation": "contact",
           "images": [
             {
-              "src": "assets/steam/outlast-1.jpg",
-              "caption": "灯亮之前"
+              "src": "assets/games/outlast/001.jpg"
             },
             {
-              "src": "assets/steam/outlast-2.jpg",
-              "caption": "换个角度"
-            },
-            {
-              "src": "assets/steam/outlast-3.jpg",
-              "caption": "散场之前"
+              "src": "assets/games/outlast/002.jpg"
             }
           ]
         }
@@ -535,20 +525,10 @@
         {
           "id": "repo-photos",
           "type": "gallery",
-          "title": "搬运现场",
           "presentation": "contact",
           "images": [
             {
-              "src": "assets/repo-memory.png",
-              "caption": "搬运现场"
-            },
-            {
-              "src": "assets/repo-background.png",
-              "caption": "换个角度"
-            },
-            {
-              "src": "assets/repo-background.png",
-              "caption": "散场之前"
+              "src": "assets/games/repo/001.png"
             }
           ]
         },

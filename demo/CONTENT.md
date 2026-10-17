@@ -94,20 +94,22 @@ R.E.P.O 包含两段视频和两段文字，用于演示自动编排；双影奇
 
 ## 用户截图（2026-10-17）
 
-已将 `picture.zip` 的 28 张截图按游戏接入 `public/assets/games/`，替换对应图片组的演示图。图片组标题与说明均省略；原文件保持不变，构建时生成压缩版。原始文件名、SHA-256 和新路径记录在 `public/assets/games/sources.json`，仓库黑白方块截图已由用户确认属于超级变色龙。日期未从文件顺序或文件时间推断。
+已将 `picture.zip` 的 28 张截图及后续补充的 2 张逃生：试炼截图接入 `public/assets/games/`，共 30 张，替换对应图片组的演示图。图片组标题与说明均省略；原文件保持不变，构建时生成压缩版。原始文件名、SHA-256 和新路径记录在 `public/assets/games/sources.json`，仓库黑白方块截图已由用户确认属于超级变色龙；`6ee3a9…` 已按用户纠正从 Big Walk 移至 R.E.P.O.。日期未从文件顺序或文件时间推断。
 
 | 游戏 | 目录 | 数量 |
 | --- | --- | ---: |
 | PEAK | `peak/` | 4 |
-| Big Walk 大步走 | `bigwalk/` | 4 |
+| Big Walk 大步走 | `bigwalk/` | 3 |
 | 链在一起 | `chained/` | 1 |
 | 渔力全开 | `fishing/` | 6 |
 | 求生之路 | `l4d/` | 1 |
 | 双影奇境 | `split/` | 6 |
 | 超级变色龙 | `chameleon/` | 1 |
 | Nomad Drive | `nomad/` | 5 |
+| R.E.P.O. | `repo/` | 1 |
+| 逃生：试炼 | `outlast/` | 2 |
 
-R.E.P.O、逃生：试炼、超级鸡马未提供新截图，保留原配置。文字与视频内容尚未替换，因此继续保留 `demoMode: true`。
+超级鸡马未提供新截图，保留原配置。文字与视频内容尚未替换，因此继续保留 `demoMode: true`。
 
 ## 可选样式
 
