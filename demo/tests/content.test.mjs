@@ -55,6 +55,23 @@ test('普通与特别视频可只填视频地址，缺少视频和封面则拒�
   assert.throws(() => prepareContent(content), /视频地址与封面至少填写一项/);
 });
 
+test('图片组与每张图都可省略文字，空白文字归一为空且仍校验字段类型', () => {
+  const content = fixture();
+  content.games[0].memories = [{ id: 'screenshots', type: 'gallery', images: [{ src: 'assets/photo.jpg' }] }];
+  const prepareGallery = () => prepareContent(content).games.find(game => game.id === content.games[0].id).memories[0];
+  assert.equal(prepareGallery().title, '');
+  assert.equal(prepareGallery().images[0].caption, '');
+  content.games[0].memories[0].title = '  ';
+  content.games[0].memories[0].images[0].caption = '  ';
+  assert.equal(prepareGallery().title, '');
+  assert.equal(prepareGallery().images[0].caption, '');
+  content.games[0].memories[0].title = 123;
+  assert.throws(prepareGallery, /title：应为文字/);
+  content.games[0].memories[0].title = '';
+  content.games[0].memories[0].images[0].caption = {};
+  assert.throws(prepareGallery, /caption：应为文字/);
+});
+
 test('布局适配同类回忆增减与重新排序；特别视频保留独立类型', () => {
   const games = fixture().games;
   for (const game of games.filter(g => g.id !== 'repo')) {

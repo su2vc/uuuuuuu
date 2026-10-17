@@ -67,16 +67,26 @@
 
 ## 回忆类型
 
-每条回忆都要有 `id`、`type`、`title`。`id` 在同一个游戏内不能重复，仅使用字母、数字、短横线、下划线；复制回忆时记得改 `id`。
+每条回忆都要有 `id`、`type`；图片组 `gallery` 的 `title` 可省略或填空字符串，其他类型仍需 `title`。`id` 在同一个游戏内不能重复，仅使用字母、数字、短横线、下划线；复制回忆时记得改 `id`。
 
 | `type` | 内容字段 | 展示与交互 |
 | --- | --- | --- |
 | `video` | `src` 与 `poster` 至少填写一项；可选 `description`、`previewSeconds` | 原生视频播放器；有视频无封面时由浏览器显示视频画面，没有视频地址时显示动态封面占位 |
 | `featuredVideo` | 与 `video` 相同 | 宽幅特别剪辑卡片；双影奇境已有 `split-special` 槽位 |
-| `gallery` | 必填非空 `images` 数组，每张必填 `src`、可选 `caption` | 一张图也支持；多张可翻页、滑动、点击放大 |
+| `gallery` | 必填非空 `images` 数组，每张只需 `src`；组标题 `title`、图片说明 `caption` 均可省略 | 无文字时不留标题或说明空位；一张图也支持，多张可翻页、滑动、点击放大 |
 | `text` | 必填 `excerpt`；可选 `paragraphs` 字符串数组 | 摘要常驻；有补充段落才显示展开按钮 |
 
 `previewSeconds` 只控制 mock 封面动画，不决定真实视频时长。真实视频由播放器读取媒体信息。图片和视频描述按普通文本展示，换段使用 `paragraphs`；不解析 HTML 或 Markdown。
+
+不需要图片标题或说明时，最简配置为：
+
+```json
+{
+  "id": "screenshots",
+  "type": "gallery",
+  "images": [{ "src": "assets/games/peak/001.jpg" }]
+}
+```
 
 没有封面时，`poster` 可省略或填空字符串，只填视频 `src` 即可（`featuredVideo` 同样支持）。有封面保持 `preload="none"`；无封面使用原生 `preload="metadata"`，加载到首帧后由浏览器显示，不自动播放、不额外截帧或跳转播放时间。预加载只是浏览器提示，实际流量和未播放前能否显示画面取决于浏览器与文件编码；首帧本身是黑场时也会显示黑色。无视频地址的预留回忆仍需 `poster`。
 

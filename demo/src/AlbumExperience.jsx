@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react';
 import { ArrowClockwise } from '@phosphor-icons/react';
 import { Opening } from './Opening';
 import { Album } from './Album';
-import { asset } from './assets';
-import { loadContent } from './content';
+import { loadAlbumContent } from './albumResources';
 export default function AlbumExperience({
   birthday,
   onReplay
@@ -16,7 +15,7 @@ export default function AlbumExperience({
   useEffect(() => {
     const controller = new AbortController();
     setError(null);
-    loadContent(asset('content.json'), {
+    loadAlbumContent({
       signal: controller.signal
     }).then(value => {
       if (!controller.signal.aborted) setContent(value);

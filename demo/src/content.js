@@ -66,7 +66,9 @@ export function validateContent(content) {
       const item = `${path}.memories[${j}]`;
       object(memory, item);
       uniqueId(memory.id, `${item}.id`, memoryIds);
-      text(memory.title, `${item}.title`);
+      if (memory.type === 'gallery') {
+        if (memory.title !== undefined) requireValue(typeof memory.title === 'string', `${item}.title`, '应为文字');
+      } else text(memory.title, `${item}.title`);
       if (memory.date !== undefined) date(memory.date, `${item}.date`);
       requireValue(types.has(memory.type), `${item}.type`, '不支持的回忆类型');
       if (memory.type === 'gallery') {
@@ -114,7 +116,10 @@ export function prepareContent(content) {
         date: null,
         ...memory,
         ...(memory.type === 'text' ? { paragraphs: memory.paragraphs ?? [] } : {}),
-        ...(memory.type === 'gallery' ? { images: memory.images.map(image => ({ caption: '', ...image })) } : {})
+        ...(memory.type === 'gallery' ? {
+          title: memory.title?.trim() ?? '',
+          images: memory.images.map(image => ({ ...image, caption: image.caption?.trim() ?? '' }))
+        } : {})
       }))
     })).sort((a, b) => {
       if (!a.playPeriod) return b.playPeriod ? 1 : 0;

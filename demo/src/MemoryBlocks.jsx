@@ -79,13 +79,13 @@ export function PhotoMemory({
     }}>
       {items.map((item, i) => {
         const depth = (i - index + items.length) % items.length;
-        return <button key={item.src + i} className={`photo-print ${depth === 0 ? 'front' : ''}`} style={{
+        return <button key={item.src + i} className={`photo-print ${depth === 0 ? 'front' : ''} ${item.caption ? '' : 'without-caption'}`} style={{
           '--depth': depth,
           zIndex: items.length - depth
-        }} tabIndex={depth === 0 ? 0 : -1} aria-hidden={depth !== 0} onClick={() => onExpand(items, i)} aria-label={`放大照片：${item.caption}`}><img src={asset(item.src)} alt={item.caption} loading="lazy" /><span>{item.caption}</span></button>;
+        }} tabIndex={depth === 0 ? 0 : -1} aria-hidden={depth !== 0} onClick={() => onExpand(items, i)} aria-label={item.caption ? `放大照片：${item.caption}` : `放大照片 ${i + 1}`}><img src={asset(item.src)} alt={item.caption} loading="lazy" />{item.caption && <span>{item.caption}</span>}</button>;
       })}
     </div>
-    <div className="photo-controls"><span>{memory.title}</span><div><button aria-label="上一张照片" onClick={() => move(-1)} disabled={items.length < 2}><ArrowLeft size={19} /></button><button aria-label="下一张照片" onClick={() => move(1)} disabled={items.length < 2}><ArrowRight size={19} /></button></div></div>
+    {(memory.title || items.length > 1) && <div className="photo-controls">{memory.title && <span>{memory.title}</span>}<div><button aria-label="上一张照片" onClick={() => move(-1)} disabled={items.length < 2}><ArrowLeft size={19} /></button><button aria-label="下一张照片" onClick={() => move(1)} disabled={items.length < 2}><ArrowRight size={19} /></button></div></div>}
   </article>;
 }
 export function TextMemory({
@@ -136,6 +136,6 @@ export function ImageViewer({
   }}>
     <button className="viewer-close" onClick={onClose} aria-label="关闭图片"><X size={26} /></button>
     <img key={item.src} src={asset(item.src)} alt={item.caption} />
-    <div className="viewer-caption"><p>{item.caption}</p><div><button onClick={() => move(-1)} aria-label="上一张" disabled={images.length < 2}><ArrowLeft size={22} /></button><span>{index + 1} / {images.length}</span><button onClick={() => move(1)} aria-label="下一张" disabled={images.length < 2}><ArrowRight size={22} /></button></div></div>
+    <div className="viewer-caption">{item.caption && <p>{item.caption}</p>}<div><button onClick={() => move(-1)} aria-label="上一张" disabled={images.length < 2}><ArrowLeft size={22} /></button><span>{index + 1} / {images.length}</span><button onClick={() => move(1)} aria-label="下一张" disabled={images.length < 2}><ArrowRight size={22} /></button></div></div>
   </dialog>;
 }

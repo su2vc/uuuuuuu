@@ -3,6 +3,7 @@ import { configureOpeningCamera } from './openingCamera';
 import { createVisibleFrameLoop } from './visibleFrameLoop';
 import { disposeScene } from './disposeScene';
 import { asset } from './assets';
+import { openingPhotoPaths } from './openingPhotos';
 const ease = t => 1 - Math.pow(1 - Math.min(1, Math.max(0, t)), 3);
 export function createOpeningScene(el, pointer, {
   onReveal,
@@ -94,12 +95,12 @@ export function createOpeningScene(el, pointer, {
     slab(hinge, .42, .36, .055, 0, -.12, 2.22, lime);
     const photos = [];
     const loader = new THREE.TextureLoader();
-    ['peak-background.png', 'l4d-background.png', 'repo-background.png'].forEach((file, i) => {
+    openingPhotoPaths.forEach((file, i) => {
       const photo = new THREE.Group();
       slab(photo, 1.14, 1.33, .025, 0, 0, 0, new THREE.MeshToonMaterial({
         color: 0xfffbee
       }));
-      const texture = loader.load(asset(`assets/${file}`), () => {
+      const texture = loader.load(asset(file), () => {
         if (disposed) texture.dispose();
       });
       texture.colorSpace = THREE.SRGBColorSpace;

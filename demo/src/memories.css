@@ -144,6 +144,7 @@
 .photo-controls>div {
   display: flex;
   gap: 6px;
+  margin-left: auto;
 }
 
 .photo-controls button,.viewer-caption button {
@@ -289,6 +290,18 @@ button:disabled {
 
 .photo-contact .photo-print span {
   height: 50px;
+}
+
+.photo-print.without-caption {
+  padding-bottom: 9px;
+}
+
+.photo-strip .photo-print.without-caption {
+  padding-bottom: 6px;
+}
+
+.photo-contact .photo-print.without-caption {
+  padding-bottom: 13px;
 }
 
 .layout-trail .slot-gallery {
@@ -519,6 +532,7 @@ button:disabled {
   display: flex;
   align-items: center;
   gap: 14px;
+  margin-left: auto;
   font-size: 12px;
   white-space: nowrap;
 }
