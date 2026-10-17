@@ -77,7 +77,7 @@
       "paper": "#e9eee5",
       "ink": "#758365",
       "character": "assets/characters/bigwalk.png",
-      "layout": "trail",
+      "layout": "auto",
       "memories": [
         {
           "id": "bigwalk-photos",
@@ -107,13 +107,123 @@
           ]
         },
         {
-          "id": "bigwalk-video",
+          "id": "bigwalk-clip-001",
           "type": "video",
-          "title": "你走哪条路？",
-          "poster": "assets/steam/bigwalk-1.jpg",
-          "src": "",
-          "previewSeconds": 28,
-          "description": "这段回忆先留在这里，之后换成我们自己的视频。"
+          "title": "7u被遗失在了外太空",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/bigwalk/7u%E8%A2%AB%E9%81%97%E5%A4%B1%E5%9C%A8%E4%BA%86%E5%A4%96%E5%A4%AA%E7%A9%BA.mp4",
+          "description": "走着走着，7u 的目的地变成了外太空。"
+        },
+        {
+          "id": "bigwalk-clip-002",
+          "type": "video",
+          "title": "u神有自己的想法",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/bigwalk/u%E7%A5%9E%E6%9C%89%E8%87%AA%E5%B7%B1%E7%9A%84%E6%83%B3%E6%B3%95.mp4",
+          "description": "大家还在商量路线，u 神已经有了自己的计划。"
+        },
+        {
+          "id": "bigwalk-clip-003",
+          "type": "video",
+          "title": "低级外挂滑铲入洞",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/bigwalk/%E4%BD%8E%E7%BA%A7%E5%A4%96%E6%8C%82%E6%BB%91%E9%93%B2%E5%85%A5%E6%B4%9E.mp4",
+          "description": "进洞的方式有很多，这个滑铲算一种。"
+        },
+        {
+          "id": "bigwalk-clip-004",
+          "type": "video",
+          "title": "风灵月影宗门弟子",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/bigwalk/%E9%A3%8E%E7%81%B5%E6%9C%88%E5%BD%B1%E5%AE%97%E9%97%A8%E5%BC%9F%E5%AD%90.mp4",
+          "description": "这一手操作，很难不让人怀疑师承何处。"
+        },
+        {
+          "id": "bigwalk-clip-005",
+          "type": "video",
+          "title": "高敏手感好",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/bigwalk/%E9%AB%98%E6%95%8F%E6%89%8B%E6%84%9F%E5%A5%BD.mp4",
+          "description": "灵敏度拉满，方向就交给缘分。"
+        },
+        {
+          "id": "bigwalk-clip-006",
+          "type": "video",
+          "title": "故事的终章",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/bigwalk/%E6%95%85%E4%BA%8B%E7%9A%84%E7%BB%88%E7%AB%A0.mp4",
+          "description": "这一段路，先在这里画个句号。"
+        },
+        {
+          "id": "bigwalk-clip-007",
+          "type": "video",
+          "title": "故事真正的终章",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/bigwalk/%E6%95%85%E4%BA%8B%E7%9C%9F%E6%AD%A3%E7%9A%84%E7%BB%88%E7%AB%A0.mp4",
+          "description": "以为已经结束，原来还有最后一段。"
+        },
+        {
+          "id": "bigwalk-clip-008",
+          "type": "video",
+          "title": "加密通话",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/bigwalk/%E5%8A%A0%E5%AF%86%E9%80%9A%E8%AF%9D.mp4",
+          "description": "听见了，但不一定听懂了。"
+        },
+        {
+          "id": "bigwalk-clip-009",
+          "type": "video",
+          "title": "全部愣住了",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/bigwalk/%E5%85%A8%E9%83%A8%E6%84%A3%E4%BD%8F%E4%BA%86.mp4",
+          "description": "这一刻，大家的反应出奇一致。"
+        },
+        {
+          "id": "bigwalk-clip-010",
+          "type": "video",
+          "title": "孙悟空筋斗云不过如此",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/bigwalk/%E5%AD%99%E6%82%9F%E7%A9%BA%E7%AD%8B%E6%96%97%E4%BA%91%E4%B8%8D%E8%BF%87%E5%A6%82%E6%AD%A4.mp4",
+          "description": "这一趟腾云驾雾，多少有点本事在身上。"
+        },
+        {
+          "id": "bigwalk-clip-011",
+          "type": "video",
+          "title": "天上的空气真不错",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/bigwalk/%E5%A4%A9%E4%B8%8A%E7%9A%84%E7%A9%BA%E6%B0%94%E7%9C%9F%E4%B8%8D%E9%94%99.mp4",
+          "description": "既然已经上来了，就顺便看看风景。"
+        },
+        {
+          "id": "bigwalk-clip-012",
+          "type": "video",
+          "title": "伟大的母爱",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/bigwalk/%E4%BC%9F%E5%A4%A7%E7%9A%84%E6%AF%8D%E7%88%B1.mp4",
+          "description": "一路照顾到这里，也算操碎了心。"
+        },
+        {
+          "id": "bigwalk-clip-013",
+          "type": "video",
+          "title": "下巴有点痛",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/bigwalk/%E4%B8%8B%E5%B7%B4%E6%9C%89%E7%82%B9%E7%97%9B.mp4",
+          "description": "这一下，光看名字都觉得下巴一紧。"
+        },
+        {
+          "id": "bigwalk-clip-014",
+          "type": "video",
+          "title": "雪的尸体",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/bigwalk/%E9%9B%AA%E7%9A%84%E5%B0%B8%E4%BD%93.mp4",
+          "description": "关于雪留下的这段现场记录。"
+        },
+        {
+          "id": "bigwalk-clip-015",
+          "type": "video",
+          "title": "演员来了",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/bigwalk/%E6%BC%94%E5%91%98%E6%9D%A5%E4%BA%86.mp4",
+          "description": "这场表演，从出场就开始了。"
+        },
+        {
+          "id": "bigwalk-clip-016",
+          "type": "video",
+          "title": "音乐学院艺术生",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/bigwalk/%E9%9F%B3%E4%B9%90%E5%AD%A6%E9%99%A2%E8%89%BA%E6%9C%AF%E7%94%9F.mp4",
+          "description": "走路可以暂停，才艺展示不能缺席。"
+        },
+        {
+          "id": "bigwalk-clip-017",
+          "type": "video",
+          "title": "张张进进出出",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/bigwalk/%E5%BC%A0%E5%BC%A0%E8%BF%9B%E8%BF%9B%E5%87%BA%E5%87%BA.mp4",
+          "description": "来来回回，主打一个自由出入。"
         }
       ]
     },
@@ -130,7 +240,7 @@
       "paper": "#f1e9df",
       "ink": "#927553",
       "character": "assets/characters/chained.png",
-      "layout": "roadtrip",
+      "layout": "auto",
       "memories": [
         {
           "id": "chained-photos",
@@ -143,13 +253,25 @@
           ]
         },
         {
-          "id": "chained-video",
+          "id": "chained-clip-001",
           "type": "video",
-          "title": "三、二……谁先跳的？",
-          "poster": "assets/steam/chained-1.jpg",
-          "src": "",
-          "previewSeconds": 28,
-          "description": "这段回忆先留在这里，之后换成我们自己的视频。"
+          "title": "很急很急",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/chained/%E5%BE%88%E6%80%A5%E5%BE%88%E6%80%A5.mp4",
+          "description": "越是着急，越考验这根链子的配合。"
+        },
+        {
+          "id": "chained-clip-002",
+          "type": "video",
+          "title": "雪老师研究没用的",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/chained/%E9%9B%AA%E8%80%81%E5%B8%88%E7%A0%94%E7%A9%B6%E6%B2%A1%E7%94%A8%E7%9A%84.mp4",
+          "description": "雪老师的研究方向，总是别具一格。"
+        },
+        {
+          "id": "chained-clip-003",
+          "type": "video",
+          "title": "最后一个是给",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/chained/%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E6%98%AF%E7%BB%99.mp4",
+          "description": "倒数到最后，看看谁还留在后面。"
         },
         {
           "id": "chained-note",
@@ -216,13 +338,11 @@
           ]
         },
         {
-          "id": "fishing-video",
+          "id": "fishing-clip-001",
           "type": "video",
-          "title": "钓到的不是鱼",
-          "poster": "assets/steam/fishing-1.jpg",
-          "src": "",
-          "previewSeconds": 28,
-          "description": "这段回忆先留在这里，之后换成我们自己的视频。"
+          "title": "知错了没",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/fishing/%E7%9F%A5%E9%94%99%E4%BA%86%E6%B2%A1.mp4",
+          "description": "钓鱼之外，还有一场小小的问答。"
         }
       ]
     },
@@ -242,13 +362,11 @@
       "layout": "evidence",
       "memories": [
         {
-          "id": "l4d-video",
+          "id": "l4d-clip-001",
           "type": "video",
-          "title": "门关早了",
-          "poster": "assets/l4d-memory.png",
-          "src": "",
-          "previewSeconds": 28,
-          "description": "这段回忆先留在这里，之后换成我们自己的视频。"
+          "title": "白曲这诗人",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/l4d/%E7%99%BD%E6%9B%B2%E8%BF%99%E8%AF%97%E4%BA%BA.mp4",
+          "description": "求生路上，白曲也没忘了发挥文采。"
         },
         {
           "id": "l4d-note",
@@ -286,16 +404,21 @@
       "paper": "#e7ece8",
       "ink": "#698173",
       "character": "assets/characters/outlast.png",
-      "layout": "evidence",
+      "layout": "auto",
       "memories": [
         {
-          "id": "outlast-video",
+          "id": "outlast-clip-001",
           "type": "video",
-          "title": "谁在我后面",
-          "poster": "assets/steam/outlast-1.jpg",
-          "src": "",
-          "previewSeconds": 28,
-          "description": "这段回忆先留在这里，之后换成我们自己的视频。"
+          "title": "鏖战一分钟",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/outlast/%E9%8F%96%E6%88%98%E4%B8%80%E5%88%86%E9%92%9F.mp4",
+          "description": "把这一分钟的紧张留在这里。"
+        },
+        {
+          "id": "outlast-clip-002",
+          "type": "video",
+          "title": "给",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/outlast/%E7%BB%99.mp4",
+          "description": "这段试炼现场，先留作回看。"
         },
         {
           "id": "outlast-note",
@@ -336,25 +459,105 @@
       "paper": "#eee7f3",
       "ink": "#9275ac",
       "character": "assets/characters/split.png",
-      "layout": "duet",
+      "layout": "auto",
       "memories": [
         {
           "id": "split-special",
           "type": "featuredVideo",
-          "title": "特别剪辑",
-          "poster": "assets/steam/split-2.jpg",
-          "src": "",
-          "previewSeconds": 60,
-          "description": "留给那支专门剪过的视频。"
+          "title": "lucky",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/split/lucky.mp4",
+          "description": "一起走过的这些片段，连起来就成了这份幸运。"
         },
         {
-          "id": "split-video",
+          "id": "split-clip-002",
           "type": "video",
-          "title": "这一跳总算同步了",
-          "poster": "assets/steam/split-1.jpg",
-          "src": "",
-          "previewSeconds": 28,
-          "description": "这段回忆先留在这里，之后换成我们自己的视频。"
+          "title": "爱吃屎的小猪",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/split/%E7%88%B1%E5%90%83%E5%B1%8E%E7%9A%84%E5%B0%8F%E7%8C%AA.mp4",
+          "description": "关于这只小猪，实在有些独特的爱好。"
+        },
+        {
+          "id": "split-clip-003",
+          "type": "video",
+          "title": "过桥",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/split/%E8%BF%87%E6%A1%A5.mp4",
+          "description": "桥就在前面，配合还得慢慢来。"
+        },
+        {
+          "id": "split-clip-004",
+          "type": "video",
+          "title": "好舒服呀",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/split/%E5%A5%BD%E8%88%92%E6%9C%8D%E5%91%80.mp4",
+          "description": "在赶路之间，留下一小段放松时刻。"
+        },
+        {
+          "id": "split-clip-005",
+          "type": "video",
+          "title": "黑洞",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/split/%E9%BB%91%E6%B4%9E.mp4",
+          "description": "下一站往哪里去，先问问这个黑洞。"
+        },
+        {
+          "id": "split-clip-006",
+          "type": "video",
+          "title": "黑红聊",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/split/%E9%BB%91%E7%BA%A2%E8%81%8A.mp4",
+          "description": "这一段的风景与闲聊，一起留在这里。"
+        },
+        {
+          "id": "split-clip-007",
+          "type": "video",
+          "title": "红花海",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/split/%E7%BA%A2%E8%8A%B1%E6%B5%B7.mp4",
+          "description": "走到花海这里，可以稍微慢一点。"
+        },
+        {
+          "id": "split-clip-008",
+          "type": "video",
+          "title": "没毛在哪",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/split/%E6%B2%A1%E6%AF%9B%E5%9C%A8%E5%93%AA.mp4",
+          "description": "路可以先不赶，先找找没毛在哪里。"
+        },
+        {
+          "id": "split-clip-009",
+          "type": "video",
+          "title": "升降梯",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/split/%E5%8D%87%E9%99%8D%E6%A2%AF.mp4",
+          "description": "上上下下，也是两个人的配合。"
+        },
+        {
+          "id": "split-clip-010",
+          "type": "video",
+          "title": "帅气背影",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/split/%E5%B8%85%E6%B0%94%E8%83%8C%E5%BD%B1.mp4",
+          "description": "先别急着走，留个背影。"
+        },
+        {
+          "id": "split-clip-011",
+          "type": "video",
+          "title": "太阳",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/split/%E5%A4%AA%E9%98%B3.mp4",
+          "description": "朝着太阳的方向，再走一段。"
+        },
+        {
+          "id": "split-clip-012",
+          "type": "video",
+          "title": "太阳滑索",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/split/%E5%A4%AA%E9%98%B3%E6%BB%91%E7%B4%A2.mp4",
+          "description": "借着滑索，把这段风景再看一遍。"
+        },
+        {
+          "id": "split-clip-013",
+          "type": "video",
+          "title": "天空岛",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/split/%E5%A4%A9%E7%A9%BA%E5%B2%9B.mp4",
+          "description": "这一站，落脚在天空中的小岛。"
+        },
+        {
+          "id": "split-clip-014",
+          "type": "video",
+          "title": "值了吗",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/split/%E5%80%BC%E4%BA%86%E5%90%97.mp4",
+          "description": "回头看这一趟，再问一句值了吗。"
         },
         {
           "id": "split-photos",
@@ -407,7 +610,7 @@
       "paper": "#e9eddf",
       "ink": "#819257",
       "character": "assets/characters/chameleon.png",
-      "layout": "arcade",
+      "layout": "auto",
       "memories": [
         {
           "id": "chameleon-photos",
@@ -420,13 +623,18 @@
           ]
         },
         {
-          "id": "chameleon-video",
+          "id": "chameleon-clip-001",
           "type": "video",
-          "title": "你刚才是不是动了",
-          "poster": "assets/steam/chameleon-1.jpg",
-          "src": "",
-          "previewSeconds": 28,
-          "description": "这段回忆先留在这里，之后换成我们自己的视频。"
+          "title": "我要找7uu了",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/chameleon/%E6%88%91%E8%A6%81%E6%89%BE7uu%E4%BA%86.mp4",
+          "description": "先放下手里的事，去找 7uu。"
+        },
+        {
+          "id": "chameleon-clip-002",
+          "type": "video",
+          "title": "我又要找7uu了",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/chameleon/%E6%88%91%E5%8F%88%E8%A6%81%E6%89%BE7uu%E4%BA%86.mp4",
+          "description": "熟悉的任务：再去找一次 7uu。"
         },
         {
           "id": "chameleon-note",
@@ -454,7 +662,7 @@
       "paper": "#f1eadf",
       "ink": "#a18351",
       "character": "assets/characters/chicken.png",
-      "layout": "arcade",
+      "layout": "auto",
       "memories": [
         {
           "id": "chicken-photos",
@@ -477,13 +685,39 @@
           ]
         },
         {
-          "id": "chicken-video",
+          "id": "chicken-clip-001",
           "type": "video",
-          "title": "路是自己修的",
-          "poster": "assets/steam/chicken-1.jpg",
-          "src": "",
-          "previewSeconds": 28,
-          "description": "这段回忆先留在这里，之后换成我们自己的视频。"
+          "title": "pro微操",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/chicken/pro%E5%BE%AE%E6%93%8D.mp4",
+          "description": "操作空间不大，发挥空间倒是不小。"
+        },
+        {
+          "id": "chicken-clip-002",
+          "type": "video",
+          "title": "很暴力的一个提升",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/chicken/%E5%BE%88%E6%9A%B4%E5%8A%9B%E7%9A%84%E4%B8%80%E4%B8%AA%E6%8F%90%E5%8D%87.mp4",
+          "description": "提升来得很直接，也很有冲击力。"
+        },
+        {
+          "id": "chicken-clip-003",
+          "type": "video",
+          "title": "狡猾的你",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/chicken/%E7%8B%A1%E7%8C%BE%E7%9A%84%E4%BD%A0.mp4",
+          "description": "这一招，多少带点自己的小心思。"
+        },
+        {
+          "id": "chicken-clip-004",
+          "type": "video",
+          "title": "烤冷面未能克服心魔",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/chicken/%E7%83%A4%E5%86%B7%E9%9D%A2%E6%9C%AA%E8%83%BD%E5%85%8B%E6%9C%8D%E5%BF%83%E9%AD%94.mp4",
+          "description": "这一次，心魔暂时领先。"
+        },
+        {
+          "id": "chicken-clip-005",
+          "type": "video",
+          "title": "找出视频中的人类",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/chicken/%E6%89%BE%E5%87%BA%E8%A7%86%E9%A2%91%E4%B8%AD%E7%9A%84%E4%BA%BA%E7%B1%BB.mp4",
+          "description": "观察一下，谁的操作最像正常人。"
         },
         {
           "id": "chicken-note",
@@ -511,16 +745,182 @@
       "paper": "#e8e8f1",
       "ink": "#7b79a0",
       "character": "assets/repo-character.png",
-      "layout": "collage",
+      "layout": "auto",
       "memories": [
         {
-          "id": "repo-video",
+          "id": "repo-clip-001",
           "type": "video",
-          "title": "说好轻拿轻放的",
-          "poster": "assets/repo-memory.png",
-          "src": "",
-          "previewSeconds": 28,
-          "description": "这段回忆先留在这里，之后换成我们自己的视频。"
+          "title": "30秒寻找职业集锦",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/30%E7%A7%92%E5%AF%BB%E6%89%BE%E8%81%8C%E4%B8%9A%E9%9B%86%E9%94%A6.mp4",
+          "description": "短短三十秒，职业方向还在寻找中。"
+        },
+        {
+          "id": "repo-clip-002",
+          "type": "video",
+          "title": "7u深入敌军",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/7u%E6%B7%B1%E5%85%A5%E6%95%8C%E5%86%9B.mp4",
+          "description": "7u 这一趟，走得有点太深入了。"
+        },
+        {
+          "id": "repo-clip-003",
+          "type": "video",
+          "title": "7u一计害三贤",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/7u%E4%B8%80%E8%AE%A1%E5%AE%B3%E4%B8%89%E8%B4%A4.mp4",
+          "description": "计划一出，队友也得跟着接招。"
+        },
+        {
+          "id": "repo-clip-004",
+          "type": "video",
+          "title": "a有一计",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/a%E6%9C%89%E4%B8%80%E8%AE%A1.mp4",
+          "description": "先听听 a 的计划，再决定要不要相信。"
+        },
+        {
+          "id": "repo-clip-005",
+          "type": "video",
+          "title": "白曲老师的微操不是很理想",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/%E7%99%BD%E6%9B%B2%E8%80%81%E5%B8%88%E7%9A%84%E5%BE%AE%E6%93%8D%E4%B8%8D%E6%98%AF%E5%BE%88%E7%90%86%E6%83%B3.mp4",
+          "description": "想法已经到位，操作还需要一点时间。"
+        },
+        {
+          "id": "repo-clip-006",
+          "type": "video",
+          "title": "百鬼夜行",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/%E7%99%BE%E9%AC%BC%E5%A4%9C%E8%A1%8C.mp4",
+          "description": "这一趟搬运，周围格外热闹。"
+        },
+        {
+          "id": "repo-clip-007",
+          "type": "video",
+          "title": "暴力摩托7u",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/%E6%9A%B4%E5%8A%9B%E6%91%A9%E6%89%987u.mp4",
+          "description": "7u 的驾驶风格，一如既往地有冲击力。"
+        },
+        {
+          "id": "repo-clip-008",
+          "type": "video",
+          "title": "博弈在哪",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/%E5%8D%9A%E5%BC%88%E5%9C%A8%E5%93%AA.mp4",
+          "description": "想找一点博弈，场面却先有了自己的发展。"
+        },
+        {
+          "id": "repo-clip-009",
+          "type": "video",
+          "title": "大神操作了",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/%E5%A4%A7%E7%A5%9E%E6%93%8D%E4%BD%9C%E4%BA%86.mp4",
+          "description": "这一手，值得停下来好好看一遍。"
+        },
+        {
+          "id": "repo-clip-010",
+          "type": "video",
+          "title": "大头来咯",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/%E5%A4%A7%E5%A4%B4%E6%9D%A5%E5%92%AF.mp4",
+          "description": "熟悉的身影一出现，气氛就不一样了。"
+        },
+        {
+          "id": "repo-clip-011",
+          "type": "video",
+          "title": "干了坏事就跑",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/%E5%B9%B2%E4%BA%86%E5%9D%8F%E4%BA%8B%E5%B0%B1%E8%B7%91.mp4",
+          "description": "行动结束，撤离倒是很果断。"
+        },
+        {
+          "id": "repo-clip-012",
+          "type": "video",
+          "title": "狡猾的7u",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/%E7%8B%A1%E7%8C%BE%E7%9A%847u.mp4",
+          "description": "这一次的小算盘，轮到 7u 来打。"
+        },
+        {
+          "id": "repo-clip-013",
+          "type": "video",
+          "title": "橘不知道",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/%E6%A9%98%E4%B8%8D%E7%9F%A5%E9%81%93.mp4",
+          "description": "关于这件事，橘暂时还不知道。"
+        },
+        {
+          "id": "repo-clip-014",
+          "type": "video",
+          "title": "喵",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/%E5%96%B5.mp4",
+          "description": "搬运间隙，留下一声喵。"
+        },
+        {
+          "id": "repo-clip-015",
+          "type": "video",
+          "title": "魔王护",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/%E9%AD%94%E7%8E%8B%E6%8A%A4.mp4",
+          "description": "这段现场，留给魔王护的名字来解释。"
+        },
+        {
+          "id": "repo-clip-016",
+          "type": "video",
+          "title": "瓦龙7u",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/%E7%93%A6%E9%BE%997u.mp4",
+          "description": "这一回，7u 又有了新的身份。"
+        },
+        {
+          "id": "repo-clip-017",
+          "type": "video",
+          "title": "无力的7u",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/%E6%97%A0%E5%8A%9B%E7%9A%847u.mp4",
+          "description": "想法很多，但这一刻实在有点使不上劲。"
+        },
+        {
+          "id": "repo-clip-018",
+          "type": "video",
+          "title": "吓的a去地府逛了半圈",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/%E5%90%93%E7%9A%84a%E5%8E%BB%E5%9C%B0%E5%BA%9C%E9%80%9B%E4%BA%86%E5%8D%8A%E5%9C%88.mp4",
+          "description": "这一吓，a 的旅程差点提前换了目的地。"
+        },
+        {
+          "id": "repo-clip-019",
+          "type": "video",
+          "title": "显着你了",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/%E6%98%BE%E7%9D%80%E4%BD%A0%E4%BA%86.mp4",
+          "description": "这个时候，也没忘了展示一下自己。"
+        },
+        {
+          "id": "repo-clip-020",
+          "type": "video",
+          "title": "小魔仙u魔法炮",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/%E5%B0%8F%E9%AD%94%E4%BB%99u%E9%AD%94%E6%B3%95%E7%82%AE.mp4",
+          "description": "施法准备完毕，看看这一炮的效果。"
+        },
+        {
+          "id": "repo-clip-021",
+          "type": "video",
+          "title": "修女の愤怒",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/%E4%BF%AE%E5%A5%B3%E3%81%AE%E6%84%A4%E6%80%92.mp4",
+          "description": "这回的气氛，已经不适合慢慢搬东西了。"
+        },
+        {
+          "id": "repo-clip-022",
+          "type": "video",
+          "title": "修女别追了",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/%E4%BF%AE%E5%A5%B3%E5%88%AB%E8%BF%BD%E4%BA%86.mp4",
+          "description": "先别管货物，甩开身后的追赶再说。"
+        },
+        {
+          "id": "repo-clip-023",
+          "type": "video",
+          "title": "预言家",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/%E9%A2%84%E8%A8%80%E5%AE%B6.mp4",
+          "description": "这句话，值得等事情发生后再听一遍。"
+        },
+        {
+          "id": "repo-clip-024",
+          "type": "video",
+          "title": "自行车创不过我",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/%E8%87%AA%E8%A1%8C%E8%BD%A6%E5%88%9B%E4%B8%8D%E8%BF%87%E6%88%91.mp4",
+          "description": "迎面而来的挑战，先正面接一下。"
+        },
+        {
+          "id": "repo-clip-025",
+          "type": "video",
+          "title": "诅咒者",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/repo/%E8%AF%85%E5%92%92%E8%80%85.mp4",
+          "description": "这段经历，多少像是带着点诅咒。"
         },
         {
           "id": "repo-photos",
@@ -544,15 +944,6 @@
           ]
         },
         {
-          "id": "repo-second-video",
-          "type": "video",
-          "title": "最后一趟搬运",
-          "src": "",
-          "poster": "assets/repo-memory.png",
-          "description": "又一次高估了我们的配合。",
-          "previewSeconds": 18
-        },
-        {
           "id": "repo-afterword",
           "type": "text",
           "title": "下次一定轻拿轻放",
@@ -573,7 +964,7 @@
       "paper": "#efe8dd",
       "ink": "#a0845b",
       "character": "assets/characters/nomad.png",
-      "layout": "roadtrip",
+      "layout": "auto",
       "memories": [
         {
           "id": "nomad-photos",
@@ -599,14 +990,18 @@
           ]
         },
         {
-          "id": "nomad-video",
+          "id": "nomad-clip-001",
           "type": "video",
-          "title": "车还能开吗",
-          "date": "2026-10-12",
-          "poster": "assets/steam/nomad-1.jpg",
-          "src": "",
-          "previewSeconds": 28,
-          "description": "这段回忆先留在这里，之后换成我们自己的视频。"
+          "title": "吊销电子驾照",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/nomad/%E5%90%8A%E9%94%80%E7%94%B5%E5%AD%90%E9%A9%BE%E7%85%A7.mp4",
+          "description": "这段驾驶记录，值得重新考一次驾照。"
+        },
+        {
+          "id": "nomad-clip-002",
+          "type": "video",
+          "title": "信仰之跃",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/nomad/%E4%BF%A1%E4%BB%B0%E4%B9%8B%E8%B7%83.mp4",
+          "description": "方向已经选好，剩下的交给信仰。"
         },
         {
           "id": "nomad-note",

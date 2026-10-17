@@ -416,13 +416,6 @@ button:disabled {
   background: #faf8f1;
 }
 
-.featured-mark {
-  font-size: 9px;
-  letter-spacing: .12em;
-  color: #806596;
-  white-space: nowrap;
-}
-
 .featured-description {
   font-size: 12px;
   margin-top: 9px;
@@ -790,9 +783,6 @@ button:disabled {
   }
   .featured-memory {
     padding: 14px;
-  }
-  .featured-mark {
-    font-size: 8px;
   }
   .video-caption h2 {
     font-size: 18px !important;

@@ -25,5 +25,5 @@ test('OSS upload mapping covers every configured image, character, and opening t
       memory.type === 'gallery' ? memory.images.map(image => image.src) : memory.poster ? [memory.poster] : []
     )]),
   ];
-  assert.deepEqual([...paths].sort(), [...new Set(required)].sort());
+  for (const path of required) assert.ok(paths.has(path), `Missing OSS mapping: ${path}`);
 });

@@ -34,7 +34,7 @@ export function VideoMemory({
     return () => document.removeEventListener('visibilitychange', pause);
   }, []);
   return <article className={`video-memory ${featured ? 'featured-memory' : ''}`}>
-    <div className="block-meta"><span><FilmStrip size={14} />{featured ? '特别剪辑' : 'VIDEO'}</span>{memory.date && <time dateTime={memory.date}>{stamp(memory.date)}</time>}</div>
+    <div className="block-meta"><span><FilmStrip size={14} />VIDEO</span>{memory.date && <time dateTime={memory.date}>{stamp(memory.date)}</time>}</div>
     {memory.src && !failed ? <video ref={video} className="memory-video" aria-label={memory.title} controls playsInline preload={memory.poster ? 'none' : 'metadata'} poster={memory.poster ? asset(memory.poster) : undefined} src={asset(memory.src)} onError={() => setFailed(true)} /> : !memory.poster ? <div className="player video-unavailable" role="status"><FilmStrip size={36} aria-hidden="true" /><span>视频暂时无法播放</span></div> : <div className={`player ${playing ? 'is-playing' : ''}`}>
         <img crossOrigin={imageCrossOrigin(memory.poster)} src={asset(memory.poster)} alt={memory.title} style={{
         transform: `scale(${1 + elapsed * .002}) translateX(${-elapsed * .012}%)`
@@ -45,7 +45,7 @@ export function VideoMemory({
       }}>
           {playing ? <Pause weight="fill" /> : elapsed >= duration ? <ArrowClockwise /> : <Play weight="fill" />}
         </button>
-        <span className="preview-label">{failed ? '视频暂时无法播放' : playing || elapsed > 0 ? '动态封面预览' : featured ? '特别视频预留' : '视频待添加'}</span>
+        <span className="preview-label">{failed ? '视频暂时无法播放' : playing || elapsed > 0 ? '动态封面预览' : '视频待添加'}</span>
         <span className="duration">{clock(elapsed)} / {clock(duration)}</span>
         <button className="expand" aria-label="放大视频封面" onClick={() => {
         setPlaying(false);
@@ -56,7 +56,7 @@ export function VideoMemory({
       }}><ArrowsOut size={23} /></button>
         <input className="progress" type="range" min="0" max={duration} step=".1" value={elapsed} aria-label="封面预览进度" onChange={e => setElapsed(Number(e.target.value))} />
       </div>}
-    <div className="video-caption"><h2>{memory.title}</h2>{featured && <span className="featured-mark">SPECIAL CUT</span>}</div>
+    <div className="video-caption"><h2>{memory.title}</h2></div>
     {memory.description && <p className="featured-description">{memory.description}</p>}
   </article>;
 }
