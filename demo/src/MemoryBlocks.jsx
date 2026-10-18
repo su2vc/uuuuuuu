@@ -145,7 +145,7 @@ export function MemoryBoard({
         if (videosExpanded) requestAnimationFrame(() => toggle.current?.scrollIntoView({ block: 'nearest' }));
       }}>
         {videosExpanded ? <Minus size={18} aria-hidden="true" /> : <Plus size={18} aria-hidden="true" />}
-        {videosExpanded ? '收起更多视频' : `还有 ${videos.length - 3} 个呢`}
+        {videosExpanded ? '收起来咯' : `还有 ${videos.length - 3} 个呢`}
       </button>
     </>}
   </div>;

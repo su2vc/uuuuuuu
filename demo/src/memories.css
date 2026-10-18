@@ -530,11 +530,75 @@ button.viewer-photo {
   margin-left: auto;
 }
 
-.album .avatar-button {
+.album .avatar.avatar-button {
+  position: relative;
   display: block;
   min-width: 44px;
   min-height: 44px;
   padding: 0;
+  overflow: visible;
+  touch-action: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.album .avatar-button img {
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.avatar-button.is-holding {
+  animation: avatar-charge-breathe 1.4s ease-in-out infinite;
+}
+
+.avatar-charge-ring {
+  position: absolute;
+  inset: -9px;
+  width: calc(100% + 18px);
+  height: calc(100% + 18px);
+  overflow: visible;
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+.avatar-charge-ring circle {
+  fill: none;
+  stroke-width: 2.5;
+}
+
+.avatar-charge-track {
+  stroke: #e5cf9b;
+}
+
+.avatar-charge-progress {
+  stroke: #d9983d;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: avatar-charge-fill 5s linear forwards;
+}
+
+.avatar-button.is-ready {
+  animation: avatar-charge-ready 1s ease-in-out infinite;
+}
+
+.avatar-button.is-ready .avatar-charge-progress {
+  stroke: #9a965d;
+  stroke-dashoffset: 0;
+}
+
+@keyframes avatar-charge-fill {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes avatar-charge-breathe {
+  0%,100% { transform: scale(1.025); box-shadow: 0 0 0 2px #f1d17922; }
+  50% { transform: scale(1.07); box-shadow: 0 0 14px 4px #f1d17955; }
+}
+
+@keyframes avatar-charge-ready {
+  0%,100% { transform: scale(1.07); box-shadow: 0 0 0 4px #d6cd8f44; }
+  50% { transform: scale(1.1); box-shadow: 0 0 18px 6px #d6cd8f88; }
 }
 
 .avatar-message {
@@ -906,6 +970,9 @@ button.viewer-photo {
   }
   .avatar-confetti {
     display: none;
+    animation: none;
+  }
+  .avatar-button.is-holding,.avatar-button.is-ready,.avatar-charge-progress {
     animation: none;
   }
   .avatar-confetti-emoji {
