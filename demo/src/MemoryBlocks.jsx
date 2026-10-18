@@ -145,7 +145,7 @@ export function MemoryBoard({
         if (videosExpanded) requestAnimationFrame(() => toggle.current?.scrollIntoView({ block: 'nearest' }));
       }}>
         {videosExpanded ? <Minus size={18} aria-hidden="true" /> : <Plus size={18} aria-hidden="true" />}
-        {videosExpanded ? '收起更多视频' : `还有 ${videos.length - 3} 段回忆`}
+        {videosExpanded ? '收起更多视频' : `还有 ${videos.length - 3} 个呢`}
       </button>
     </>}
   </div>;
@@ -160,11 +160,12 @@ export function ImageViewer({
   const images = value.images,
     item = images[index] || images[0];
   const move = delta => {
-    // The optional flip button can disappear on the next photo. Keep keyboard
-    // navigation inside the dialog instead of leaving focus on the document.
-    if (dialog.current?.querySelector('.viewer-flip') === document.activeElement) dialog.current.focus({ preventScroll: true });
+    // A photo without a note is not a button. Preserve keyboard focus when
+    // navigating away from the optional interactive photo.
+    if (dialog.current?.querySelector('button.viewer-photo') === document.activeElement) dialog.current.focus({ preventScroll: true });
     setView(previous => ({ index: (previous.index + delta + images.length) % images.length, flipped: false }));
   };
+  const Photo = item.note ? 'button' : 'div';
   return <dialog className="image-viewer" ref={dialog} aria-label="回忆照片" onCancel={e => {
     e.preventDefault();
     onClose();
@@ -181,18 +182,18 @@ export function ImageViewer({
     }
   }}>
     <button className="viewer-close" onClick={onClose} aria-label="关闭图片"><X size={26} /></button>
-    <div className={`viewer-photo ${flipped ? 'is-flipped' : ''}`} key={item.src}>
-      <div className="viewer-photo-inner">
-        <div className="viewer-photo-front" inert={flipped} aria-hidden={flipped}>
+    <Photo className={`viewer-photo ${flipped ? 'is-flipped' : ''}`} key={item.src} {...(item.note ? {
+      type: 'button', 'aria-label': flipped ? '翻回照片正面' : '翻看照片背面留言', 'aria-pressed': flipped,
+      onClick: () => setView(previous => ({ ...previous, flipped: !previous.flipped }))
+    } : {})}>
+      <span className="viewer-photo-inner">
+        <span className="viewer-photo-front" inert={flipped} aria-hidden={flipped}>
           <img crossOrigin={imageCrossOrigin(item.src)} src={asset(item.src)} alt={item.caption} />
-        </div>
-        {item.note && <div className="viewer-photo-back" inert={!flipped} aria-hidden={!flipped}><span>写在背面</span><p>{item.note}</p></div>}
-      </div>
-    </div>
+        </span>
+        {item.note && <span className="viewer-photo-back" inert={!flipped} aria-hidden={!flipped}><span className="viewer-note-label">写在背面</span><span className="viewer-note-text">{item.note}</span></span>}
+      </span>
+    </Photo>
     <div className="viewer-caption">{item.caption && <p>{item.caption}</p>}
-      {item.note && <button className="viewer-flip" aria-pressed={flipped} onClick={() => setView(previous => ({ ...previous, flipped: !previous.flipped }))}>
-        <ArrowClockwise size={17} aria-hidden="true" />{flipped ? '查看照片' : '背面留言'}
-      </button>}
       <div><button onClick={() => move(-1)} aria-label="上一张" disabled={images.length < 2}><ArrowLeft size={22} /></button><span>{index + 1} / {images.length}</span><button onClick={() => move(1)} aria-label="下一张" disabled={images.length < 2}><ArrowRight size={22} /></button></div>
     </div>
   </dialog>;

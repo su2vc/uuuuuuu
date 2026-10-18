@@ -393,10 +393,22 @@ button:disabled {
 }
 
 .viewer-photo {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
   perspective: 1200px;
 }
 
+button.viewer-photo {
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
 .viewer-photo-inner {
+  display: block;
   position: relative;
   min-height: 160px;
   transform-style: preserve-3d;
@@ -412,6 +424,7 @@ button:disabled {
 }
 
 .viewer-photo-front {
+  display: block;
   transform: rotateY(0);
 }
 
@@ -439,13 +452,13 @@ button:disabled {
   text-align: center;
 }
 
-.viewer-photo-back>span {
+.viewer-note-label {
   font-size: 11px;
   letter-spacing: .15em;
   color: #9a845e;
 }
 
-.viewer-photo-back p {
+.viewer-note-text {
   font-size: clamp(18px,2.3vw,26px);
   line-height: 1.9;
   color: #665444;
@@ -493,19 +506,6 @@ button:disabled {
   opacity: .3;
 }
 
-.viewer-caption .viewer-flip {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  width: auto;
-  height: auto;
-  min-height: 44px;
-  padding: 8px 12px;
-  font-size: 12px;
-  background: #fffaf0;
-}
-
 .visited-mark {
   display: inline-block;
   width: 5px;
@@ -538,6 +538,7 @@ button:disabled {
 }
 
 .avatar-message {
+  z-index: 2;
   position: absolute;
   top: calc(100% + 12px);
   left: 0;
@@ -559,6 +560,52 @@ button:disabled {
 .avatar-message.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.avatar-burst {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.avatar-confetti {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 6px;
+  height: 11px;
+  background: var(--confetti-color);
+  border-radius: 1px;
+  opacity: 0;
+  animation: avatar-confetti-flight var(--confetti-duration) var(--confetti-delay) cubic-bezier(.16,.55,.42,1) both;
+}
+
+.avatar-confetti.is-ribbon {
+  width: 15px;
+  height: 7px;
+  border: 2px solid var(--confetti-color);
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.avatar-confetti-emoji {
+  width: auto;
+  height: auto;
+  font-size: 26px;
+  line-height: 1;
+  background: transparent;
+}
+
+@keyframes avatar-confetti-flight {
+  0% { opacity: 0; transform: translate3d(0,0,0) rotate(0) scale(.4); }
+  12% { opacity: 1; }
+  36% { opacity: 1; transform: translate3d(var(--confetti-x),var(--confetti-y),0) rotate(var(--confetti-spin)) scale(1); }
+  100% { opacity: 0; transform: translate3d(var(--confetti-x),calc(var(--confetti-y) + var(--confetti-fall)),0) rotate(calc(var(--confetti-spin) + 150deg)) scale(.8); }
 }
 
 .memory-board>.memory-slot {
@@ -856,5 +903,14 @@ button:disabled {
   }
   .photo-print,.text-memory,.note-fold,.viewer-photo-inner,.avatar-message {
     transition: none;
+  }
+  .avatar-confetti {
+    display: none;
+    animation: none;
+  }
+  .avatar-confetti-emoji {
+    display: block;
+    opacity: 1;
+    transform: translate(var(--confetti-x),var(--confetti-y));
   }
 }

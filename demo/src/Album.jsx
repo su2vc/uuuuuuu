@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { MemoryBoard, ImageViewer } from './MemoryBlocks';
-import { asset, imageCrossOrigin } from './assets';
+import { AvatarKeepsake } from './AvatarKeepsake';
 import { GameNavigation } from './GameNavigation';
 import { GameIndex } from './GameIndex';
 import { formatPlayPeriod } from './playPeriod';
@@ -13,8 +13,7 @@ export function Album({
     [viewer, setViewer] = useState(null),
     [indexOpen, setIndexOpen] = useState(false),
     [visitedIds, setVisitedIds] = useState(() => new Set([games[initial].id])),
-    [expandedVideoIds, setExpandedVideoIds] = useState(() => new Set()),
-    [avatarMessage, setAvatarMessage] = useState({ index: -1, visible: false, sequence: 0 });
+    [expandedVideoIds, setExpandedVideoIds] = useState(() => new Set());
   const panel = useRef(null),
     indexButton = useRef(null),
     navigation = useRef(null);
@@ -42,16 +41,6 @@ export function Album({
     window.addEventListener('hashchange', hash);
     return () => window.removeEventListener('hashchange', hash);
   }, [games]);
-  useEffect(() => {
-    if (!avatarMessage.visible) return;
-    const timer = setTimeout(() => setAvatarMessage(previous => ({ ...previous, visible: false })), 4000);
-    return () => clearTimeout(timer);
-  }, [avatarMessage]);
-  const showAvatarMessage = () => setAvatarMessage(previous => ({
-    index: (previous.index + 1) % content.avatarMessages.length,
-    visible: true,
-    sequence: previous.sequence + 1
-  }));
   const toggleVideos = () => setExpandedVideoIds(previous => {
     const next = new Set(previous);
     if (next.has(game.id)) next.delete(game.id);
@@ -67,13 +56,7 @@ export function Album({
     <svg width="0" height="0" aria-hidden="true" style={{
       position: 'absolute'
     }}><filter id="solid-alpha" colorInterpolationFilters="sRGB"><feComponentTransfer><feFuncA type="discrete" tableValues="0 0 0 1" /></feComponentTransfer></filter></svg>
-    <div className="avatars">{content.avatars.map((a, i) => content.avatarMessages.length ?
-      <button className="avatar avatar-button" key={i} aria-label={`${a.alt}，小彩蛋`} onClick={showAvatarMessage}><img crossOrigin={imageCrossOrigin(a.src)} src={asset(a.src)} alt="" /></button> :
-      <div className="avatar" key={i}><img crossOrigin={imageCrossOrigin(a.src)} src={asset(a.src)} alt={a.alt} /></div>)}
-      <div className={`avatar-message ${avatarMessage.visible ? 'is-visible' : ''}`} role="status" aria-live="polite" aria-atomic="true">
-        {avatarMessage.visible && <span key={avatarMessage.sequence}>{content.avatarMessages[avatarMessage.index]}</span>}
-      </div>
-    </div>
+    <AvatarKeepsake avatars={content.avatars} messages={content.avatarMessages} />
     <GameNavigation games={games} selected={selected} visitedIds={visitedIds} onSelect={choose} onOpenIndex={openIndex} indexButton={indexButton} navigationControl={navigation} />
     <section ref={panel} id="memories" className="memories" role="tabpanel" aria-labelledby={`tab-${game.id}`} tabIndex="-1">
       <div key={game.id} className="memory-content">
