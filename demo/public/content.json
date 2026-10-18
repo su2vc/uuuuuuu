@@ -135,20 +135,6 @@
           "description": "量子共振穿墙可能是真的。"
         },
         {
-          "id": "bigwalk-clip-006",
-          "type": "video",
-          "title": "故事的终章",
-          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/bigwalk/%E6%95%85%E4%BA%8B%E7%9A%84%E7%BB%88%E7%AB%A0.mp4",
-          "description": "这一段路，先在这里画个句号。"
-        },
-        {
-          "id": "bigwalk-clip-007",
-          "type": "video",
-          "title": "故事真正的终章",
-          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/bigwalk/%E6%95%85%E4%BA%8B%E7%9C%9F%E6%AD%A3%E7%9A%84%E7%BB%88%E7%AB%A0.mp4",
-          "description": "以为已经结束，原来还有最后一段。"
-        },
-        {
           "id": "bigwalk-clip-008",
           "type": "video",
           "title": "加密通话",
@@ -217,6 +203,20 @@
           "title": "张张进进出出",
           "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/bigwalk/%E5%BC%A0%E5%BC%A0%E8%BF%9B%E8%BF%9B%E5%87%BA%E5%87%BA.mp4",
           "description": "来来回回，主打一个自由出入。"
+        },
+        {
+          "id": "bigwalk-clip-006",
+          "type": "video",
+          "title": "故事的终章",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/bigwalk/%E6%95%85%E4%BA%8B%E7%9A%84%E7%BB%88%E7%AB%A0.mp4",
+          "description": "这一段路，先在这里画个句号。"
+        },
+        {
+          "id": "bigwalk-clip-007",
+          "type": "video",
+          "title": "故事真正的终章",
+          "src": "https://uu-memories-1.oss-cn-hongkong.aliyuncs.com/uu-video/games/bigwalk/%E6%95%85%E4%BA%8B%E7%9C%9F%E6%AD%A3%E7%9A%84%E7%BB%88%E7%AB%A0.mp4",
+          "description": "以为已经结束，原来还有最后一段。"
         }
       ]
     },
