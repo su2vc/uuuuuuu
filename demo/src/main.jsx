@@ -5,6 +5,7 @@ import { App } from "./App.jsx";
 import "./opening.css";
 import "./entry.css";
 import "./memories.css";
+import "./keepsakes.css";
 import "./styles.css";
 import "./entryBlocked.css";
 createRoot(document.getElementById("root")).render(<React.StrictMode>

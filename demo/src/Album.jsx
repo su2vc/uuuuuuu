@@ -56,7 +56,7 @@ export function Album({
     <svg width="0" height="0" aria-hidden="true" style={{
       position: 'absolute'
     }}><filter id="solid-alpha" colorInterpolationFilters="sRGB"><feComponentTransfer><feFuncA type="discrete" tableValues="0 0 0 1" /></feComponentTransfer></filter></svg>
-    <AvatarKeepsake avatars={content.avatars} messages={content.avatarMessages} />
+    <AvatarKeepsake avatars={content.avatars} message={content.avatarMessage} />
     <GameNavigation games={games} selected={selected} visitedIds={visitedIds} onSelect={choose} onOpenIndex={openIndex} indexButton={indexButton} navigationControl={navigation} />
     <section ref={panel} id="memories" className="memories" role="tabpanel" aria-labelledby={`tab-${game.id}`} tabIndex="-1">
       <div key={game.id} className="memory-content">

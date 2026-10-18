@@ -547,85 +547,6 @@ button.viewer-photo {
   pointer-events: none;
 }
 
-.avatar-button.is-holding {
-  animation: avatar-charge-breathe 1.4s ease-in-out infinite;
-}
-
-.avatar-charge-ring {
-  position: absolute;
-  inset: -9px;
-  width: calc(100% + 18px);
-  height: calc(100% + 18px);
-  overflow: visible;
-  transform: rotate(-90deg);
-  pointer-events: none;
-}
-
-.avatar-charge-ring circle {
-  fill: none;
-  stroke-width: 2.5;
-}
-
-.avatar-charge-track {
-  stroke: #e5cf9b;
-}
-
-.avatar-charge-progress {
-  stroke: #d9983d;
-  stroke-linecap: round;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: avatar-charge-fill 5s linear forwards;
-}
-
-.avatar-button.is-ready {
-  animation: avatar-charge-ready 1s ease-in-out infinite;
-}
-
-.avatar-button.is-ready .avatar-charge-progress {
-  stroke: #9a965d;
-  stroke-dashoffset: 0;
-}
-
-@keyframes avatar-charge-fill {
-  to { stroke-dashoffset: 0; }
-}
-
-@keyframes avatar-charge-breathe {
-  0%,100% { transform: scale(1.025); box-shadow: 0 0 0 2px #f1d17922; }
-  50% { transform: scale(1.07); box-shadow: 0 0 14px 4px #f1d17955; }
-}
-
-@keyframes avatar-charge-ready {
-  0%,100% { transform: scale(1.07); box-shadow: 0 0 0 4px #d6cd8f44; }
-  50% { transform: scale(1.1); box-shadow: 0 0 18px 6px #d6cd8f88; }
-}
-
-.avatar-message {
-  z-index: 2;
-  position: absolute;
-  top: calc(100% + 12px);
-  left: 0;
-  width: max-content;
-  max-width: min(260px,calc(100vw - 48px));
-  padding: 11px 15px;
-  border: 1px solid #d6c18c;
-  background: #fffdf3;
-  box-shadow: 3px 4px 0 #6a573316;
-  color: #6a583c;
-  font-size: 13px;
-  line-height: 1.7;
-  opacity: 0;
-  transform: translateY(-4px);
-  transition: opacity .2s,transform .2s;
-  pointer-events: none;
-}
-
-.avatar-message.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .avatar-burst {
   position: absolute;
   left: 50%;
@@ -965,14 +886,11 @@ button.viewer-photo {
   .memory-board .memory-slot,.viewer-photo-front img {
     animation: none;
   }
-  .photo-print,.text-memory,.note-fold,.viewer-photo-inner,.avatar-message {
+  .photo-print,.text-memory,.note-fold,.viewer-photo-inner {
     transition: none;
   }
   .avatar-confetti {
     display: none;
-    animation: none;
-  }
-  .avatar-button.is-holding,.avatar-button.is-ready,.avatar-charge-progress {
     animation: none;
   }
   .avatar-confetti-emoji {

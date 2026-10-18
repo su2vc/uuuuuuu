@@ -100,18 +100,16 @@ test('照片背面留言可省略，去除首尾空白并拒绝非文字', () =>
   assert.throws(preparedImage, /note：应为文字/);
 });
 
-test('头像彩蛋可禁用，统一整理文案并校验错误配置', () => {
+test('头像特别留言使用一条可选文字，统一整理文案并校验错误配置', () => {
   const content = fixture();
-  delete content.avatarMessages;
-  assert.deepEqual(prepareContent(content).avatarMessages, []);
-  content.avatarMessages = [];
-  assert.deepEqual(prepareContent(content).avatarMessages, []);
-  content.avatarMessages = ['  加密通话中。  '];
-  assert.deepEqual(prepareContent(content).avatarMessages, ['加密通话中。']);
-  content.avatarMessages = '加密通话中。';
-  assert.throws(() => prepareContent(content), /avatarMessages：应为数组/);
-  content.avatarMessages = ['  '];
-  assert.throws(() => prepareContent(content), /avatarMessages\[0\]：应为非空文字/);
+  delete content.avatarMessage;
+  assert.equal(prepareContent(content).avatarMessage, '');
+  content.avatarMessage = '  ';
+  assert.equal(prepareContent(content).avatarMessage, '');
+  content.avatarMessage = '  加密通话中。  ';
+  assert.equal(prepareContent(content).avatarMessage, '加密通话中。');
+  content.avatarMessage = ['加密通话中。'];
+  assert.throws(() => prepareContent(content), /avatarMessage：应为文字/);
 });
 
 test('实际加载出口排序，修改周期起点后默认首款游戏随之改变', async () => {

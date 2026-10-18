@@ -1,8 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { ArrowRight } from '@phosphor-icons/react';
 import { BirthdayCelebration } from './BirthdayCelebration';
 import { createOpeningScene } from './openingScene';
 import { asset, imageCrossOrigin } from './assets';
+import { useSqueezePress } from './useSqueezePress';
+import { ReleaseMagic } from './ReleaseMagic';
 export function Opening({
   onComplete,
   onReveal,
@@ -22,6 +24,12 @@ export function Opening({
   const [celebrating, setCelebrating] = useState(celebrate),
     openingScreen = useRef(null);
   const finishBirthday = () => setCelebrating(false);
+  const [rain, setRain] = useState(0), [raining, setRaining] = useState(false);
+  const endRain = useCallback(() => setRaining(false), []);
+  const squeeze = useSqueezePress({
+    disabled: celebrating || phase !== 'idle',
+    onRelease: () => { setRain(value => value + 1); setRaining(true); }
+  });
   done.current = onComplete;
   reveal.current = onReveal;
   useEffect(() => {
@@ -63,5 +71,5 @@ export function Opening({
   }} onPointerLeave={() => {
     motion.current.x = 0;
     motion.current.y = 0;
-  }}><h1 className="brand-u">U</h1><div className="opening-scene" ref={mount} role="img" aria-label="淡紫色立体纪念盒，内有回忆照片" onPointerEnter={() => motion.current.hover = true} onPointerLeave={() => motion.current.hover = false} />{fallback && <img className="opening-fallback" crossOrigin={imageCrossOrigin('assets/opening-reference.png')} src={asset('assets/opening-reference.png')} alt="淡紫色纪念盒" />}<button className="opening-enter" aria-label="打开纪念盒" onClick={open} disabled={phase !== 'idle' || celebrating} onFocus={() => motion.current.hover = true} onBlur={() => motion.current.hover = false} onPointerEnter={() => motion.current.hover = true} onPointerLeave={() => motion.current.hover = false}><ArrowRight size={27} weight="bold" aria-hidden="true" /></button>{celebrating && <BirthdayCelebration onComplete={finishBirthday} />}</section>;
+  }}><h1 className="brand-u"><button className="opening-secret" aria-label="U，长按三秒后松开有惊喜" disabled={celebrating || phase !== 'idle'} {...squeeze.bindings}>U</button></h1><div className="opening-scene" ref={mount} role="img" aria-label="淡紫色立体纪念盒，内有回忆照片" onPointerEnter={() => motion.current.hover = true} onPointerLeave={() => motion.current.hover = false} />{fallback && <img className="opening-fallback" crossOrigin={imageCrossOrigin('assets/opening-reference.png')} src={asset('assets/opening-reference.png')} alt="淡紫色纪念盒" />}<button className="opening-enter" aria-label="打开纪念盒" onClick={open} disabled={phase !== 'idle' || celebrating} onFocus={() => motion.current.hover = true} onBlur={() => motion.current.hover = false} onPointerEnter={() => motion.current.hover = true} onPointerLeave={() => motion.current.hover = false}><ArrowRight size={27} weight="bold" aria-hidden="true" /></button>{raining && <ReleaseMagic key={rain} variant="rain" onComplete={endRain} />}{celebrating && <BirthdayCelebration onComplete={finishBirthday} />}</section>;
 }

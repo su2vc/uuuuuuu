@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { X } from '@phosphor-icons/react';
+import { useSqueezePress } from './useSqueezePress';
+import { ReleaseMagic } from './ReleaseMagic';
 import { asset, imageCrossOrigin } from './assets';
 
 const colors = ['#edaa48', '#e7c84c', '#ae91d1', '#e9909f', '#82bcb1', '#f5df9a'];
-const HOLD_MS = 5000;
 
 function AvatarBurst({ id, step, onComplete }) {
   useEffect(() => {
@@ -33,35 +35,15 @@ function AvatarBurst({ id, step, onComplete }) {
   </span>;
 }
 
-export function AvatarKeepsake({ avatars, messages }) {
-  const [party, setParty] = useState({ step: 0, sequence: 0, messageSequence: 0, messageIndex: -1, visible: false, bursts: [] });
-  const [hold, setHold] = useState(null);
-  const shake = useRef(null);
-  const press = useRef(null), suppressClick = useRef(false);
+export function AvatarKeepsake({ avatars, message }) {
+  const [party, setParty] = useState({ step: 0, sequence: 0, bursts: [] });
+  const [release, setRelease] = useState(0), [releaseVisible, setReleaseVisible] = useState(false);
+  const [noteOpen, setNoteOpen] = useState(false);
+  const shake = useRef(null), noteSeen = useRef(false), avatarButton = useRef(null), closeButton = useRef(null);
   const removeBurst = useCallback(id => setParty(previous => ({ ...previous, bursts: previous.bursts.filter(burst => burst.id !== id) })), []);
-  const cancelHold = useCallback(() => {
-    if (!press.current) return;
-    clearTimeout(press.current.timer);
-    press.current = null;
-    suppressClick.current = true;
-    setHold(null);
-  }, []);
-  useEffect(() => {
-    const hide = () => { if (document.hidden) cancelHold(); };
-    document.addEventListener('visibilitychange', hide);
-    window.addEventListener('blur', cancelHold);
-    return () => {
-      clearTimeout(press.current?.timer);
-      shake.current?.cancel();
-      document.removeEventListener('visibilitychange', hide);
-      window.removeEventListener('blur', cancelHold);
-    };
-  }, [cancelHold]);
-  useEffect(() => {
-    if (!party.visible) return;
-    const timer = setTimeout(() => setParty(previous => ({ ...previous, visible: false })), 4000);
-    return () => clearTimeout(timer);
-  }, [party.visible, party.messageSequence]);
+  const endRelease = useCallback(() => setReleaseVisible(false), []);
+  useEffect(() => () => shake.current?.cancel(), []);
+  useEffect(() => { if (noteOpen) closeButton.current?.focus({ preventScroll: true }); }, [noteOpen]);
   const celebrate = button => {
     shake.current?.cancel();
     if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -74,68 +56,35 @@ export function AvatarKeepsake({ avatars, messages }) {
     setParty(previous => {
       const step = previous.step % 10 + 1;
       const sequence = previous.sequence + 1;
-      return {
-        ...previous, step, sequence, visible: false,
-        bursts: [...previous.bursts.slice(-3), { id: sequence, step }]
-      };
+      return { step, sequence, bursts: [...previous.bursts.slice(-3), { id: sequence, step }] };
     });
   };
-  const beginHold = (button, gesture) => {
-    if (press.current) return;
-    shake.current?.cancel();
-    suppressClick.current = false;
-    const current = { ...gesture, start: performance.now(), avatarIndex: Number(button.dataset.avatarIndex) };
-    press.current = current;
-    setParty(previous => previous.visible ? { ...previous, visible: false } : previous);
-    setHold({ avatarIndex: current.avatarIndex, phase: 'holding' });
-    current.timer = setTimeout(() => {
-      if (press.current === current) setHold({ avatarIndex: current.avatarIndex, phase: 'ready' });
-    }, HOLD_MS);
+  const squeeze = useSqueezePress({
+    disabled: noteOpen,
+    onTap: celebrate,
+    onStart: () => shake.current?.cancel(),
+    onRelease: () => {
+      setRelease(value => value + 1);
+      setReleaseVisible(true);
+      if (message && !noteSeen.current) {
+        noteSeen.current = true;
+        setNoteOpen(true);
+      }
+    }
+  });
+  const closeNote = () => {
+    setNoteOpen(false);
+    requestAnimationFrame(() => avatarButton.current?.focus({ preventScroll: true }));
   };
-  const finishHold = button => {
-    const current = press.current;
-    if (!current) return;
-    const ready = performance.now() - current.start >= HOLD_MS;
-    clearTimeout(current.timer);
-    press.current = null;
-    setHold(null);
-    if (ready) {
-      suppressClick.current = current.kind === 'pointer';
-      setParty(previous => ({
-        ...previous, visible: true, messageSequence: previous.messageSequence + 1,
-        messageIndex: (previous.messageIndex + 1) % messages.length
-      }));
-    } else if (current.kind === 'keyboard') celebrate(button);
-  };
-  return <div className="avatars" data-celebration-step={party.step}>
-    {avatars.map((avatar, i) => messages.length ? <button className={`avatar avatar-button ${hold?.avatarIndex === i ? `is-holding ${hold.phase === 'ready' ? 'is-ready' : ''}` : ''}`} key={i} data-avatar-index={i} aria-label={`${avatar.alt}，小彩蛋`} aria-description="点击庆祝，长按五秒后松开查看留言" onClick={event => {
-      if (suppressClick.current && event.detail > 0) { suppressClick.current = false; return; }
-      celebrate(event.currentTarget);
-    }} onPointerDown={event => {
-      if (!event.isPrimary || event.button !== 0) return;
-      beginHold(event.currentTarget, { kind: 'pointer', pointerId: event.pointerId, x: event.clientX, y: event.clientY });
-      event.currentTarget.setPointerCapture(event.pointerId);
-    }} onPointerMove={event => {
-      const current = press.current;
-      if (current?.kind === 'pointer' && current.pointerId === event.pointerId && Math.hypot(event.clientX - current.x, event.clientY - current.y) > 20) cancelHold();
-    }} onPointerUp={event => {
-      if (press.current?.pointerId === event.pointerId) finishHold(event.currentTarget);
-    }} onPointerCancel={cancelHold} onLostPointerCapture={cancelHold} onBlur={cancelHold} onContextMenu={event => event.preventDefault()} onKeyDown={event => {
-      if (event.key === 'Escape') { cancelHold(); return; }
-      if (event.key !== ' ' && event.key !== 'Enter') return;
-      event.preventDefault();
-      if (!event.repeat) beginHold(event.currentTarget, { kind: 'keyboard', key: event.key });
-    }} onKeyUp={event => {
-      if (event.key !== ' ' && event.key !== 'Enter') return;
-      event.preventDefault();
-      if (press.current?.kind === 'keyboard' && press.current.key === event.key) finishHold(event.currentTarget);
-    }}>
+  return <div className={`avatars ${noteOpen ? 'has-note' : ''}`} data-celebration-step={party.step}>
+    {avatars.map((avatar, i) => <button ref={i === 0 ? avatarButton : undefined} className="avatar avatar-button" key={i} disabled={noteOpen} aria-label={`${avatar.alt}，小彩蛋`} aria-description="点击庆祝，长按三秒后松开有惊喜" {...squeeze.bindings}>
       <img crossOrigin={imageCrossOrigin(avatar.src)} src={asset(avatar.src)} alt="" draggable="false" />
-      {hold?.avatarIndex === i && <svg className="avatar-charge-ring" viewBox="0 0 64 64" aria-hidden="true"><circle className="avatar-charge-track" cx="32" cy="32" r="29" /><circle className="avatar-charge-progress" cx="32" cy="32" r="29" pathLength="1" /></svg>}
-    </button> : <div className="avatar" key={i}><img crossOrigin={imageCrossOrigin(avatar.src)} src={asset(avatar.src)} alt={avatar.alt} /></div>)}
+    </button>)}
     {party.bursts.map(burst => <AvatarBurst key={burst.id} {...burst} onComplete={removeBurst} />)}
-    <div className={`avatar-message ${party.visible ? 'is-visible' : ''}`} role="status" aria-live="polite" aria-atomic="true">
-      {party.visible && <span key={party.messageSequence}>{messages[party.messageIndex]}</span>}
-    </div>
+    {releaseVisible && <ReleaseMagic key={release} variant="glow" onComplete={endRelease} />}
+    {noteOpen && <div className="avatar-note" role="dialog" aria-label="给你的话" onKeyDown={event => { if (event.key === 'Escape') { event.stopPropagation(); closeNote(); } }}>
+      <button ref={closeButton} className="avatar-note-close" aria-label="关闭留言" onClick={closeNote}><X size={18} /></button>
+      <p>{message}</p>
+    </div>}
   </div>;
 }
