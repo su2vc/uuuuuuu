@@ -4,10 +4,12 @@ import { AvatarKeepsake } from './AvatarKeepsake';
 import { GameNavigation } from './GameNavigation';
 import { GameIndex } from './GameIndex';
 import { formatPlayPeriod } from './playPeriod';
+import { useKeepsakeAudio } from './KeepsakeSound';
 export function Album({
   content
 }) {
   const games = content.games;
+  const audio = useKeepsakeAudio();
   const initial = 0;
   const [selected, setSelected] = useState(initial),
     [viewer, setViewer] = useState(null),
@@ -18,6 +20,7 @@ export function Album({
     indexButton = useRef(null),
     navigation = useRef(null);
   const selectedRef = useRef(initial),
+    soundedSelection = useRef(initial),
     scrolls = useRef({});
   const game = games[selected];
   const choose = index => {
@@ -32,6 +35,12 @@ export function Album({
   useLayoutEffect(() => {
     if (panel.current) panel.current.scrollTop = scrolls.current[selected] || 0;
   }, [selected]);
+  useEffect(() => {
+    // Selection changes only after navigation settles. Skip mount and same-game commits.
+    if (soundedSelection.current === selected) return;
+    soundedSelection.current = selected;
+    audio.play('page');
+  }, [selected, audio.play]);
   useEffect(() => {
     history.replaceState(null, '', `#${games[0].id}`);
     const hash = () => {

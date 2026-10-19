@@ -49,20 +49,25 @@ export function createKeepsakeAudio({
     oscillator.start(start);
     voice(oscillator, gain, start + duration + .02);
   };
-  const puff = (start, volume) => {
+  const puff = (start, volume, { duration = .1, sweep = false } = {}) => {
     const source = context.createBufferSource(), gain = context.createGain(), filter = context.createBiquadFilter();
-    const buffer = context.createBuffer(1, Math.ceil(context.sampleRate * .1), context.sampleRate);
+    const buffer = context.createBuffer(1, Math.ceil(context.sampleRate * duration), context.sampleRate);
     const samples = buffer.getChannelData(0);
     for (let i = 0; i < samples.length; i++) samples[i] = Math.random() * 2 - 1;
     source.buffer = buffer;
     filter.type = 'bandpass';
-    filter.frequency.value = 1800;
+    if (sweep) {
+      filter.frequency.setValueAtTime(900, start);
+      filter.frequency.linearRampToValueAtTime(2100, start + duration * .45);
+      filter.frequency.exponentialRampToValueAtTime(700, start + duration);
+    } else filter.frequency.value = 1800;
     filter.Q.value = .7;
-    gain.gain.setValueAtTime(volume, start);
-    gain.gain.exponentialRampToValueAtTime(.0001, start + .1);
+    gain.gain.setValueAtTime(sweep ? 0 : volume, start);
+    if (sweep) gain.gain.linearRampToValueAtTime(volume, start + .025);
+    gain.gain.exponentialRampToValueAtTime(.0001, start + duration);
     source.connect(filter).connect(gain).connect(context.destination);
     source.start(start);
-    voice(source, gain, start + .12, filter);
+    voice(source, gain, start + duration + .02, filter);
   };
   return {
     prepare,
@@ -93,7 +98,9 @@ export function createKeepsakeAudio({
       const play = () => {
         if (current !== sequence || disposed || !canPlay() || context?.state !== 'running') return;
         const start = context.currentTime + .005;
-        if (effect === 'confetti') {
+        if (effect === 'page') {
+          puff(start, .065, { duration: .24, sweep: true });
+        } else if (effect === 'confetti') {
           const level = Math.max(0, Math.min(1, strength));
           puff(start, .035 + level * .025);
           tone(660 + level * 220, start, .16, .025);

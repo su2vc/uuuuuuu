@@ -41,6 +41,16 @@ test('音效在用户操作前不创建音频上下文，按操作播放不同�
   audio.dispose();
 });
 
+test('翻页只播放一段短纸张声，暂停或卸载可取消', () => {
+  const { audio, counts, notes } = fixture();
+  audio.play('page');
+  assert.equal(counts.starts, 1);
+  assert.equal(notes[0].frequency, 0);
+  audio.suspend();
+  assert.equal(counts.cancels, 1);
+  audio.dispose();
+});
+
 test('后台不启动音效，恢复操作后可以继续，卸载永久释放', () => {
   const { audio, counts, setAllowed } = fixture();
   setAllowed(false); audio.prepare(); audio.play('confetti');
