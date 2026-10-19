@@ -98,7 +98,13 @@ export function createKeepsakeAudio({
       const play = () => {
         if (current !== sequence || disposed || !canPlay() || context?.state !== 'running') return;
         const start = context.currentTime + .005;
-        if (effect === 'page') {
+        if (effect === 'key') {
+          puff(start, .025, { duration: .025 });
+          tone(520, start, .04, .012);
+        } else if (effect === 'birthday') {
+          puff(start, .065);
+          [523.25, 659.25, 783.99, 1046.5].forEach((frequency, i) => tone(frequency, start + .06 + i * .1, .5, .03));
+        } else if (effect === 'page') {
           puff(start, .065, { duration: .24, sweep: true });
         } else if (effect === 'confetti') {
           const level = Math.max(0, Math.min(1, strength));

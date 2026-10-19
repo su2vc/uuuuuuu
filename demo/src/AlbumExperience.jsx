@@ -3,13 +3,8 @@ import { ArrowClockwise } from '@phosphor-icons/react';
 import { Opening } from './Opening';
 import { Album } from './Album';
 import { loadAlbumContent } from './albumResources';
-import { KeepsakeAudioProvider, KeepsakeSoundToggle, useKeepsakeAudio } from './KeepsakeSound';
+import { KeepsakeSoundToggle, useKeepsakeAudio } from './KeepsakeSound';
 export default function AlbumExperience({
-  birthday
-}) {
-  return <KeepsakeAudioProvider><Experience birthday={birthday} /></KeepsakeAudioProvider>;
-}
-function Experience({
   birthday
 }) {
   const [content, setContent] = useState(null);

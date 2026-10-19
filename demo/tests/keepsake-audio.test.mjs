@@ -51,6 +51,20 @@ test('翻页只播放一段短纸张声，暂停或卸载可取消', () => {
   audio.dispose();
 });
 
+test('密码键入是短按键音，生日彩带另有独立庆祝音效', () => {
+  const { audio, counts, notes } = fixture();
+  audio.play('key');
+  assert.equal(counts.starts, 2);
+  assert.equal(notes[1].frequency, 520);
+  audio.play('birthday');
+  assert.equal(counts.cancels, 2);
+  assert.equal(counts.starts, 7);
+  assert(notes.at(-1).frequency > notes[3].frequency);
+  audio.stop();
+  assert.equal(counts.cancels, 7);
+  audio.dispose();
+});
+
 test('后台不启动音效，恢复操作后可以继续，卸载永久释放', () => {
   const { audio, counts, setAllowed } = fixture();
   setAllowed(false); audio.prepare(); audio.play('confetti');

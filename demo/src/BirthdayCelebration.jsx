@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useKeepsakeAudio } from './KeepsakeSound';
 const BIRTHDAY_DURATION_MS = 3000;
 const colors = ['#b6a2db', '#e6c83f', '#e9dda1', '#8b78aa', '#adc7b5', '#faf7ef'];
 const confetti = Array.from({
@@ -17,6 +18,12 @@ const confetti = Array.from({
 export function BirthdayCelebration({
   onComplete
 }) {
+  const audio = useKeepsakeAudio();
+  useEffect(() => {
+    // Tie the short pop and chime to the first visible confetti frame.
+    const frame = requestAnimationFrame(() => audio.play('birthday'));
+    return () => { cancelAnimationFrame(frame); audio.stopEffects(); };
+  }, [audio.play, audio.stopEffects]);
   const screen = useRef(null),
     finish = useRef(onComplete);
   finish.current = onComplete;

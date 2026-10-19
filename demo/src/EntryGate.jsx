@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowRight } from '@phosphor-icons/react';
 import { entryDecision } from './entryRules';
+import { useKeepsakeAudio } from './KeepsakeSound';
 const MAX_PASSWORD_LENGTH = 8;
 export function EntryGate({
   onUnlock
 }) {
+  const audio = useKeepsakeAudio();
   const [password, setPassword] = useState(''),
     [error, setError] = useState(false);
   const input = useRef(null);
@@ -68,6 +70,8 @@ export function EntryGate({
       input.current?.select();
       return;
     }
+    // Prime the shared context in the trusted submit gesture, including pasted passwords.
+    audio.prepare();
     onUnlock(result.birthday);
   };
   return <main className={`entry-gate ${error ? 'entry-error' : ''}`} style={{
@@ -84,7 +88,11 @@ export function EntryGate({
       <div className="entry-paper-front">
         <div className="entry-input-row">
           <input ref={input} id="album-password" aria-label="密码" type="password" inputMode="numeric" enterKeyHint="go" autoComplete="off" maxLength={MAX_PASSWORD_LENGTH} value={password} onChange={e => {
-          setPassword(e.target.value.replace(/\D/g, '').slice(0, MAX_PASSWORD_LENGTH));
+          const next = e.target.value.replace(/\D/g, '').slice(0, MAX_PASSWORD_LENGTH);
+          const { inputType, data } = e.nativeEvent;
+          const insertion = inputType ? inputType.startsWith('insert') : next.length > password.length;
+          if (insertion && (/\d/.test(data || '') || (next !== password && next.length >= password.length))) audio.play('key');
+          setPassword(next);
           setError(false);
         }} aria-invalid={error} aria-describedby="entry-feedback" />
           <button className="entry-submit" type="submit" aria-label="进入纪念册">

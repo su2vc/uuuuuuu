@@ -39,6 +39,7 @@ export function KeepsakeAudioProvider({ children }) {
   }, []);
   const value = useMemo(() => ({
     musicEnabled,
+    prepare: () => engine.current?.prepare(),
     startCharge: duration => engine.current?.startCharge(duration),
     stopEffects: () => engine.current?.stop(),
     play: (effect, strength) => engine.current?.play(effect, strength),
