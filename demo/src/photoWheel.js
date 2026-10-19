@@ -1,9 +1,8 @@
-// One trackpad gesture advances one photo; a reverse gesture can respond immediately.
+// Follow wheel distance continuously; there is no gesture lock or queued animation.
 export function createPhotoWheelHandler(move, { now = () => performance.now() } = {}) {
   let lastTime = -Infinity;
   let direction = 0;
   let distance = 0;
-  let advanced = false;
   return event => {
     if (event.ctrlKey || event.defaultPrevented || event.cancelable === false) return false;
     const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
@@ -12,17 +11,16 @@ export function createPhotoWheelHandler(move, { now = () => performance.now() } 
     const nextDirection = Math.sign(delta);
     if (time - lastTime > 180 || direction !== nextDirection) {
       distance = 0;
-      advanced = false;
     }
     lastTime = time;
     direction = nextDirection;
     event.preventDefault();
     event.stopPropagation();
-    if (advanced) return true;
     distance += Math.abs(delta) * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? 400 : 1);
-    if (distance >= 40) {
-      move(direction);
-      advanced = true;
+    const steps = Math.floor(distance / 80);
+    if (steps) {
+      distance %= 80;
+      move(direction * steps);
     }
     return true;
   };

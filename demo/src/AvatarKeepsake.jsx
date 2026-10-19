@@ -3,6 +3,7 @@ import { X } from '@phosphor-icons/react';
 import { useSqueezePress } from './useSqueezePress';
 import { ReleaseMagic } from './ReleaseMagic';
 import { asset, imageCrossOrigin } from './assets';
+import { useKeepsakeAudio } from './KeepsakeSound';
 
 const colors = ['#edaa48', '#e7c84c', '#ae91d1', '#e9909f', '#82bcb1', '#f5df9a'];
 
@@ -36,6 +37,8 @@ function AvatarBurst({ id, step, onComplete }) {
 }
 
 export function AvatarKeepsake({ avatars, message }) {
+  const audio = useKeepsakeAudio();
+  const clicks = useRef(0);
   const [party, setParty] = useState({ step: 0, sequence: 0, bursts: [] });
   const [release, setRelease] = useState(0), [releaseVisible, setReleaseVisible] = useState(false);
   const [noteOpen, setNoteOpen] = useState(false);
@@ -45,6 +48,8 @@ export function AvatarKeepsake({ avatars, message }) {
   useEffect(() => () => shake.current?.cancel(), []);
   useEffect(() => { if (noteOpen) closeButton.current?.focus({ preventScroll: true }); }, [noteOpen]);
   const celebrate = button => {
+    const step = ++clicks.current % 10 || 10;
+    audio.play('confetti', step / 10);
     shake.current?.cancel();
     if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
       shake.current = button.animate([
@@ -54,7 +59,6 @@ export function AvatarKeepsake({ avatars, message }) {
       ], { duration: 360, easing: 'ease-out' });
     }
     setParty(previous => {
-      const step = previous.step % 10 + 1;
       const sequence = previous.sequence + 1;
       return { step, sequence, bursts: [...previous.bursts.slice(-3), { id: sequence, step }] };
     });
@@ -62,8 +66,9 @@ export function AvatarKeepsake({ avatars, message }) {
   const squeeze = useSqueezePress({
     disabled: noteOpen,
     onTap: celebrate,
-    onStart: () => shake.current?.cancel(),
+    onStart: () => { audio.prepare(); shake.current?.cancel(); },
     onRelease: () => {
+      audio.play('glow');
       setRelease(value => value + 1);
       setReleaseVisible(true);
       if (message && !noteSeen.current) {

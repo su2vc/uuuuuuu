@@ -18,24 +18,35 @@ function fixture() {
   return { moves, send };
 }
 
-test('触控板微小滚动累计到阈值再切图，同方向尾事件不会连翻', () => {
+test('连续滚动按距离持续切图，无需停顿或移动鼠标重新触发', () => {
   const { moves, send } = fixture();
   assert.equal(send(12).prevented, true);
-  send(12); send(16);
+  send(28); send(40);
   assert.deepEqual(moves, [1]);
-  for (let i = 0; i < 30; i++) send(20);
-  assert.deepEqual(moves, [1]);
-  send(120, 200);
-  assert.deepEqual(moves, [1, 1]);
+  for (let i = 0; i < 8; i++) send(20);
+  assert.deepEqual(moves, [1, 1, 1]);
+  send(240);
+  assert.deepEqual(moves, [1, 1, 1, 3]);
+  send(40); send(40);
+  assert.deepEqual(moves, [1, 1, 1, 3, 1]);
 });
 
 test('反向滚动立即响应，水平滚轮及行/页单位也能切图', () => {
   const { moves, send } = fixture();
-  send(120); send(-120);
-  send(0, 200, { deltaX: 60 });
-  send(-3, 200, { deltaMode: 1 });
+  send(80); send(-80);
+  send(0, 200, { deltaX: 80 });
+  send(-5, 200, { deltaMode: 1 });
   send(1, 200, { deltaMode: 2 });
-  assert.deepEqual(moves, [1, -1, 1, -1, 1]);
+  assert.deepEqual(moves, [1, -1, 1, -1, 5]);
+});
+
+test('停滚后不保留残余距离，反向滚动不必抵消旧方向', () => {
+  const { moves, send } = fixture();
+  send(60); send(20, 200);
+  assert.deepEqual(moves, []);
+  send(60);
+  send(60); send(-80);
+  assert.deepEqual(moves, [1, -1]);
 });
 
 test('不拦截缩放、无效输入或已被其他交互处理的事件', () => {

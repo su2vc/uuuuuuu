@@ -3,7 +3,14 @@ import { ArrowClockwise } from '@phosphor-icons/react';
 import { Opening } from './Opening';
 import { Album } from './Album';
 import { loadAlbumContent } from './albumResources';
+import { KeepsakeAudioProvider, KeepsakeSoundToggle } from './KeepsakeSound';
 export default function AlbumExperience({
+  birthday,
+  onReplay
+}) {
+  return <KeepsakeAudioProvider><Experience birthday={birthday} onReplay={onReplay} /></KeepsakeAudioProvider>;
+}
+function Experience({
   birthday,
   onReplay
 }) {
@@ -37,5 +44,6 @@ export default function AlbumExperience({
       </div>}
     </div>
     {!entered ? <Opening celebrate={birthday} onComplete={() => setPhase('entered')} onReveal={() => setPhase('revealed')} /> : <button className="opening-replay" aria-label="重播开屏" onClick={onReplay}><ArrowClockwise size={18} aria-hidden="true" /></button>}
+    <KeepsakeSoundToggle entered={entered} />
   </>;
 }

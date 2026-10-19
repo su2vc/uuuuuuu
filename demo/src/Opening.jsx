@@ -5,6 +5,7 @@ import { createOpeningScene } from './openingScene';
 import { asset, imageCrossOrigin } from './assets';
 import { useSqueezePress } from './useSqueezePress';
 import { ReleaseMagic } from './ReleaseMagic';
+import { useKeepsakeAudio } from './KeepsakeSound';
 export function Opening({
   onComplete,
   onReveal,
@@ -26,9 +27,11 @@ export function Opening({
   const finishBirthday = () => setCelebrating(false);
   const [rain, setRain] = useState(0), [raining, setRaining] = useState(false);
   const endRain = useCallback(() => setRaining(false), []);
+  const audio = useKeepsakeAudio();
   const squeeze = useSqueezePress({
     disabled: celebrating || phase !== 'idle',
-    onRelease: () => { setRain(value => value + 1); setRaining(true); }
+    onStart: audio.prepare,
+    onRelease: () => { audio.play('rain'); setRain(value => value + 1); setRaining(true); }
   });
   done.current = onComplete;
   reveal.current = onReveal;
@@ -58,6 +61,7 @@ export function Opening({
   }, [celebrating]);
   const open = () => {
     if (phase !== 'idle' || celebrating) return;
+    audio.openAlbum();
     if (fallback || matchMedia('(prefers-reduced-motion: reduce)').matches) {
       done.current();
       return;

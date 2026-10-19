@@ -7,6 +7,7 @@ import { pauseOtherVideos } from './mediaPlayback';
 import { useModalDialog } from './useModalDialog';
 const stamp = value => value?.slice(5).replace('-', '.') || '';
 const clock = value => `${Math.floor(value / 60).toString().padStart(2, '0')}:${Math.floor(value % 60).toString().padStart(2, '0')}`;
+const photoIndex = (index, delta, length) => ((index + delta) % length + length) % length;
 export function VideoMemory({
   memory,
   onExpand,
@@ -72,13 +73,13 @@ export function PhotoMemory({
 }) {
   const [index, setIndex] = useState(0);
   const items = memory.images;
-  const move = delta => setIndex(i => (i + delta + items.length) % items.length);
+  const move = delta => setIndex(i => photoIndex(i, delta, items.length));
   const touch = useRef(null);
   const deck = useRef(null);
   useEffect(() => {
     if (items.length < 2) return;
     const element = deck.current;
-    const wheel = createPhotoWheelHandler(delta => setIndex(i => (i + delta + items.length) % items.length));
+    const wheel = createPhotoWheelHandler(delta => setIndex(i => photoIndex(i, delta, items.length)));
     element.addEventListener('wheel', wheel, { passive: false });
     return () => element.removeEventListener('wheel', wheel);
   }, [items.length]);
@@ -163,7 +164,7 @@ export function ImageViewer({
     // A photo without a note is not a button. Preserve keyboard focus when
     // navigating away from the optional interactive photo.
     if (dialog.current?.querySelector('button.viewer-photo') === document.activeElement) dialog.current.focus({ preventScroll: true });
-    setView(previous => ({ index: (previous.index + delta + images.length) % images.length, flipped: false }));
+    setView(previous => ({ index: photoIndex(previous.index, delta, images.length), flipped: false }));
   };
   const Photo = item.note ? 'button' : 'div';
   return <dialog className="image-viewer" ref={dialog} aria-label="回忆照片" onCancel={e => {

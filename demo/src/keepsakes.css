@@ -188,3 +188,33 @@
     transform: translate(var(--release-x),var(--release-y));
   }
 }
+.keepsake-sound-toggle {
+  position: fixed;
+  right: 22px;
+  bottom: 18px;
+  z-index: 21;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #d5ccd9;
+  background: #fffdf7;
+  color: #766581;
+  cursor: pointer;
+}
+.keepsake-sound-toggle.in-album { right: 72px; z-index: 9; }
+.keepsake-sound-toggle.keepsake-music-toggle { right: 122px; }
+.keepsake-music-toggle[aria-pressed="false"] { color: #a59eaa; }
+.keepsake-music-toggle[aria-pressed="false"]::after {
+  content: '';
+  position: absolute;
+  width: 22px;
+  height: 1px;
+  background: currentColor;
+  transform: rotate(-45deg);
+}
+@media (max-width: 650px) {
+  .keepsake-sound-toggle { right: 12px; bottom: 12px; }
+  .keepsake-sound-toggle.in-album { right: 62px; }
+  .keepsake-sound-toggle.keepsake-music-toggle { right: 112px; }
+}
