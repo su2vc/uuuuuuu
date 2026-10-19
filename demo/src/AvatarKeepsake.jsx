@@ -77,7 +77,7 @@ export function AvatarKeepsake({ avatars, message }) {
     requestAnimationFrame(() => avatarButton.current?.focus({ preventScroll: true }));
   };
   return <div className={`avatars ${noteOpen ? 'has-note' : ''}`} data-celebration-step={party.step}>
-    {avatars.map((avatar, i) => <button ref={i === 0 ? avatarButton : undefined} className="avatar avatar-button" key={i} disabled={noteOpen} aria-label={`${avatar.alt}，小彩蛋`} aria-description="点击庆祝，长按 2.5 秒后松开有惊喜" {...squeeze.bindings}>
+    {avatars.map((avatar, i) => <button ref={i === 0 ? avatarButton : undefined} className="avatar avatar-button" key={i} disabled={noteOpen} aria-label={`${avatar.alt}，小彩蛋`} aria-description="点击庆祝，长按 2 秒后松开有惊喜" {...squeeze.bindings}>
       <img crossOrigin={imageCrossOrigin(avatar.src)} src={asset(avatar.src)} alt="" draggable="false" />
     </button>)}
     {party.bursts.map(burst => <AvatarBurst key={burst.id} {...burst} onComplete={removeBurst} />)}

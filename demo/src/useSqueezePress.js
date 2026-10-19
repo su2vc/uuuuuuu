@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-const HOLD_MS = 2500;
+const HOLD_MS = 2000;
 
 // Both keepsakes use one gesture: squeeze to a fixed size, then release.
 // Only gesture boundaries update React; the browser animates the transforms.
