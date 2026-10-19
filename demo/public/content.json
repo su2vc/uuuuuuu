@@ -419,7 +419,7 @@
         {
           "id": "outlast-note",
           "type": "text",
-          "title": "我说安静一点。",
+          "title": "安静一点。",
           "presentation": "ticket",
           "excerpt": "然后叫得最大声的也是我。",
           "paragraphs": [
@@ -587,10 +587,10 @@
           "type": "text",
           "title": "很多美丽的瞬间。",
           "presentation": "letter",
-          "excerpt": "我忍不住留下。",
+          "excerpt": "忍不住留下。",
           "paragraphs": [
             "你总是在笑。",
-            "后来才发现，美丽的原因。"
+            "是美丽的原因吧。"
           ]
         }
       ]
