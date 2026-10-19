@@ -63,6 +63,7 @@ export function Opening({
   const open = () => {
     if (phase !== 'idle' || celebrating) return;
     audio.openAlbum();
+    audio.play('box');
     if (fallback || matchMedia('(prefers-reduced-motion: reduce)').matches) {
       done.current();
       return;

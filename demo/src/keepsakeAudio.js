@@ -98,7 +98,11 @@ export function createKeepsakeAudio({
       const play = () => {
         if (current !== sequence || disposed || !canPlay() || context?.state !== 'running') return;
         const start = context.currentTime + .005;
-        if (effect === 'key') {
+        if (effect === 'box') {
+          tone(380, start, .06, .015);
+          puff(start + .08, .045, { duration: .38, sweep: true });
+          tone(783.99, start + .32, .35, .02);
+        } else if (effect === 'key') {
           puff(start, .025, { duration: .025 });
           tone(520, start, .04, .012);
         } else if (effect === 'birthday') {

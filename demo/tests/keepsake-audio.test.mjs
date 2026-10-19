@@ -65,6 +65,16 @@ test('密码键入是短按键音，生日彩带另有独立庆祝音效', () =>
   audio.dispose();
 });
 
+test('开箱音效包含开盖轻响和随后展开声，可完整停止', () => {
+  const { audio, counts, notes } = fixture();
+  audio.play('box');
+  assert.equal(counts.starts, 3);
+  assert(notes[0].time < notes[1].time && notes[1].time < notes[2].time);
+  audio.stop();
+  assert.equal(counts.cancels, 3);
+  audio.dispose();
+});
+
 test('后台不启动音效，恢复操作后可以继续，卸载永久释放', () => {
   const { audio, counts, setAllowed } = fixture();
   setAllowed(false); audio.prepare(); audio.play('confetti');

@@ -4,6 +4,7 @@ import { asset, imageCrossOrigin } from './assets';
 import { groupMemories } from './content';
 import { createPhotoWheelHandler } from './photoWheel';
 import { pauseOtherVideos } from './mediaPlayback';
+import { observeVideoPreload } from './videoPreload';
 import { useModalDialog } from './useModalDialog';
 const stamp = value => value?.slice(5).replace('-', '.') || '';
 const clock = value => `${Math.floor(value / 60).toString().padStart(2, '0')}:${Math.floor(value % 60).toString().padStart(2, '0')}`;
@@ -16,8 +17,13 @@ export function VideoMemory({
   const [playing, setPlaying] = useState(false);
   const [elapsed, setElapsed] = useState(0);
   const [failed, setFailed] = useState(false);
+  const [nearViewport, setNearViewport] = useState(false);
   const video = useRef(null);
   const duration = memory.previewSeconds || 30;
+  useEffect(() => {
+    if (!memory.src || memory.poster || failed || !video.current) return;
+    return observeVideoPreload(video.current, () => setNearViewport(true));
+  }, [memory.src, memory.poster, failed]);
   useEffect(() => {
     const element = video.current;
     return () => element?.pause();
@@ -42,7 +48,7 @@ export function VideoMemory({
   }, []);
   return <article className={`video-memory ${featured ? 'featured-memory' : ''}`}>
     <div className="block-meta"><span><FilmStrip size={14} />VIDEO</span>{memory.date && <time dateTime={memory.date}>{stamp(memory.date)}</time>}</div>
-    {memory.src && !failed ? <video ref={video} className="memory-video" aria-label={memory.title} controls playsInline preload={memory.poster ? 'none' : 'metadata'} poster={memory.poster ? asset(memory.poster) : undefined} src={asset(memory.src)} onPlay={event => pauseOtherVideos(event.currentTarget)} onError={() => setFailed(true)} /> : !memory.poster ? <div className="player video-unavailable" role="status"><FilmStrip size={36} aria-hidden="true" /><span>视频暂时无法播放</span></div> : <div className={`player ${playing ? 'is-playing' : ''}`}>
+    {memory.src && !failed ? <video ref={video} className="memory-video" aria-label={memory.title} controls playsInline preload={memory.poster || !nearViewport ? 'none' : 'metadata'} poster={memory.poster ? asset(memory.poster) : undefined} src={asset(memory.src)} onPlay={event => pauseOtherVideos(event.currentTarget)} onError={() => setFailed(true)} /> : !memory.poster ? <div className="player video-unavailable" role="status"><FilmStrip size={36} aria-hidden="true" /><span>视频暂时无法播放</span></div> : <div className={`player ${playing ? 'is-playing' : ''}`}>
         <img crossOrigin={imageCrossOrigin(memory.poster)} src={asset(memory.poster)} alt={memory.title} style={{
         transform: `scale(${1 + elapsed * .002}) translateX(${-elapsed * .012}%)`
       }} />
