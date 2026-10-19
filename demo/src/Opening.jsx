@@ -30,7 +30,8 @@ export function Opening({
   const audio = useKeepsakeAudio();
   const squeeze = useSqueezePress({
     disabled: celebrating || phase !== 'idle',
-    onStart: audio.prepare,
+    onStart: audio.startCharge,
+    onEnd: audio.stopEffects,
     onRelease: () => { audio.play('rain'); setRain(value => value + 1); setRaining(true); }
   });
   done.current = onComplete;

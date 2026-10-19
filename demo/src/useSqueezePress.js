@@ -4,9 +4,9 @@ const HOLD_MS = 2000;
 
 // Both keepsakes use one gesture: squeeze to a fixed size, then release.
 // Only gesture boundaries update React; the browser animates the transforms.
-export function useSqueezePress({ onTap, onRelease, onStart, disabled = false }) {
+export function useSqueezePress({ onTap, onRelease, onStart, onEnd, disabled = false }) {
   const latest = useRef(null);
-  latest.current = { onTap, onRelease, onStart, disabled };
+  latest.current = { onTap, onRelease, onStart, onEnd, disabled };
   const press = useRef(null), animation = useRef(null);
   const [phase, setPhase] = useState('idle');
   const restore = useCallback((button, ready = false) => {
@@ -22,6 +22,7 @@ export function useSqueezePress({ onTap, onRelease, onStart, disabled = false })
     if (!current) return;
     clearTimeout(current.timer);
     press.current = null;
+    latest.current.onEnd?.();
     restore(current.button);
     setPhase('idle');
   }, [restore]);
@@ -31,6 +32,8 @@ export function useSqueezePress({ onTap, onRelease, onStart, disabled = false })
     window.addEventListener('blur', cancel);
     return () => {
       clearTimeout(press.current?.timer);
+      if (press.current) latest.current.onEnd?.();
+      press.current = null;
       animation.current?.cancel();
       document.removeEventListener('visibilitychange', hide);
       window.removeEventListener('blur', cancel);
@@ -39,7 +42,7 @@ export function useSqueezePress({ onTap, onRelease, onStart, disabled = false })
   useEffect(() => { if (disabled) cancel(); }, [disabled, cancel]);
   const begin = (button, gesture) => {
     if (latest.current.disabled || press.current) return;
-    latest.current.onStart?.();
+    latest.current.onStart?.(HOLD_MS);
     animation.current?.cancel();
     const current = { ...gesture, button, start: performance.now() };
     press.current = current;
@@ -57,6 +60,7 @@ export function useSqueezePress({ onTap, onRelease, onStart, disabled = false })
     const ready = performance.now() - current.start >= HOLD_MS;
     clearTimeout(current.timer);
     press.current = null;
+    latest.current.onEnd?.();
     setPhase('idle');
     if (ready) {
       restore(current.button, true);

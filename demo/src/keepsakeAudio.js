@@ -4,9 +4,10 @@ export function createKeepsakeAudio({
     const Audio = window.AudioContext || window.webkitAudioContext;
     return Audio ? new Audio() : null;
   },
-  canPlay = () => !document.hidden && ![...document.querySelectorAll('video')].some(video => !video.paused && !video.ended)
+  canPlay = () => !document.hidden,
+  now = () => performance.now()
 } = {}) {
-  let context = null, muted = false, disposed = false, sequence = 0;
+  let context = null, disposed = false, sequence = 0;
   const voices = new Set();
   const getContext = () => {
     if (disposed) return null;
@@ -21,7 +22,7 @@ export function createKeepsakeAudio({
     voices.clear();
   };
   const prepare = () => {
-    if (disposed || muted || !canPlay()) return;
+    if (disposed || !canPlay()) return;
     try {
       getContext();
       if (context?.state === 'suspended') return context.resume().catch(() => {});
@@ -67,13 +68,30 @@ export function createKeepsakeAudio({
     prepare,
     getContext,
     stop,
+    startCharge(duration = 2000) {
+      if (disposed || !canPlay()) return;
+      stop();
+      const current = sequence, began = now(), ready = prepare();
+      const play = () => {
+        if (current !== sequence || disposed || !canPlay() || context?.state !== 'running') return;
+        const elapsed = now() - began;
+        // Delay the first pulse so ordinary taps retain their short confetti sound.
+        for (let offset = 120; offset < duration; offset += 220 - 120 * offset / duration) {
+          if (offset < elapsed) continue;
+          const progress = offset / duration;
+          tone(260 * 2 ** (progress * 1.8), context.currentTime + (offset - elapsed) / 1000, .075, .02);
+        }
+      };
+      if (context?.state === 'running') play();
+      else ready?.then(play);
+    },
     play(effect, strength = 1) {
-      if (disposed || muted || !canPlay()) return;
+      if (disposed || !canPlay()) return;
       // A new burst replaces the previous one, so rapid tapping cannot pile up noise.
       stop();
       const current = sequence, ready = prepare();
       const play = () => {
-        if (current !== sequence || disposed || muted || !canPlay() || context?.state !== 'running') return;
+        if (current !== sequence || disposed || !canPlay() || context?.state !== 'running') return;
         const start = context.currentTime + .005;
         if (effect === 'confetti') {
           const level = Math.max(0, Math.min(1, strength));
@@ -88,7 +106,6 @@ export function createKeepsakeAudio({
       if (context?.state === 'running') play();
       else ready?.then(play);
     },
-    setMuted(value) { muted = value; if (muted) stop(); },
     suspend() {
       stop();
       if (context?.state === 'running') context.suspend().catch(() => {});

@@ -13,7 +13,7 @@ export function App() {
     if (!ENTRY_BLOCKED) warmAlbumImages().catch(() => {});
   }, []);
   return <ErrorBoundary>{entry ? ENTRY_BLOCKED ? <EntryBlocked /> : <Suspense fallback={<div className="loading" role="status">…</div>}>
-      <AlbumExperience birthday={entry.birthday} onReplay={() => setEntry(null)} />
+      <AlbumExperience birthday={entry.birthday} />
     </Suspense> : <EntryGate onUnlock={birthday => setEntry({
       birthday
     })} />}</ErrorBoundary>;

@@ -66,7 +66,8 @@ export function AvatarKeepsake({ avatars, message }) {
   const squeeze = useSqueezePress({
     disabled: noteOpen,
     onTap: celebrate,
-    onStart: () => { audio.prepare(); shake.current?.cancel(); },
+    onStart: duration => { audio.startCharge(duration); shake.current?.cancel(); },
+    onEnd: audio.stopEffects,
     onRelease: () => {
       audio.play('glow');
       setRelease(value => value + 1);
