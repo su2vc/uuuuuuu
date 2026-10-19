@@ -3,8 +3,8 @@ const birthdayFormatter = new Intl.DateTimeFormat('en-US', {
   month: '2-digit',
   day: '2-digit'
 });
-// Temporary review mode: restore false when the birthday experience is approved.
-export const BIRTHDAY_TEST_MODE = true;
+// Enable only for an explicit birthday preview; production follows the Shanghai date.
+export const BIRTHDAY_TEST_MODE = false;
 // Temporary preview barrier: set false to restore the birthday / opening flow.
 export const ENTRY_BLOCKED = false;
 export function isBirthday(date = new Date()) {
@@ -16,7 +16,7 @@ export function isBirthday(date = new Date()) {
 export function entryDecision(password, date = new Date(), {
   birthdayTestMode = BIRTHDAY_TEST_MODE
 } = {}) {
-  const granted = password === '0621';
+  const granted = password === '1020';
   return {
     granted,
     birthday: granted && (birthdayTestMode || isBirthday(date))
