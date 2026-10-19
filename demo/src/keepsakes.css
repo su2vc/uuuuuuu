@@ -191,17 +191,18 @@
 .keepsake-sound-toggle {
   position: fixed;
   right: 22px;
-  bottom: 18px;
+  top: max(18px,env(safe-area-inset-top));
   z-index: 9;
   display: grid;
   place-items: center;
   width: 44px;
   height: 44px;
-  border: 1px solid #d5ccd9;
-  background: #fffdf7;
+  border: 0;
+  background: transparent;
   color: #766581;
   cursor: pointer;
 }
+.keepsake-sound-toggle:hover { color: #4f3d60; }
 .keepsake-sound-toggle.keepsake-music-toggle { right: 72px; }
 .keepsake-music-toggle[aria-pressed="false"] { color: #a59eaa; }
 .keepsake-music-toggle[aria-pressed="false"]::after {
@@ -213,6 +214,6 @@
   transform: rotate(-45deg);
 }
 @media (max-width: 650px) {
-  .keepsake-sound-toggle { right: 12px; bottom: 12px; }
+  .keepsake-sound-toggle { right: 12px; top: max(12px,env(safe-area-inset-top)); }
   .keepsake-sound-toggle.keepsake-music-toggle { right: 62px; }
 }

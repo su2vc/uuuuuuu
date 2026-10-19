@@ -103,14 +103,14 @@
 .opening-replay {
   position: fixed;
   right: 22px;
-  bottom: 18px;
+  top: max(18px,env(safe-area-inset-top));
   z-index: 9;
   width: 44px;
   height: 44px;
   padding: 0;
-  background: #faf9f6e8;
-  color: #454051;
-  border: 1px solid #bcb3ca;
+  background: transparent;
+  color: #766581;
+  border: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -125,7 +125,7 @@
 }
 
 .opening-replay:hover {
-  background: white;
+  color: #4f3d60;
 }
 
 @media (max-width:650px) {
@@ -142,7 +142,7 @@
     height: 52px;
   }
   .opening-replay {
-    bottom: 12px;
+    top: max(12px,env(safe-area-inset-top));
     right: 12px;
   }
 }
