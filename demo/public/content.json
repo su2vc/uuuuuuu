@@ -464,7 +464,7 @@
           "images": [
             {
               "src": "assets/games/outlast/001.jpg",
-              "note": "ilu。"
+              "note": "olu。"
             },
             {
               "src": "assets/games/outlast/002.jpg"
@@ -593,7 +593,7 @@
           "images": [
             {
               "src": "assets/games/split/001.png",
-              "note": "和你一起去看美丽风景。"
+              "note": "一起去看美丽风景。"
             },
             {
               "src": "assets/games/split/002.png"
@@ -618,10 +618,7 @@
           "title": "很多美丽的瞬间。",
           "presentation": "letter",
           "excerpt": "忍不住留下。",
-          "paragraphs": [
-            "你总是在笑。",
-            "是美丽的原因吧。"
-          ]
+          "paragraphs": []
         }
       ]
     },
