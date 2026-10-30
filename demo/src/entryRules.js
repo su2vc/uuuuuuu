@@ -6,7 +6,7 @@ const birthdayFormatter = new Intl.DateTimeFormat('en-US', {
 // Enable only for an explicit birthday preview; production follows the Shanghai date.
 export const BIRTHDAY_TEST_MODE = false;
 // Temporary preview barrier: set false to restore the birthday / opening flow.
-export const ENTRY_BLOCKED = false;
+export const ENTRY_BLOCKED = true;
 export function isBirthday(date = new Date()) {
   if (!Number.isFinite(date.getTime())) return false;
   const parts = birthdayFormatter.formatToParts(date);

@@ -28,10 +28,10 @@ export function EntryBlocked() {
         <span className="blocked-dot" />
       </div>
       <div className="blocked-float">
-        <button className="blocked-sign" aria-label="不准进，敲一敲" onClick={() => setKnocks(count => count + 1)}>
+        <button className="blocked-sign" aria-label="未营业，敲一敲" onClick={() => setKnocks(count => count + 1)}>
           <span key={knocks} className={`blocked-paper${knocks ? ' blocked-knocked' : ''}`}>
             <span className="blocked-tape" aria-hidden="true" />
-            <span className="blocked-title">不准进</span>
+            <span className="blocked-title">未营业</span>
             <span className="blocked-underline" aria-hidden="true" />
             {knocks > 0 && <span className="blocked-knock-marks" aria-hidden="true"><i /><i /><i /></span>}
           </span>
