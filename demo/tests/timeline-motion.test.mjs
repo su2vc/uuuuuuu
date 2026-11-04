@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {createTimelineMotion} from '../src/timelineMotion.js';
+import {createTimelineMotion} from '../src/pages/game-album/timelineMotion.js';
 
 function fixture(options={}) {
   let now=0,sequence=0;const queue=new Map(),frames=[],commits=[];

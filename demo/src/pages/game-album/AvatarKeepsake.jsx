@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { X } from '@phosphor-icons/react';
-import { useSqueezePress } from './useSqueezePress';
-import { ReleaseMagic } from './ReleaseMagic';
-import { asset, imageCrossOrigin } from './assets';
-import { useKeepsakeAudio } from './KeepsakeSound';
+import { useSqueezePress } from './useSqueezePress.js';
+import { ReleaseMagic } from './ReleaseMagic.jsx';
+import { asset, imageCrossOrigin } from '../../shared/assets.js';
+import { useKeepsakeAudio } from '../../shared/audio/KeepsakeSound.jsx';
 
 const colors = ['#edaa48', '#e7c84c', '#ae91d1', '#e9909f', '#82bcb1', '#f5df9a'];
 

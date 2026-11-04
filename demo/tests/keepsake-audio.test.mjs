@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createKeepsakeAudio } from '../src/keepsakeAudio.js';
+import { createKeepsakeAudio } from '../src/shared/audio/keepsakeAudio.js';
 
 function fixture(deferResume = false) {
   const counts = { contexts: 0, starts: 0, resumes: 0, suspends: 0, closes: 0, cancels: 0 };

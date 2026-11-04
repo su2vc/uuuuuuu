@@ -1,0 +1,56 @@
+:root {
+  font-family: "PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;
+  color: #33313e;
+  background: #faf9f6;
+  font-synthesis: none;
+  font-weight: 500;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,input {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+  cursor: pointer;
+}
+
+button:focus-visible,input:focus-visible,section:focus-visible {
+  outline: 2px solid #82749e;
+  outline-offset: 6px;
+}
+
+button {
+  border: 0;
+  padding: 0;
+  background: none;
+}
+
+h1,h2,p {
+  margin: 0;
+}
+
+.loading {
+  height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.loading button {
+  margin-top: 16px;
+  padding: 8px 18px;
+  border: 1px solid #b4a5c5;
+  border-radius: 6px;
+  background: #f0edf4;
+}

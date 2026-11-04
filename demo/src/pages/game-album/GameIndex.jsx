@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react';
 import { X } from '@phosphor-icons/react';
-import { asset, imageCrossOrigin } from './assets';
-import { useModalDialog } from './useModalDialog';
-import { formatPlayPeriod } from './playPeriod';
+import { asset, imageCrossOrigin } from '../../shared/assets.js';
+import { useModalDialog } from '../../shared/hooks/useModalDialog.js';
+import { formatPlayPeriod } from './playPeriod.js';
 export function GameIndex({
   games,
   selected,

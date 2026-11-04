@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {wheelDelta, moveTimeline} from '../src/wheelGesture.js';
+import {wheelDelta, moveTimeline} from '../src/pages/game-album/wheelGesture.js';
 const wheel = (y, extra = {}) => ({deltaY:y, deltaX:0, deltaMode:0, ...extra});
 
 test('a sustained gesture can move across several games without a cooldown', () => {

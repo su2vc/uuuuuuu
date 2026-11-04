@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createBackgroundMusic } from '../src/backgroundMusic.js';
+import { createBackgroundMusic } from '../src/shared/audio/backgroundMusic.js';
 
 function fixture({ suspended = false } = {}) {
   let allowed = true, contexts = 0, starts = 0, blocked = 0, finishResume;

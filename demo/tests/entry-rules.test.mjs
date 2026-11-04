@@ -1,38 +1,46 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {entryDecision,isBirthday} from '../src/entryRules.js';
+import { entryDecision } from '../src/entry/entryRules.js';
+import { createPageRegistry, pages } from '../src/app/pageRegistry.js';
 
 test('only the complete correct password grants entry',()=>{
  for(const value of ['', '102', '020', '0000', '10200', '1020 ', '0621'])assert.equal(entryDecision(value).granted,false);
  assert.equal(entryDecision('1020').granted,true);
 });
-test('ordinary dates grant entry without the birthday celebration by default',()=>{
- assert.deepEqual(entryDecision('1020',new Date('2026-10-16T12:00:00+08:00')),{granted:true,birthday:false});
+test('existing password selects the album and preserves its blocked state', () => {
+ assert.deepEqual(entryDecision('1020'), { granted: true, pageId: 'game-album' });
+ assert.equal(pages.find(page => page.id === 'game-album').blocked, true);
 });
-test('birthday begins at midnight in Shanghai, not the browser timezone',()=>{
- assert.equal(isBirthday(new Date('2026-10-19T15:59:59Z')),false);
- assert.equal(isBirthday(new Date('2026-10-19T16:00:00Z')),true);
-});
-test('birthday ends at the next midnight in Shanghai',()=>{
- assert.equal(isBirthday(new Date('2026-10-20T15:59:59Z')),true);
- assert.equal(isBirthday(new Date('2026-10-20T16:00:00Z')),false);
-});
-test('birthday repeats every year and only celebrates after successful entry',()=>{
- const date=new Date('2027-10-20T12:00:00+08:00');
- assert.deepEqual(entryDecision('1020',date),{granted:true,birthday:true});
- assert.deepEqual(entryDecision('9999',date),{granted:false,birthday:false});
- assert.equal(isBirthday(new Date('invalid')),false);
-});
-
-test('default entry only celebrates within October 20 in Shanghai',()=>{
- for(const [instant,birthday] of [
-  ['2026-10-19T15:59:59.999Z',false],
-  ['2026-10-19T16:00:00.000Z',true],
-  ['2026-10-20T15:59:59.999Z',true],
-  ['2026-10-20T16:00:00.000Z',false],
- ])assert.deepEqual(entryDecision('1020',new Date(instant)),{granted:true,birthday});
+test('different passwords select different pages without loading either page', () => {
+ let loads = 0;
+ const registry = createPageRegistry([
+  { id: 'game-album', title: '纪念册', password: '1020', blocked: true, load: () => { loads++; } },
+  { id: 'new-idea', title: '新点子', password: '00123456', load: () => { loads++; } },
+ ]);
+ assert.deepEqual(entryDecision('1020', registry), { granted: true, pageId: 'game-album' });
+ assert.deepEqual(entryDecision('00123456', registry), { granted: true, pageId: 'new-idea' });
+ assert.deepEqual(entryDecision('123456', registry), { granted: false, pageId: null });
+ assert.equal(registry[1].blocked, false);
+ assert.equal(loads, 0);
 });
 
-test('an explicit review override can still preview the birthday celebration',()=>{
- assert.deepEqual(entryDecision('1020',new Date('2026-10-16T12:00:00+08:00'),{birthdayTestMode:true}),{granted:true,birthday:true});
+test('invalid inputs never select a page', () => {
+ for (const password of [null, undefined, 1020, '', '1020 ', ' 1020', '１０２０', 'unknown', '__proto__']) {
+  assert.deepEqual(entryDecision(password), { granted: false, pageId: null });
+ }
+});
+
+test('duplicate IDs or passwords fail registration', () => {
+ const page = { id: 'one', title: '一', password: '1234', load: () => {} };
+ assert.throws(() => createPageRegistry([page, { ...page, password: '5678' }]), /重复页面 id/);
+ assert.throws(() => createPageRegistry([page, { ...page, id: 'two' }]), /同一密码/);
+});
+
+test('invalid page configuration fails registration', () => {
+ const valid = { id: 'one', title: '一', password: '1234', load: () => {} };
+ for (const invalid of [
+  { id: '../other' }, { id: 'Uppercase' }, { id: undefined }, { title: '' },
+  { password: 1234 }, { password: '' }, { password: '123456789' }, { password: 'word' },
+  { load: undefined }, { blocked: 'false' },
+ ]) assert.throws(() => createPageRegistry([{ ...valid, ...invalid }]));
 });

@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowRight } from '@phosphor-icons/react';
-import { entryDecision } from './entryRules';
-import { useKeepsakeAudio } from './KeepsakeSound';
-const MAX_PASSWORD_LENGTH = 8;
+import { entryDecision } from './entryRules.js';
+import { MAX_PASSWORD_LENGTH } from '../app/pageRegistry.js';
+import { useKeepsakeAudio } from '../shared/audio/KeepsakeSound.jsx';
 export function EntryGate({
   onUnlock
 }) {
@@ -72,7 +72,7 @@ export function EntryGate({
     }
     // Prime the shared context in the trusted submit gesture, including pasted passwords.
     audio.prepare();
-    onUnlock(result.birthday);
+    onUnlock(result);
   };
   return <main className={`entry-gate ${error ? 'entry-error' : ''}`} style={{
     '--entry-offset': (password.length - 4) / 4
@@ -87,7 +87,7 @@ export function EntryGate({
       <span className="entry-paper-tab" aria-hidden="true" />
       <div className="entry-paper-front">
         <div className="entry-input-row">
-          <input ref={input} id="album-password" aria-label="密码" type="password" inputMode="numeric" enterKeyHint="go" autoComplete="off" maxLength={MAX_PASSWORD_LENGTH} value={password} onChange={e => {
+          <input ref={input} id="entry-password" aria-label="密码" type="password" inputMode="numeric" enterKeyHint="go" autoComplete="off" maxLength={MAX_PASSWORD_LENGTH} value={password} onChange={e => {
           const next = e.target.value.replace(/\D/g, '').slice(0, MAX_PASSWORD_LENGTH);
           const { inputType, data } = e.nativeEvent;
           const insertion = inputType ? inputType.startsWith('insert') : next.length > password.length;
@@ -95,7 +95,7 @@ export function EntryGate({
           setPassword(next);
           setError(false);
         }} aria-invalid={error} aria-describedby="entry-feedback" />
-          <button className="entry-submit" type="submit" aria-label="进入纪念册">
+          <button className="entry-submit" type="submit" aria-label="进入">
             <ArrowRight size={23} weight="bold" aria-hidden="true" />
           </button>
         </div>

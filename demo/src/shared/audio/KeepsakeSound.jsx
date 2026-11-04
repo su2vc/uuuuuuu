@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { MusicNotes } from '@phosphor-icons/react';
-import { createKeepsakeAudio } from './keepsakeAudio';
-import { createBackgroundMusic } from './backgroundMusic';
+import { createKeepsakeAudio } from './keepsakeAudio.js';
+import { createBackgroundMusic } from './backgroundMusic.js';
 
 const AudioContext = createContext(null);
 export const useKeepsakeAudio = () => useContext(AudioContext);
@@ -37,8 +37,8 @@ export function KeepsakeAudioProvider({ children }) {
       music.current = null;
     };
   }, []);
-  const value = useMemo(() => ({
-    musicEnabled,
+  // Stable actions let page lifecycle effects depend on them without restarting music.
+  const actions = useMemo(() => ({
     prepare: () => engine.current?.prepare(),
     startCharge: duration => engine.current?.startCharge(duration),
     stopEffects: () => engine.current?.stop(),
@@ -48,12 +48,16 @@ export function KeepsakeAudioProvider({ children }) {
       const context = engine.current?.getContext();
       if (context?.state === 'suspended') context.resume().catch(() => {});
     },
-    setEntered: entered => music.current?.setEntered(entered),
+    setEntered: entered => music.current?.setEntered(entered)
+  }), []);
+  const value = useMemo(() => ({
+    ...actions,
+    musicEnabled,
     toggleMusic: () => {
       setMusicEnabled(!musicEnabled);
       music.current?.setEnabled(!musicEnabled);
     }
-  }), [musicEnabled]);
+  }), [actions, musicEnabled]);
   return <AudioContext.Provider value={value}>{children}</AudioContext.Provider>;
 }
 

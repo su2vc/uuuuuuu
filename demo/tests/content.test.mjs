@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import test from 'node:test';
-import {validateContent, prepareContent, groupMemories, loadContent, contentAssetPaths} from '../src/content.js';
+import {validateContent, prepareContent, groupMemories, loadContent, contentAssetPaths} from '../src/pages/game-album/content.js';
 
 const fixture = () => JSON.parse(readFileSync(new URL('../public/content.json', import.meta.url), 'utf8'));
 

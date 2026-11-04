@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createPhotoWheelHandler } from '../src/photoWheel.js';
+import { createPhotoWheelHandler } from '../src/pages/game-album/photoWheel.js';
 
 function fixture() {
   let time = 0;

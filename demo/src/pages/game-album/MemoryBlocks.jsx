@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { Play, Pause, ArrowsOut, ArrowLeft, ArrowRight, ArrowClockwise, X, Plus, Minus, FilmStrip, ImageSquare, NotePencil } from '@phosphor-icons/react';
-import { asset, imageCrossOrigin } from './assets';
-import { groupMemories } from './content';
-import { createPhotoWheelHandler } from './photoWheel';
-import { pauseOtherVideos } from './mediaPlayback';
-import { observeVideoPreload } from './videoPreload';
-import { useModalDialog } from './useModalDialog';
+import { asset, imageCrossOrigin } from '../../shared/assets.js';
+import { groupMemories } from './content.js';
+import { createPhotoWheelHandler } from './photoWheel.js';
+import { pauseOtherVideos } from './mediaPlayback.js';
+import { observeVideoPreload } from './videoPreload.js';
+import { useModalDialog } from '../../shared/hooks/useModalDialog.js';
 const stamp = value => value?.slice(5).replace('-', '.') || '';
 const clock = value => `${Math.floor(value / 60).toString().padStart(2, '0')}:${Math.floor(value % 60).toString().padStart(2, '0')}`;
 const photoIndex = (index, delta, length) => ((index + delta) % length + length) % length;

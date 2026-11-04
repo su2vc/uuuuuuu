@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { observeVideoPreload } from '../src/videoPreload.js';
+import { observeVideoPreload } from '../src/pages/game-album/videoPreload.js';
 
 function fixture() {
   let notify, options, disconnects = 0, loads = 0;

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { openingPhotoPaths } from '../src/openingPhotos.js';
+import { openingPhotoPaths } from '../src/pages/game-album/openingPhotos.js';
 
 test('图像使用 OSS 映射或上传直链，小型开屏风景可随项目静态发布', async () => {
   const config = JSON.parse(await readFile(new URL('../oss-images.json', import.meta.url)));

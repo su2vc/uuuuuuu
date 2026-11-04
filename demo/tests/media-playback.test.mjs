@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { pauseOtherVideos } from '../src/mediaPlayback.js';
+import { pauseOtherVideos } from '../src/pages/game-album/mediaPlayback.js';
 
 test('新视频播放时暂停其余正在播放的视频，保留暂停状态及播放位置', () => {
   const makeVideo = paused => ({paused, currentTime: 12, pauses: 0, pause() { this.pauses++; this.paused = true; }});

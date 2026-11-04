@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { ArrowClockwise } from '@phosphor-icons/react';
-import { Opening } from './Opening';
-import { Album } from './Album';
-import { loadAlbumContent } from './albumResources';
-import { KeepsakeSoundToggle, useKeepsakeAudio } from './KeepsakeSound';
+import { Opening } from './Opening.jsx';
+import { Album } from './Album.jsx';
+import { loadAlbumContent } from './albumResources.js';
+import { KeepsakeSoundToggle, useKeepsakeAudio } from '../../shared/audio/KeepsakeSound.jsx';
 export default function AlbumExperience({
   birthday
 }) {

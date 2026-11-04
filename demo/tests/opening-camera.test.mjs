@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {PerspectiveCamera,Vector3,Euler} from 'three';
-import {configureOpeningCamera} from '../src/openingCamera.js';
+import {configureOpeningCamera} from '../src/pages/game-album/openingCamera.js';
 
 for(const [viewportWidth,height] of [[1440,900],[800,700],[390,844],[1920,600]]) {
   const mobile=viewportWidth<=650,width=viewportWidth*(mobile?1.24:1);

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { imagePreloadGroups, preloadImageGroups } from '../src/imagePreloads.js';
-import { openingPhotoPaths } from '../src/openingPhotos.js';
+import { imagePreloadGroups, preloadImageGroups } from '../src/pages/game-album/imagePreloads.js';
+import { openingPhotoPaths } from '../src/pages/game-album/openingPhotos.js';
 
 test('warms first-screen pictures before navigation, deduplicates paths and excludes video files', () => {
   const groups = imagePreloadGroups({

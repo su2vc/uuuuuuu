@@ -37,7 +37,7 @@ export function EntryBlocked() {
           </span>
         </button>
       </div>
-      <span className="entry-sr-only">当前暂未开放，没有进入纪念册的入口。</span>
+      <span className="entry-sr-only">当前页面暂未开放。</span>
     </div>
   </main>;
 }

@@ -1,4 +1,4 @@
-.opening .opening-secret {
+:where(.game-album-page) .opening .opening-secret {
   display: grid;
   place-items: center;
   min-width: 44px;
@@ -8,7 +8,7 @@
   color: inherit;
 }
 
-.opening-secret,.avatar-button {
+:where(.game-album-page) .opening-secret,:where(.game-album-page) .avatar-button {
   position: relative;
   touch-action: none;
   user-select: none;
@@ -16,10 +16,10 @@
   transform-origin: center;
 }
 
-.opening-secret[data-hold-state="ready"]::before,
-.opening-secret[data-hold-state="ready"]::after,
-.avatar-button[data-hold-state="ready"]::before,
-.avatar-button[data-hold-state="ready"]::after {
+:where(.game-album-page) .opening-secret[data-hold-state="ready"]::before,
+:where(.game-album-page) .opening-secret[data-hold-state="ready"]::after,
+:where(.game-album-page) .avatar-button[data-hold-state="ready"]::before,
+:where(.game-album-page) .avatar-button[data-hold-state="ready"]::after {
   content: '';
   position: absolute;
   inset: -8px;
@@ -30,8 +30,8 @@
   animation: keepsake-ready-ripple 1.4s ease-out infinite;
 }
 
-.opening-secret[data-hold-state="ready"]::after,
-.avatar-button[data-hold-state="ready"]::after {
+:where(.game-album-page) .opening-secret[data-hold-state="ready"]::after,
+:where(.game-album-page) .avatar-button[data-hold-state="ready"]::after {
   border-color: #d4ae61;
   animation-delay: .7s;
   opacity: 0;
@@ -42,7 +42,7 @@
   to { opacity: 0; transform: scale(2); }
 }
 
-.avatar-note {
+:where(.game-album-page) .avatar-note {
   position: absolute;
   z-index: 2;
   top: calc(100% + 14px);
@@ -62,11 +62,11 @@
   animation: keepsake-note-in .3s ease both;
 }
 
-.album .avatars.has-note {
+:where(.game-album-page) .album .avatars.has-note {
   z-index: 12;
 }
 
-.avatar-note-close {
+:where(.game-album-page) .avatar-note-close {
   position: absolute;
   top: 2px;
   right: 2px;
@@ -77,23 +77,23 @@
   color: #89775e;
 }
 
-.album .avatar-button:disabled {
+:where(.game-album-page) .album .avatar-button:disabled {
   cursor: default;
   opacity: 1;
 }
 
-.release-magic {
+:where(.game-album-page) .release-magic {
   pointer-events: none;
 }
 
-.release-rain {
+:where(.game-album-page) .release-rain {
   position: fixed;
   inset: 0;
   z-index: 30;
   overflow: hidden;
 }
 
-.release-particle {
+:where(.game-album-page) .release-particle {
   position: absolute;
   pointer-events: none;
   opacity: 0;
@@ -101,13 +101,13 @@
   font-size: var(--release-size);
 }
 
-.release-rain .release-particle {
+:where(.game-album-page) .release-rain .release-particle {
   top: -40px;
   line-height: 1;
   animation: keepsake-rain var(--release-duration) var(--release-delay) linear both;
 }
 
-.release-glow {
+:where(.game-album-page) .release-glow {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -115,7 +115,7 @@
   height: 0;
 }
 
-.release-glow .release-particle {
+:where(.game-album-page) .release-glow .release-particle {
   width: var(--release-size);
   height: var(--release-size);
   border-radius: 50%;
@@ -125,7 +125,7 @@
   animation: keepsake-bubbles var(--release-duration) var(--release-delay) ease-out both;
 }
 
-.release-halo {
+:where(.game-album-page) .release-halo {
   position: absolute;
   width: 54px;
   height: 54px;
@@ -136,7 +136,7 @@
   animation: keepsake-halo 1.4s ease-out both;
 }
 
-.release-halo.second {
+:where(.game-album-page) .release-halo.second {
   border-color: #c6b5de;
   animation-delay: .18s;
 }
@@ -164,31 +164,31 @@
 }
 
 @media (prefers-reduced-motion:reduce) {
-  .opening-secret[data-hold-state="ready"]::before,
-  .avatar-button[data-hold-state="ready"]::before {
+  :where(.game-album-page) .opening-secret[data-hold-state="ready"]::before,
+  :where(.game-album-page) .avatar-button[data-hold-state="ready"]::before {
     animation: none;
     opacity: .7;
     transform: scale(1.1);
   }
-  .opening-secret[data-hold-state="ready"]::after,
-  .avatar-button[data-hold-state="ready"]::after {
+  :where(.game-album-page) .opening-secret[data-hold-state="ready"]::after,
+  :where(.game-album-page) .avatar-button[data-hold-state="ready"]::after {
     animation: none;
     opacity: 0;
   }
-  .avatar-note { animation: none; }
-  .release-halo { animation: none; opacity: .5; }
-  .release-rain .release-particle {
+  :where(.game-album-page) .avatar-note { animation: none; }
+  :where(.game-album-page) .release-halo { animation: none; opacity: .5; }
+  :where(.game-album-page) .release-rain .release-particle {
     animation: none;
     top: calc(15% + var(--release-size)*2);
     opacity: .45;
   }
-  .release-glow .release-particle {
+  :where(.game-album-page) .release-glow .release-particle {
     animation: none;
     opacity: .55;
     transform: translate(var(--release-x),var(--release-y));
   }
 }
-.keepsake-sound-toggle {
+:where(.game-album-page) .keepsake-sound-toggle {
   position: fixed;
   right: 22px;
   top: max(18px,env(safe-area-inset-top));
@@ -202,10 +202,10 @@
   color: #766581;
   cursor: pointer;
 }
-.keepsake-sound-toggle:hover { color: #4f3d60; }
-.keepsake-sound-toggle.keepsake-music-toggle { right: 72px; }
-.keepsake-music-toggle[aria-pressed="false"] { color: #a59eaa; }
-.keepsake-music-toggle[aria-pressed="false"]::after {
+:where(.game-album-page) .keepsake-sound-toggle:hover { color: #4f3d60; }
+:where(.game-album-page) .keepsake-sound-toggle.keepsake-music-toggle { right: 72px; }
+:where(.game-album-page) .keepsake-music-toggle[aria-pressed="false"] { color: #a59eaa; }
+:where(.game-album-page) .keepsake-music-toggle[aria-pressed="false"]::after {
   content: '';
   position: absolute;
   width: 22px;
@@ -214,6 +214,6 @@
   transform: rotate(-45deg);
 }
 @media (max-width: 650px) {
-  .keepsake-sound-toggle { right: 12px; top: max(12px,env(safe-area-inset-top)); }
-  .keepsake-sound-toggle.keepsake-music-toggle { right: 62px; }
+  :where(.game-album-page) .keepsake-sound-toggle { right: 12px; top: max(12px,env(safe-area-inset-top)); }
+  :where(.game-album-page) .keepsake-sound-toggle.keepsake-music-toggle { right: 62px; }
 }

@@ -1,4 +1,4 @@
-.opening {
+:where(.game-album-page) .opening {
   position: fixed;
   inset: 0;
   z-index: 20;
@@ -8,7 +8,7 @@
   transition: opacity .85s ease,filter .85s ease;
 }
 
-.opening h1 {
+:where(.game-album-page) .opening h1 {
   position: absolute;
   top: 6.7vh;
   left: 4.7vw;
@@ -18,19 +18,19 @@
   z-index: 2;
 }
 
-.opening-scene {
+:where(.game-album-page) .opening-scene {
   position: absolute;
   inset: 0;
   touch-action: pan-y;
 }
 
-.opening-scene canvas {
+:where(.game-album-page) .opening-scene canvas {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-.opening-enter {
+:where(.game-album-page) .opening-enter {
   position: absolute;
   top: 79%;
   left: 50%;
@@ -49,58 +49,58 @@
   z-index: 3;
 }
 
-.opening-enter svg {
+:where(.game-album-page) .opening-enter svg {
   transition: transform .2s;
 }
 
-.opening-enter:hover {
+:where(.game-album-page) .opening-enter:hover {
   background: #eee5f8;
   translate: 0 -2px;
   box-shadow: 4px 7px 0 #d4c4e6,0 12px 20px -12px #65507838;
 }
 
-.opening-enter:hover svg {
+:where(.game-album-page) .opening-enter:hover svg {
   transform: translateX(3px);
 }
 
-.opening-enter:active {
+:where(.game-album-page) .opening-enter:active {
   translate: 2px 3px;
   box-shadow: 1px 2px 0 #d4c4e6;
 }
 
-.opening-enter:focus-visible {
+:where(.game-album-page) .opening-enter:focus-visible {
   outline: 3px solid #9678b1;
   outline-offset: 7px;
 }
 
-.opening-enter:disabled {
+:where(.game-album-page) .opening-enter:disabled {
   cursor: default;
   opacity: 0;
   pointer-events: none;
 }
 
-.opening-reveal {
+:where(.game-album-page) .opening-reveal {
   opacity: 0;
   filter: blur(5px);
   pointer-events: none;
 }
 
-.album-stage {
+:where(.game-album-page) .album-stage {
   transition: opacity 1s ease,transform 1.2s cubic-bezier(.2,.7,.2,1);
 }
 
-.album-stage.is-covered {
+:where(.game-album-page) .album-stage.is-covered {
   opacity: 0;
   transform: scale(.97);
   pointer-events: none;
 }
 
-.album-stage.is-visible {
+:where(.game-album-page) .album-stage.is-visible {
   opacity: 1;
   transform: scale(1);
 }
 
-.opening-replay {
+:where(.game-album-page) .opening-replay {
   position: fixed;
   right: 22px;
   top: max(18px,env(safe-area-inset-top));
@@ -116,7 +116,7 @@
   justify-content: center;
 }
 
-.opening-fallback {
+:where(.game-album-page) .opening-fallback {
   position: absolute;
   inset: 15% 10% 22%;
   width: 80%;
@@ -124,44 +124,44 @@
   object-fit: contain;
 }
 
-.opening-replay:hover {
+:where(.game-album-page) .opening-replay:hover {
   color: #4f3d60;
 }
 
 @media (max-width:650px) {
-  .opening h1 {
+  :where(.game-album-page) .opening h1 {
     top: 30px;
     left: 25px;
   }
-  .opening-scene {
+  :where(.game-album-page) .opening-scene {
     inset: 0 -12%;
   }
-  .opening-enter {
+  :where(.game-album-page) .opening-enter {
     top: 76%;
     width: 76px;
     height: 52px;
   }
-  .opening-replay {
+  :where(.game-album-page) .opening-replay {
     top: max(12px,env(safe-area-inset-top));
     right: 12px;
   }
 }
 
 @media (prefers-reduced-motion:reduce) {
-  .opening,.album-stage {
+  :where(.game-album-page) .opening,:where(.game-album-page) .album-stage {
     transition: none;
   }
-  .opening-enter,.opening-enter svg {
+  :where(.game-album-page) .opening-enter,:where(.game-album-page) .opening-enter svg {
     transition: none;
   }
-  .opening-enter:hover,.opening-enter:active {
+  :where(.game-album-page) .opening-enter:hover,:where(.game-album-page) .opening-enter:active {
     translate: 0;
   }
-  .opening-enter:hover svg {
+  :where(.game-album-page) .opening-enter:hover svg {
     transform: none;
   }
 }
 
-.opening:focus {
+:where(.game-album-page) .opening:focus {
   outline: none;
 }

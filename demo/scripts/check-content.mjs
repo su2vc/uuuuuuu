@@ -1,5 +1,5 @@
 import {readFile, access} from 'node:fs/promises';
-import {validateContent, contentAssetPaths} from '../src/content.js';
+import {validateContent, contentAssetPaths} from '../src/pages/game-album/content.js';
 
 const root = new URL('../public/', import.meta.url);
 const content = validateContent(JSON.parse(await readFile(new URL('content.json', root), 'utf8')));

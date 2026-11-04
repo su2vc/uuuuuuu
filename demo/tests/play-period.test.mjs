@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { formatPlayPeriod } from '../src/playPeriod.js';
+import { formatPlayPeriod } from '../src/pages/game-album/playPeriod.js';
 
 test('同月和跨月周期用无补零的月日展示，完整模式保留年份', () => {
   assert.equal(formatPlayPeriod({start: '2026-08-24', end: '2026-08-30'}), '8.24–8.30');

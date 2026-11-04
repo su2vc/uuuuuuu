@@ -9,7 +9,7 @@ export class ErrorBoundary extends Component {
     };
   }
   componentDidCatch(error, info) {
-    console.error('纪念册渲染失败', error, info);
+    console.error('页面渲染失败', error, info);
   }
   render() {
     if (!this.state.failed) return this.props.children;

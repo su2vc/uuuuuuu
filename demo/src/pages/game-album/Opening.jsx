@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { ArrowRight } from '@phosphor-icons/react';
-import { BirthdayCelebration } from './BirthdayCelebration';
-import { createOpeningScene } from './openingScene';
-import { asset, imageCrossOrigin } from './assets';
-import { useSqueezePress } from './useSqueezePress';
-import { ReleaseMagic } from './ReleaseMagic';
-import { useKeepsakeAudio } from './KeepsakeSound';
+import { BirthdayCelebration } from './BirthdayCelebration.jsx';
+import { createOpeningScene } from './openingScene.js';
+import { asset, imageCrossOrigin } from '../../shared/assets.js';
+import { useSqueezePress } from './useSqueezePress.js';
+import { ReleaseMagic } from './ReleaseMagic.jsx';
+import { useKeepsakeAudio } from '../../shared/audio/KeepsakeSound.jsx';
 export function Opening({
   onComplete,
   onReveal,

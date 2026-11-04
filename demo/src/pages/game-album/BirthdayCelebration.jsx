@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { useKeepsakeAudio } from './KeepsakeSound';
+import { useKeepsakeAudio } from '../../shared/audio/KeepsakeSound.jsx';
 const BIRTHDAY_DURATION_MS = 3000;
 const colors = ['#b6a2db', '#e6c83f', '#e9dda1', '#8b78aa', '#adc7b5', '#faf7ef'];
 const confetti = Array.from({

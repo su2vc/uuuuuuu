@@ -1,9 +1,9 @@
 import * as THREE from 'three';
-import { configureOpeningCamera } from './openingCamera';
-import { createVisibleFrameLoop } from './visibleFrameLoop';
-import { disposeScene } from './disposeScene';
-import { asset } from './assets';
-import { openingPhotoPaths } from './openingPhotos';
+import { configureOpeningCamera } from './openingCamera.js';
+import { createVisibleFrameLoop } from './visibleFrameLoop.js';
+import { disposeScene } from './disposeScene.js';
+import { asset } from '../../shared/assets.js';
+import { openingPhotoPaths } from './openingPhotos.js';
 const ease = t => 1 - Math.pow(1 - Math.min(1, Math.max(0, t)), 3);
 export function createOpeningScene(el, pointer, {
   onReveal,

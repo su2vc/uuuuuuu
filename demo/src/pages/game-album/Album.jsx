@@ -1,10 +1,11 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { MemoryBoard, ImageViewer } from './MemoryBlocks';
-import { AvatarKeepsake } from './AvatarKeepsake';
-import { GameNavigation } from './GameNavigation';
-import { GameIndex } from './GameIndex';
-import { formatPlayPeriod } from './playPeriod';
-import { useKeepsakeAudio } from './KeepsakeSound';
+import { MemoryBoard, ImageViewer } from './MemoryBlocks.jsx';
+import { AvatarKeepsake } from './AvatarKeepsake.jsx';
+import { GameNavigation } from './GameNavigation.jsx';
+import { GameIndex } from './GameIndex.jsx';
+import { formatPlayPeriod } from './playPeriod.js';
+import { useKeepsakeAudio } from '../../shared/audio/KeepsakeSound.jsx';
+import { pageHash, parsePageHash } from '../../shared/navigation.js';
 export function Album({
   content
 }) {
@@ -30,7 +31,7 @@ export function Album({
     selectedRef.current = index;
     setSelected(index);
     setVisitedIds(previous => new Set(previous).add(games[index].id));
-    history.replaceState(null, '', `#${games[index].id}`);
+    history.replaceState(null, '', pageHash('game-album', [games[index].id]));
   };
   useLayoutEffect(() => {
     if (panel.current) panel.current.scrollTop = scrolls.current[selected] || 0;
@@ -42,9 +43,11 @@ export function Album({
     audio.play('page');
   }, [selected, audio.play]);
   useEffect(() => {
-    history.replaceState(null, '', `#${games[0].id}`);
+    history.replaceState(null, '', pageHash('game-album', [games[0].id]));
     const hash = () => {
-      const i = games.findIndex(g => g.id === location.hash.slice(1));
+      const { pageId, segments } = parsePageHash(location.hash);
+      if (pageId !== 'game-album') return;
+      const i = games.findIndex(g => g.id === segments[0]);
       if (i >= 0) navigation.current?.select(i);
     };
     window.addEventListener('hashchange', hash);

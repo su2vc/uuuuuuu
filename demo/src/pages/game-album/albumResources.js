@@ -1,5 +1,5 @@
-import { asset } from './assets';
-import { loadContent } from './content';
+import { asset } from '../../shared/assets.js';
+import { loadContent } from './content.js';
 import { imagePreloadGroups, preloadImageGroups } from './imagePreloads.js';
 
 let contentRequest;

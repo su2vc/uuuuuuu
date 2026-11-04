@@ -1,9 +1,9 @@
 import { useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { List } from '@phosphor-icons/react';
-import { asset, imageCrossOrigin } from './assets';
-import { wheelDelta } from './wheelGesture';
-import { createTimelineMotion } from './timelineMotion';
-import { formatPlayPeriod } from './playPeriod';
+import { asset, imageCrossOrigin } from '../../shared/assets.js';
+import { wheelDelta } from './wheelGesture.js';
+import { createTimelineMotion } from './timelineMotion.js';
+import { formatPlayPeriod } from './playPeriod.js';
 
 // A repeating yellow → apricot → orange → apricot cycle for the navigation only.
 const navigationColors = ['#f7e8bc', '#f6ddba', '#f3d1b1', '#f6ddba'];

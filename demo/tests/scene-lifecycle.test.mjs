@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import * as THREE from 'three';
-import {createVisibleFrameLoop} from '../src/visibleFrameLoop.js';
-import {disposeScene} from '../src/disposeScene.js';
+import {createVisibleFrameLoop} from '../src/pages/game-album/visibleFrameLoop.js';
+import {disposeScene} from '../src/pages/game-album/disposeScene.js';
 
 function environment(hidden = false) {
   let now = 0, id = 0;
